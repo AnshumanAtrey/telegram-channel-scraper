@@ -1,0 +1,41 @@
+{
+  "$comment": "Store listing fields that apify push never sends. Applied by scripts/store-metadata.mjs after every deploy. Title, description and categories live in actor.json.",
+  "seoTitle": "Telegram Channel Scraper - No Login, $0.30 per 1K Posts",
+  "seoDescription": "Scrape public Telegram channels with no login or API key: text, views, reactions, photo and video links, files, links and inline buttons for every post. $0.30 per 1,000 posts, no start fee.",
+  "exampleRunInput": {
+    "channels": [
+      "durov",
+      "telegram"
+    ],
+    "maxPosts": 100
+  },
+  "actorPermissionLevel": "LIMITED_PERMISSIONS",
+  "isPublic$comment": "Not published. Publication is a later owner decision, taken after a paid test run on the platform shows the post charges firing; a paid public actor cannot be unpublished (cannot-unpublish-paid-actor). To publish, set true and push.",
+  "isPublic": false,
+  "defaultRunOptions$comment": "256 MB, measured on the platform 2026-09-23 (runs/2026-09-23_build1.0.2_*.json): the same 2,000-post walk of one channel took 220 s at 128 MB, 142 s at 256 MB and 125 s at 512 MB, costing $0.0112, $0.0096 and $0.0124 in platform usage. The run waits on Telegram, not on the CPU, so 256 MB is the cheapest and 512 MB buys 12% speed for 30% more cost. Peak memory 65 to 99 MB. actor.json caps memory at 1024 MB because more never helps. Timeout 3600 s: one channel reads about 14 posts a second (about 50,000 an hour, five channels at once), so only a full-history pull of a very large channel reaches it; rows delivered before that are kept and charged, nothing else is. Apify rejects unknown keys inside this object, so the comment lives here.",
+  "defaultRunOptions": {
+    "build": "latest",
+    "memoryMbytes": 256,
+    "timeoutSecs": 3600
+  },
+  "pricing": {
+    "apply": true,
+    "$comment": "First-time set, applied by CI (or scripts/store-metadata.mjs) when the platform has no pricing yet; afterwards increases need 14 days' notice and go through Console, decreases apply at once. Priced from a platform measurement, not a guess (build 1.0.2, 256 MB, 2026-09-23): developer platform cost per 1,000 posts was $0.0048 (one channel, 2,000 posts), $0.0052 (5 channels, 2,400 posts) and $0.0063 (default input, 200 posts). $0.005 of that is Apify's dataset write fee, billed per row; compute is $0.0010 per 1,000 posts at $0.20 per CU; progress OUTPUT writes are throttled to one per 10 s (per-page writes cost more than the compute in build 1.0.1). Fixed cost per run about $0.0003. Price $0.0003 per post ($0.30 per 1,000): the developer keeps 80%, $0.24 per 1,000, about 40x the measured cost, so a cost-plus target (80% to 200% margin) is not the binding limit; the market is. At $0.30 and no start fee the actor is cheaper at every run size than every no-login channel scraper with real usage on the free plan: truefetch $0.35/1k + $0.01 start (free plan capped at 10 results), fetch_cat $0.447/1k + $0.005 start, agentx $0.54/1k + $0.01 start, thescrapelab $0.69/1k, automation-lab $1.00/1k + $0.005 start + $0.002 channel row; top-15 median $2.00/1k, #1 lofomachines $2.50/1k (competitor pull 2026-09-23). No start event: an empty or rejected run bills $0. Do not add apify-default-dataset-item: the custom per-row event replaces it, and listing both charges every row twice. No tiers: SDK 3.4.1 rejects a tiered event record without eventPriceUsd. Event name must equal POST_EVENT in src/main.py.",
+    "pricingInfos": [
+      {
+        "pricingModel": "PAY_PER_EVENT",
+        "apifyMarginPercentage": 0.2,
+        "reasonForChange": "First pricing for 1.0",
+        "pricingPerEvent": {
+          "actorChargeEvents": {
+            "post": {
+              "eventTitle": "Post",
+              "eventDescription": "One post row: text, date, views, reactions, Telegram's own photo and video links, every album item, file names and sizes, links in the text, inline buttons, polls, forwards and replies. An album is one post. Charged as each page of posts is delivered. No start fee.",
+              "eventPriceUsd": 0.0003
+            }
+          }
+        }
+      }
+    ]
+  }
+}

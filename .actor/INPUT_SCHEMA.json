@@ -1,0 +1,47 @@
+{
+  "title": "Scrape public Telegram channels",
+  "description": "Paste one or more public Telegram channels and press Start. Each post comes back as one row with its text, date, views, reactions, Telegram's own links to its photos and videos, the links in its text and the buttons under it. With nothing else set, you get the 100 newest posts of each channel. No login and no Telegram account needed.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "channels": {
+      "title": "Channels",
+      "type": "array",
+      "description": "Public Telegram channels to read, one per line. Paste the name (durov), the @name, or any link to the channel or to one of its posts, such as t.me/durov, https://t.me/s/durov, t.me/durov/123 or a Telegram Web link like web.telegram.org/k/#@durov; we take the channel name out of it. telegram.me and telegram.dog links work too. Only public channels can be read: private channels, invite links, groups, bots and personal accounts have no public page, so they are skipped with a note saying why.",
+      "editor": "stringList",
+      "prefill": [
+        "durov",
+        "telegram"
+      ],
+      "example": [
+        "durov",
+        "@telegram",
+        "https://t.me/s/gram"
+      ],
+      "sectionCaption": "Which channels",
+      "sectionDescription": "Only this is needed. Leave the rest empty to get the 100 newest posts of each channel."
+    },
+    "maxPosts": {
+      "title": "Max posts per channel",
+      "type": "integer",
+      "description": "The most posts to take from each channel, newest first. 100 is filled in to start with; raise it, up to 1,000,000, to go further back in a channel's history. An album of several photos or videos counts as one post. When you also set a date below, each channel stops at whichever comes first, so raise this number if you want every post since that date. Through the API you can leave it out: then you get the 100 newest posts, or every post since the date when you send one.",
+      "editor": "number",
+      "prefill": 100,
+      "example": 500,
+      "minimum": 1,
+      "maximum": 1000000,
+      "nullable": true,
+      "sectionCaption": "How far back to go",
+      "sectionDescription": "Both are optional. Set one, or both, and each channel stops at whichever limit it reaches first."
+    },
+    "postedAfter": {
+      "title": "Posted on or after",
+      "type": "string",
+      "description": "Only posts published on or after this date, in UTC. Pick a date, or type a span such as 7 days, 2 weeks, 3 months or 1 year, counted back from when the run starts. Leave it empty for no date limit; then 'Max posts per channel' decides how far back to go. Through the API you can also send a full date and time, such as 2026-09-01T12:00:00Z.",
+      "editor": "datepicker",
+      "example": "7 days",
+      "nullable": true,
+      "dateType": "absoluteOrRelative"
+    }
+  }
+}

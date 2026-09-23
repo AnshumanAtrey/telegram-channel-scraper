@@ -1,0 +1,4 @@
+apify>=3.4,<4  # pinned: SDK 4.0 made push_data's charging argument keyword-only (holehe outage 2026-09-12); last good builds ran 3.4.x
+httpx>=0.28,<0.29  # 0.x: a minor bump may break; 0.28.1 is what the recon walks and the tests ran on
+lxml>=6,<7  # parser; about 7x cheaper per page than bs4, which matters at 1/16 of a CPU core (256 MB)
+cssselect>=1.2,<2  # CSS selectors for lxml in src/parse.py

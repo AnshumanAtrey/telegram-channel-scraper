@@ -1,0 +1,13 @@
+# apify push uploads every file not matched here or in .gitignore (the CLI reads
+# .gitignore and .actorignore; .apifyignore is never read). .git/, storage/ and
+# node_modules/ are always left out by the CLI, and .actor/ is always sent.
+# README.md must stay in the build: the Store listing is built from it.
+
+# Tests and their saved Telegram pages: not needed at run time.
+tests/
+.pytest_cache/
+
+# Recorded platform runs, CI and repo tooling.
+runs/
+.github/
+scripts/

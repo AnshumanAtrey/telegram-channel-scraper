@@ -1,0 +1,1186 @@
+{
+ "label": "showcase_256",
+ "runId": "S8Eo7ILKTRPnnu2Y2",
+ "build": "1.0.2",
+ "startedAt": "2026-09-23T17:55:15.629Z",
+ "memoryMbytes": 256,
+ "input": {
+  "channels": [
+   "earnings_pulse",
+   "concall_pulse",
+   "designers",
+   "magisk_update",
+   "tginfo",
+   "polls"
+  ],
+  "maxPosts": 40
+ },
+ "status": "SUCCEEDED",
+ "posts": 204,
+ "runTimeSecs": 4.453,
+ "computeUnits": 0.0003092361111111111,
+ "memMaxBytes": 97660928,
+ "platformUsageUsd": 0.0012684729810787572,
+ "platformUsageBreakdownUsd": {
+  "ACTOR_COMPUTE_UNITS": 6.184722222222222e-05,
+  "DATASET_READS": 0,
+  "DATASET_WRITES": 0.00102,
+  "KEY_VALUE_STORE_READS": 5e-06,
+  "KEY_VALUE_STORE_WRITES": 0.00015000000000000001,
+  "KEY_VALUE_STORE_LISTS": 0,
+  "REQUEST_QUEUE_READS": 0,
+  "REQUEST_QUEUE_WRITES": 0,
+  "DATA_TRANSFER_INTERNAL_GBYTES": 1.6666017472743988e-06,
+  "DATA_TRANSFER_EXTERNAL_GBYTES": 2.995915710926056e-05,
+  "PROXY_RESIDENTIAL_TRANSFER_GBYTES": 0,
+  "PROXY_SERPS": 0,
+  "PROXY_UNBLOCKER_UNITS": 0
+ },
+ "platformUsdPer1kPosts": 0.00622,
+ "OUTPUT": {
+  "status": "done",
+  "totalPosts": 204,
+  "channels": [
+   {
+    "input": "earnings_pulse",
+    "channel": "earnings_pulse",
+    "channelId": 2457353254,
+    "status": "ok",
+    "reason": null,
+    "posts": 40,
+    "newestDate": "2026-09-23T14:30:09+00:00",
+    "oldestDate": "2026-09-16T14:40:08+00:00"
+   },
+   {
+    "input": "concall_pulse",
+    "channel": "concall_pulse",
+    "channelId": 3909261188,
+    "status": "ok",
+    "reason": null,
+    "posts": 40,
+    "newestDate": "2026-09-23T02:31:12+00:00",
+    "oldestDate": "2026-08-24T02:31:10+00:00"
+   },
+   {
+    "input": "designers",
+    "channel": "designers",
+    "channelId": 1416855018,
+    "status": "ok",
+    "reason": null,
+    "posts": 40,
+    "newestDate": "2026-08-31T12:53:01+00:00",
+    "oldestDate": "2023-10-14T13:43:28+00:00"
+   },
+   {
+    "input": "magisk_update",
+    "channel": "magisk_update",
+    "channelId": 1994326754,
+    "status": "ok",
+    "reason": "Reached the oldest post the web preview shows, after 4 posts.",
+    "posts": 4,
+    "newestDate": "2024-03-13T02:54:43+00:00",
+    "oldestDate": "2024-03-13T02:46:45+00:00"
+   },
+   {
+    "input": "tginfo",
+    "channel": "tginfo",
+    "channelId": 1003307527,
+    "status": "ok",
+    "reason": null,
+    "posts": 40,
+    "newestDate": "2026-09-22T08:47:46+00:00",
+    "oldestDate": "2026-03-23T16:17:00+00:00"
+   },
+   {
+    "input": "polls",
+    "channel": "polls",
+    "channelId": 2411607855,
+    "status": "ok",
+    "reason": null,
+    "posts": 40,
+    "newestDate": "2026-09-23T08:00:05+00:00",
+    "oldestDate": "2026-09-03T08:00:15+00:00"
+   }
+  ],
+  "message": "Got 204 posts from 6 of 6 channels: the newest 40 posts per channel. @magisk_update: Reached the oldest post the web preview shows, after 4 posts."
+ },
+ "firstItems(20)": [
+  {
+   "channel": "magisk_update",
+   "channelId": 1994326754,
+   "channelTitle": "Magisk [custom]",
+   "channelSubscribers": 5,
+   "postId": 8,
+   "postUrl": "https://t.me/magisk_update/8",
+   "date": "2024-03-13T02:54:43+00:00",
+   "text": "Magisk: Kitsune Mask (Magisk Delta)\nVer: R65C33E4F-kitsune (27001)\nDev: HuskyDG\n\nChannel updates\n\nstable:\nhttps://raw.githubusercontent.com/HuskyDG/magisk-files/main/stable.json\n\nbeta:\nhttps://raw.githubusercontent.com/HuskyDG/magisk-files/main/beta.json\n\ncanary:\nhttps://raw.githubusercontent.com/HuskyDG/magisk-files/main/canary.json\n\ndebug:\nhttps://raw.githubusercontent.com/HuskyDG/magisk-files/main/debug.json",
+   "textHtml": "Magisk: Kitsune Mask (Magisk Delta)<br>Ver: R65C33E4F-kitsune (27001)<br>Dev: HuskyDG<br><br><b>Channel updates</b><br><br>stable:<br><a href=\"https://raw.githubusercontent.com/HuskyDG/magisk-files/main/stable.json\" target=\"_blank\" rel=\"noopener\">https://raw.githubusercontent.com/HuskyDG/magisk-files/main/stable.json</a><br><br>beta:<br><a href=\"https://raw.githubusercontent.com/HuskyDG/magisk-files/main/beta.json\" target=\"_blank\" rel=\"noopener\">https://raw.githubusercontent.com/HuskyDG/magisk-files/main/beta.json</a><br><br>canary:<br><a href=\"https://raw.githubusercontent.com/HuskyDG/magisk-files/main/canary.json\" target=\"_blank\" rel=\"noopener\">https://raw.githubusercontent.com/HuskyDG/magisk-files/main/canary.json</a><br><br>debug:<br><a href=\"https://raw.githubusercontent.com/HuskyDG/magisk-files/main/debug.json\" target=\"_blank\" rel=\"noopener\">https://raw.githubusercontent.com/HuskyDG/magisk-files/main/debug.json</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": true,
+   "isService": false,
+   "viaBot": null,
+   "views": 84,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://raw.githubusercontent.com/HuskyDG/magisk-files/main/stable.json",
+    "https://raw.githubusercontent.com/HuskyDG/magisk-files/main/beta.json",
+    "https://raw.githubusercontent.com/HuskyDG/magisk-files/main/canary.json",
+    "https://raw.githubusercontent.com/HuskyDG/magisk-files/main/debug.json"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "document",
+   "mediaUrl": null,
+   "media": [
+    {
+     "type": "document",
+     "url": null,
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": "app-release (1).apk",
+     "fileSize": "12.3 MB",
+     "fileId": null,
+     "postId": 8,
+     "unavailable": "no_public_link"
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "magisk_update",
+   "channelId": 1994326754,
+   "channelTitle": "Magisk [custom]",
+   "channelSubscribers": 5,
+   "postId": 7,
+   "postUrl": "https://t.me/magisk_update/7",
+   "date": "2024-03-13T02:52:53+00:00",
+   "text": "Magisk: Alpha [unofficial]\nVer: 27.0",
+   "textHtml": "Magisk: Alpha [unofficial]<br>Ver: 27.0",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": true,
+   "isService": false,
+   "viaBot": null,
+   "views": 84,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "document",
+   "mediaUrl": null,
+   "media": [
+    {
+     "type": "document",
+     "url": null,
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": "Magisk.zip",
+     "fileSize": "12.5 MB",
+     "fileId": null,
+     "postId": 7,
+     "unavailable": "no_public_link"
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "magisk_update",
+   "channelId": 1994326754,
+   "channelTitle": "Magisk [custom]",
+   "channelSubscribers": 5,
+   "postId": 6,
+   "postUrl": "https://t.me/magisk_update/6",
+   "date": "2024-03-13T02:50:34+00:00",
+   "text": "Magisk: official\nVer: 27.0",
+   "textHtml": "Magisk: official<br>Ver: 27.0",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": true,
+   "isService": false,
+   "viaBot": null,
+   "views": 101,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "document",
+   "mediaUrl": null,
+   "media": [
+    {
+     "type": "document",
+     "url": null,
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": "MagiskStable-27.0_(27000) (1).zip",
+     "fileSize": "11.9 MB",
+     "fileId": null,
+     "postId": 6,
+     "unavailable": "no_public_link"
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "magisk_update",
+   "channelId": 1994326754,
+   "channelTitle": "Magisk [custom]",
+   "channelSubscribers": 5,
+   "postId": 5,
+   "postUrl": "https://t.me/magisk_update/5",
+   "date": "2024-03-13T02:46:45+00:00",
+   "text": "meow",
+   "textHtml": "meow",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 81,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": null,
+   "mediaUrl": null,
+   "media": [],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1741,
+   "postUrl": "https://t.me/concall_pulse/1741",
+   "date": "2026-09-23T02:31:12+00:00",
+   "text": "📅 Concall Calendar — 23 Sep 2026\n5 calls · 5 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 23 Sep 2026</b><br>5 calls · 5 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 251,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/Qh_ZnBVsaiJirUVP_UDTLaG897G2p7NA2rtoyYI4ierK8XmYBrd3geTsnRLBM_ksuEjRtn4XAQPmau4W_dxjg9COM0v4jrhAOASApcEjtboev0Ep6tp4tJhim6-g0wVf7GxwylKs9rkohhvnK_73x6d1lSv0405vCTL32SbAxXsJevvd7-nOy5Y8_y5enUIRnWXRkJHNyJWtav6N2aKSEiw7zICgSVH9A6eba-B-pZCXakv5GqNJVVfE12r_7FNum9s1Y1GWt7r_-dIAkXNLpbCTdDkilSYhsmw-v0aHp9TOhCZqQOoXKnnVB6eR-xVI_8NBaZ31UJp_fYaa7q0aug.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/Qh_ZnBVsaiJirUVP_UDTLaG897G2p7NA2rtoyYI4ierK8XmYBrd3geTsnRLBM_ksuEjRtn4XAQPmau4W_dxjg9COM0v4jrhAOASApcEjtboev0Ep6tp4tJhim6-g0wVf7GxwylKs9rkohhvnK_73x6d1lSv0405vCTL32SbAxXsJevvd7-nOy5Y8_y5enUIRnWXRkJHNyJWtav6N2aKSEiw7zICgSVH9A6eba-B-pZCXakv5GqNJVVfE12r_7FNum9s1Y1GWt7r_-dIAkXNLpbCTdDkilSYhsmw-v0aHp9TOhCZqQOoXKnnVB6eR-xVI_8NBaZ31UJp_fYaa7q0aug.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 347,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5880709513231405163",
+     "postId": 1741,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1740,
+   "postUrl": "https://t.me/concall_pulse/1740",
+   "date": "2026-09-22T10:58:05+00:00",
+   "text": "🔔 #PIRAMALFIN concall in 33 min · 5:00 PM IST",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9494.png')\"><b>🔔</b></i> <a href=\"?q=%23PIRAMALFIN\"><b>#PIRAMALFIN</b></a> concall in 33 min · <b>5:00 PM IST</b>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 320,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📞 Join Call",
+     "url": "https://www.piramalfinance.com/investors",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    },
+    {
+     "text": "📄 Invite PDF",
+     "url": "https://nsearchives.nseindia.com/corporate/Piramalcapital_15092026151555_PFL_Analyst_Call_Anand_Rathi_Signed.pdf",
+     "row": 1,
+     "column": 2,
+     "type": "url"
+    },
+    {
+     "text": "📊 Stock Page",
+     "url": "https://earningspulse.ai/stock/PIRAMALFIN",
+     "row": 2,
+     "column": 1,
+     "type": "url"
+    },
+    {
+     "text": "📝 Last Transcript",
+     "url": "https://storage.googleapis.com/earning_summary/concall_transcripts/PIRAMALFIN/Q12027/9f241b837a132a36d61d7b25bfee6bb5ba3430315f1b3f3395c0e416f1986bd0.pdf",
+     "row": 2,
+     "column": 2,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/IiuH8z3z1NWvmnEsUSW_kOZobuVL5OId3VsrXujucLZ2afvAHfUGvT9b_nC2x47q0uUl7YNodasH0OVun2s4PHWXZyWE-Dq1Wjref8_jyk7dr8tms8Gya9r01yfoY2-dqB7tw8JCAlRjFgSP6OS2rplwg7Qa2IltVJ8IlTjkCeTSEX8PS2rsiEfedvEvTp8GPw9bfV5IrRB2GKbxT_L5Z-uuOq4w0LcXkzMiLPaTz2XQoG7l_dt3Gf8G-4DzHdo-vfLg1w628IO56o3eRIQPWOPvITme-3mZbs7onoXH5NXqHzSFyp-JfXDUQda2ukQCHBpQLDS3zuhUIwzuQD2xsQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/IiuH8z3z1NWvmnEsUSW_kOZobuVL5OId3VsrXujucLZ2afvAHfUGvT9b_nC2x47q0uUl7YNodasH0OVun2s4PHWXZyWE-Dq1Wjref8_jyk7dr8tms8Gya9r01yfoY2-dqB7tw8JCAlRjFgSP6OS2rplwg7Qa2IltVJ8IlTjkCeTSEX8PS2rsiEfedvEvTp8GPw9bfV5IrRB2GKbxT_L5Z-uuOq4w0LcXkzMiLPaTz2XQoG7l_dt3Gf8G-4DzHdo-vfLg1w628IO56o3eRIQPWOPvITme-3mZbs7onoXH5NXqHzSFyp-JfXDUQda2ukQCHBpQLDS3zuhUIwzuQD2xsQ.jpg",
+     "thumbnailUrl": null,
+     "width": 600,
+     "height": 800,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5878331595998039829",
+     "postId": 1740,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1739,
+   "postUrl": "https://t.me/concall_pulse/1739",
+   "date": "2026-09-22T02:30:48+00:00",
+   "text": "📅 Concall Calendar — 22 Sep 2026\n7 calls · 7 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 22 Sep 2026</b><br>7 calls · 7 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 352,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/gcRcL1pLpEhQ93N4s6gJaaLQiSXbvxFxuv4kuaHp4cYGiK0Y6lvxN11owpzU6vrQsDhZC2X7v4D2JV17wX01iFBmjonsWbYxthFCojj28MgYPUl_IRErI05_w_nBA_w9P_6C5A426gcJ15PPuXybt5PH8b64f666OIE0NI22hb4ThQBi2_K24BriQP6LHGzWT_lbdat-WDWy03VwusXxImK0uLEYRI-ORzsMoWH9H3OtsvvhzVyxqix9zUvBtHg5Jk-a9RJPJDAIfKllOWO_HcIWwCfqcyaTH51PMqCM9omu8t3fwx7zBHv8FcEGns5HsqJS1mRKh4oKfQFoqKM_fw.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/gcRcL1pLpEhQ93N4s6gJaaLQiSXbvxFxuv4kuaHp4cYGiK0Y6lvxN11owpzU6vrQsDhZC2X7v4D2JV17wX01iFBmjonsWbYxthFCojj28MgYPUl_IRErI05_w_nBA_w9P_6C5A426gcJ15PPuXybt5PH8b64f666OIE0NI22hb4ThQBi2_K24BriQP6LHGzWT_lbdat-WDWy03VwusXxImK0uLEYRI-ORzsMoWH9H3OtsvvhzVyxqix9zUvBtHg5Jk-a9RJPJDAIfKllOWO_HcIWwCfqcyaTH51PMqCM9omu8t3fwx7zBHv8FcEGns5HsqJS1mRKh4oKfQFoqKM_fw.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 501,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5878737393098100359",
+     "postId": 1739,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1738,
+   "postUrl": "https://t.me/concall_pulse/1738",
+   "date": "2026-09-21T11:01:56+00:00",
+   "text": "🔔 #PIRAMALFIN concall in 29 min · 5:00 PM IST",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9494.png')\"><b>🔔</b></i> <a href=\"?q=%23PIRAMALFIN\"><b>#PIRAMALFIN</b></a> concall in 29 min · <b>5:00 PM IST</b>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 386,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📞 Join Call",
+     "url": "https://www.piramalfinance.com/investors",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    },
+    {
+     "text": "📄 Invite PDF",
+     "url": "https://nsearchives.nseindia.com/corporate/Piramalcapital_11092026153534_PFL_Analyst_Call_Intimation_sd.pdf",
+     "row": 1,
+     "column": 2,
+     "type": "url"
+    },
+    {
+     "text": "📊 Stock Page",
+     "url": "https://earningspulse.ai/stock/PIRAMALFIN",
+     "row": 2,
+     "column": 1,
+     "type": "url"
+    },
+    {
+     "text": "📝 Last Transcript",
+     "url": "https://storage.googleapis.com/earning_summary/concall_transcripts/PIRAMALFIN/Q12027/9f241b837a132a36d61d7b25bfee6bb5ba3430315f1b3f3395c0e416f1986bd0.pdf",
+     "row": 2,
+     "column": 2,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/tJF2fuex94uUYVXN923OYCaCe6ncfPOgKQwQkDb5cHQmLLuddimEWtqvF2bt-wAr8TdY-Y5rBhB-4e4VYlRcCjv6PHrXoDSbKRHGYHwffahQzJgwSy1_ogEck-uWOgLKs31PMCSxecVPC54UBh9gmOTz8N1dC-AW5A5nJ_aePY4PngihXBTxX1uO8nQTLldoRxYq7A3WIi9trDGDkzQuOtF-4dJT1fCyl_pLG8GStj10S3u3iYS4Xpm2WJ6DG1uaDOhSTVQxaJ8C6aUHGZiq4tmPSPJNBr4F-AdjZ5aaAn-YNbDSUgb9gSGrMjtmNnRytOofRaoUOxBbxpOg6g9zdA.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/tJF2fuex94uUYVXN923OYCaCe6ncfPOgKQwQkDb5cHQmLLuddimEWtqvF2bt-wAr8TdY-Y5rBhB-4e4VYlRcCjv6PHrXoDSbKRHGYHwffahQzJgwSy1_ogEck-uWOgLKs31PMCSxecVPC54UBh9gmOTz8N1dC-AW5A5nJ_aePY4PngihXBTxX1uO8nQTLldoRxYq7A3WIi9trDGDkzQuOtF-4dJT1fCyl_pLG8GStj10S3u3iYS4Xpm2WJ6DG1uaDOhSTVQxaJ8C6aUHGZiq4tmPSPJNBr4F-AdjZ5aaAn-YNbDSUgb9gSGrMjtmNnRytOofRaoUOxBbxpOg6g9zdA.jpg",
+     "thumbnailUrl": null,
+     "width": 600,
+     "height": 800,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5876411943185223571",
+     "postId": 1738,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1737,
+   "postUrl": "https://t.me/concall_pulse/1737",
+   "date": "2026-09-21T02:31:35+00:00",
+   "text": "📅 Concall Calendar — 21 Sep 2026\n16 calls · 16 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 21 Sep 2026</b><br>16 calls · 16 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 401,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/StEjPtB_04u1GDl440O2iNCN63DQ1ReaXCbZqTQIV4jdDgcwI6nuw9mgAireoz2hsQhx-HV_EKKl64OeTOeChs2A0QiIhZW8BnJtspGswckc55oYnnQ4yXaX6pJCSphHRv0NoCi9LSikjwGluL51G_4mbLIp1chxvtScvd2ss6584v1sgj3Kdu9AeBKxNBBq_tH1uYyR9Qk8nuy4bOztszKrw3H70qtzryBL18W4LekC7lPgD5eJSy77EdILzsPF1NIBnQGXwaWiH_eDXchWrlGXdRtr4tYTI26gsMFBKjjuFP1xR2tPNUxzCaZJ-efBjj0T91i8PPuYxQf4tbQGxQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/StEjPtB_04u1GDl440O2iNCN63DQ1ReaXCbZqTQIV4jdDgcwI6nuw9mgAireoz2hsQhx-HV_EKKl64OeTOeChs2A0QiIhZW8BnJtspGswckc55oYnnQ4yXaX6pJCSphHRv0NoCi9LSikjwGluL51G_4mbLIp1chxvtScvd2ss6584v1sgj3Kdu9AeBKxNBBq_tH1uYyR9Qk8nuy4bOztszKrw3H70qtzryBL18W4LekC7lPgD5eJSy77EdILzsPF1NIBnQGXwaWiH_eDXchWrlGXdRtr4tYTI26gsMFBKjjuFP1xR2tPNUxzCaZJ-efBjj0T91i8PPuYxQf4tbQGxQ.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 739,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5874204772376711214",
+     "postId": 1737,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1736,
+   "postUrl": "https://t.me/concall_pulse/1736",
+   "date": "2026-09-19T02:30:49+00:00",
+   "text": "📅 Concall Calendar — 19 Sep 2026\n2 calls · 2 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 19 Sep 2026</b><br>2 calls · 2 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 473,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/JASQ48ZFjx4Q9LdSqdLBRYoouPlT2X2YyZGYxKq7o3WmBvXnT0kas_zS8Sp7E_9Unb9r8I4-7JmqTCe9_DfrK2t64t3xpE2r67w-zs0Y2k-mjxpPyumn-IkMHncRAlVpi8GKYarnYp5O609xU2EwVuJlTt3pVrErr3kGtkXpqTc1AJUR0T112RjFncka8uBXMrg35UO8Id67MeJa_leYrJEvhW_ATNZ2awMNKE1jvh4qzWbua1eO6F1olnP88Y-zZ3A64wfP3PzciCn25MitlNCw5fXCJSE2OrciOHrjTQjKLJLbaZMRXZrgYkEUkv4JbVG98QoDcx59HoJhQew9Qg.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/JASQ48ZFjx4Q9LdSqdLBRYoouPlT2X2YyZGYxKq7o3WmBvXnT0kas_zS8Sp7E_9Unb9r8I4-7JmqTCe9_DfrK2t64t3xpE2r67w-zs0Y2k-mjxpPyumn-IkMHncRAlVpi8GKYarnYp5O609xU2EwVuJlTt3pVrErr3kGtkXpqTc1AJUR0T112RjFncka8uBXMrg35UO8Id67MeJa_leYrJEvhW_ATNZ2awMNKE1jvh4qzWbua1eO6F1olnP88Y-zZ3A64wfP3PzciCn25MitlNCw5fXCJSE2OrciOHrjTQjKLJLbaZMRXZrgYkEUkv4JbVG98QoDcx59HoJhQew9Qg.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 347,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5869520994576306297",
+     "postId": 1736,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1735,
+   "postUrl": "https://t.me/concall_pulse/1735",
+   "date": "2026-09-18T02:31:04+00:00",
+   "text": "📅 Concall Calendar — 18 Sep 2026\n11 calls · 11 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 18 Sep 2026</b><br>11 calls · 11 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 543,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 2
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/laYbSbyQ_-sw7bGagtGFOL5jwXCQwATClQhNh0FASRh92MNJYGTFaElQGugt96HFgoXyACFxNEslIBWjBUpFBFtBAIRKxCPSzaBVMyLHYEPEo_FpclvCzlrvWEbi9GbDOG5RwSIW3gHsvIA2O9WQK7vwCqi19M1jiGU9kjv5tduc2MCxffsYw9OTGR2H7yWny1ZA9de16vqLWO86hQf5jD0Ua1H2zCHPwAE759GQiOiD6LDxNZo-1wDA0JRg2VyEWqeJ6TvOk0pRad4T_AydpgZ57_ujCh3UKxVLKZ1YYgwSzsBEnFFxmPMuj6dN--cnDyMrR3Qq8vA6C93bjws3Bg.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/laYbSbyQ_-sw7bGagtGFOL5jwXCQwATClQhNh0FASRh92MNJYGTFaElQGugt96HFgoXyACFxNEslIBWjBUpFBFtBAIRKxCPSzaBVMyLHYEPEo_FpclvCzlrvWEbi9GbDOG5RwSIW3gHsvIA2O9WQK7vwCqi19M1jiGU9kjv5tduc2MCxffsYw9OTGR2H7yWny1ZA9de16vqLWO86hQf5jD0Ua1H2zCHPwAE759GQiOiD6LDxNZo-1wDA0JRg2VyEWqeJ6TvOk0pRad4T_AydpgZ57_ujCh3UKxVLKZ1YYgwSzsBEnFFxmPMuj6dN--cnDyMrR3Qq8vA6C93bjws3Bg.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 620,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5865319524423372912",
+     "postId": 1735,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1734,
+   "postUrl": "https://t.me/concall_pulse/1734",
+   "date": "2026-09-17T06:01:04+00:00",
+   "text": "🔔 #TEMPSENS concall in 30 min · 12:00 PM IST",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9494.png')\"><b>🔔</b></i> <a href=\"?q=%23TEMPSENS\"><b>#TEMPSENS</b></a> concall in 30 min · <b>12:00 PM IST</b>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 591,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📞 Join Call",
+     "url": "https://www.icicisecurities.com/online_events/2026/09/tempsens_q1fy27_results_concall.html",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    },
+    {
+     "text": "📄 Invite PDF",
+     "url": "https://nsearchives.nseindia.com/corporate/TEMPSENS_13092026114755_Intimation.pdf",
+     "row": 1,
+     "column": 2,
+     "type": "url"
+    },
+    {
+     "text": "📊 Stock Page",
+     "url": "https://earningspulse.ai/stock/TEMPSENS",
+     "row": 2,
+     "column": 1,
+     "type": "url"
+    },
+    {
+     "text": "📊 Last PPT",
+     "url": "https://nsearchives.nseindia.com/corporate/TEMPSENS_16092026201648_investor.pdf",
+     "row": 2,
+     "column": 2,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/iupthqoY-pkhkXQ6yu_KGYbwl1b0I14ft1Ol1T0ypG3byZaruhX48egPoyBWejgXrkHFDfOxydsdoxH-iU51frWYGnf2NAcU3SO_M-Ay5Toj6357IVYmjARasEkJLEI2mm1H4hxUvfkrQd4FCtBq6RYbRv7HDun-WCne3x2zLIVzwSnwlCGlGbjKFLtUclASIJ3aJcfzKQjGJWIe1prQjRDZxTm5f7EXKqTirA0OOz3FR_pwBKckM5SO3JHH5yguWhmTN1Mgvco93Xzq_AuMUWY5RfZP_krsR8zjUmQM_q_vFMzvgiw5Igg90iU3mIcaLI9RW8aW3Fs3szwthsIwFA.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/iupthqoY-pkhkXQ6yu_KGYbwl1b0I14ft1Ol1T0ypG3byZaruhX48egPoyBWejgXrkHFDfOxydsdoxH-iU51frWYGnf2NAcU3SO_M-Ay5Toj6357IVYmjARasEkJLEI2mm1H4hxUvfkrQd4FCtBq6RYbRv7HDun-WCne3x2zLIVzwSnwlCGlGbjKFLtUclASIJ3aJcfzKQjGJWIe1prQjRDZxTm5f7EXKqTirA0OOz3FR_pwBKckM5SO3JHH5yguWhmTN1Mgvco93Xzq_AuMUWY5RfZP_krsR8zjUmQM_q_vFMzvgiw5Igg90iU3mIcaLI9RW8aW3Fs3szwthsIwFA.jpg",
+     "thumbnailUrl": null,
+     "width": 600,
+     "height": 800,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5862952164219621184",
+     "postId": 1734,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1733,
+   "postUrl": "https://t.me/concall_pulse/1733",
+   "date": "2026-09-17T02:31:23+00:00",
+   "text": "📅 Concall Calendar — 17 Sep 2026\n7 calls · 7 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 17 Sep 2026</b><br>7 calls · 7 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 537,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/actE3eyywHuLREX_HKYRZSiYIu1hj_MLi6MPYbuVs5J33QP68NbAeVjq2VAjxwtfCRR0WDWVIOQyLgFLlLPMjR8btk8_8gJqbQ_v6ylrXXp5BDEqJ3xdE7LoZhtqFHmF1cwsIKvOuKIXu2DARraPW6VsSOawBfaQvIx1-W5os3HKiGa6sb_0dllG-QY733Ai-6oHf-gx6Jt9CTrfOd4sIbQTAlCuu0FYj0r3bzd0H-jIlhNtK4kpRKmIDqJKVfasEb-2v5lBhAyrWgu7LToydo7IEewrfJSkpMGVx5NUcPni--wpBkZj-rG6PNhmBPsNxRHtih3lH11D-XoJg8jzuA.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/actE3eyywHuLREX_HKYRZSiYIu1hj_MLi6MPYbuVs5J33QP68NbAeVjq2VAjxwtfCRR0WDWVIOQyLgFLlLPMjR8btk8_8gJqbQ_v6ylrXXp5BDEqJ3xdE7LoZhtqFHmF1cwsIKvOuKIXu2DARraPW6VsSOawBfaQvIx1-W5os3HKiGa6sb_0dllG-QY733Ai-6oHf-gx6Jt9CTrfOd4sIbQTAlCuu0FYj0r3bzd0H-jIlhNtK4kpRKmIDqJKVfasEb-2v5lBhAyrWgu7LToydo7IEewrfJSkpMGVx5NUcPni--wpBkZj-rG6PNhmBPsNxRHtih3lH11D-XoJg8jzuA.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 501,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5865201176599531137",
+     "postId": 1733,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1732,
+   "postUrl": "https://t.me/concall_pulse/1732",
+   "date": "2026-09-16T02:31:35+00:00",
+   "text": "📅 Concall Calendar — 16 Sep 2026\n6 calls · 6 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 16 Sep 2026</b><br>6 calls · 6 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 550,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/UkrHjFxVyfMU60DxqF_780iBisT3rrsV9TLmQUoGZxnfpMmVPla0uc-CLSeMdLznCNtFSbc-nNaMZMqF9Nm87N8NiiyMwqd85HaSpwCpEzH8ArNxssmfI5Yz2rs6OO2AscwAIXx7r5MTEJzhrYEf8OzQPSoHIaB1Fxoxte60FrGQpmXKeeyvBMGgf4Gx3qMItBkpxilJSM1VDGN_xeRFwzmZKkcFAfdb6mXNEwFwrqehFDbR5T4oGMcyzNyEYLD_WEkC6wI5YeD-tUq-SaQjBWmh4Ctogq0AT8whp2QKLGsl6UlvRzz6OIppVrGorTKKpfEkdtjwrvf6kV_Igks2mQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/UkrHjFxVyfMU60DxqF_780iBisT3rrsV9TLmQUoGZxnfpMmVPla0uc-CLSeMdLznCNtFSbc-nNaMZMqF9Nm87N8NiiyMwqd85HaSpwCpEzH8ArNxssmfI5Yz2rs6OO2AscwAIXx7r5MTEJzhrYEf8OzQPSoHIaB1Fxoxte60FrGQpmXKeeyvBMGgf4Gx3qMItBkpxilJSM1VDGN_xeRFwzmZKkcFAfdb6mXNEwFwrqehFDbR5T4oGMcyzNyEYLD_WEkC6wI5YeD-tUq-SaQjBWmh4Ctogq0AT8whp2QKLGsl6UlvRzz6OIppVrGorTKKpfEkdtjwrvf6kV_Igks2mQ.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 501,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5860547068433207373",
+     "postId": 1732,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1731,
+   "postUrl": "https://t.me/concall_pulse/1731",
+   "date": "2026-09-15T02:31:19+00:00",
+   "text": "📅 Concall Calendar — 15 Sep 2026\n7 calls · 7 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 15 Sep 2026</b><br>7 calls · 7 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 583,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/AuIh7kP9TPSwSvbd2lOiT4o3U0H8GZO7-Qk_EKoUYe7H0tfmT2jRinJ5-j4WphyjvdxgSBMPotTfH4lAjdfQxKrDbPLdogiztmYVQJd9rbrtJrGRtQb455kyueBQEYCyKhuZOW9rB4Xan1cd6R8awaqH-o9MzpkDDNlXykNSbZ1cjpzIosVHDc55WZYBieuyaTLXCei4NVFkTYxd7YWkYBoioDAOJwkUyRQnsOS9wVpIjHC78E-SfPphWdIMmJ3b-EcrT3N9ySxOaUgDbYw1uMoINSyPrtG4GChzx_5Y6WzbcBnyD5tUL7CDjRpZVjUDkGB_iQQCZr9jT1KkTpVolA.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/AuIh7kP9TPSwSvbd2lOiT4o3U0H8GZO7-Qk_EKoUYe7H0tfmT2jRinJ5-j4WphyjvdxgSBMPotTfH4lAjdfQxKrDbPLdogiztmYVQJd9rbrtJrGRtQb455kyueBQEYCyKhuZOW9rB4Xan1cd6R8awaqH-o9MzpkDDNlXykNSbZ1cjpzIosVHDc55WZYBieuyaTLXCei4NVFkTYxd7YWkYBoioDAOJwkUyRQnsOS9wVpIjHC78E-SfPphWdIMmJ3b-EcrT3N9ySxOaUgDbYw1uMoINSyPrtG4GChzx_5Y6WzbcBnyD5tUL7CDjRpZVjUDkGB_iQQCZr9jT1KkTpVolA.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 467,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5856194428316356599",
+     "postId": 1731,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1730,
+   "postUrl": "https://t.me/concall_pulse/1730",
+   "date": "2026-09-14T02:30:43+00:00",
+   "text": "📅 Concall Calendar — 14 Sep 2026\n2 calls · 2 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 14 Sep 2026</b><br>2 calls · 2 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 569,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/W5ybwzSekv7KcBG8jmW_gNPweb_LSM7Iln-MrEJkLmYzHsfZrycZCdSXrjuAKntx3ANtMzjdnPJ6wDO9IyCNQ1FTmDunoEv3bbYDO2QohfqZNQWy-FZn25KAHQ6xfdu0MRCJod2PSndUJFl9ltktaZ7kUA8-ocMnSublGrCuNNYUMFDKo98xvIvlyo_0EYFVKCcMisNYdUD56sDeLBQjLgtyk3fLuxEKY35HkIJA8zixZJCzCA-gpVzzAwbpgaIGJDxNy4o-9pnU1rro6iLpli7nkP4gdJ683vWYgOGyVuJACO5kw4lPsUpYFfty_qtkjRlQxYclruyb9PINZ1Oe3Q.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/W5ybwzSekv7KcBG8jmW_gNPweb_LSM7Iln-MrEJkLmYzHsfZrycZCdSXrjuAKntx3ANtMzjdnPJ6wDO9IyCNQ1FTmDunoEv3bbYDO2QohfqZNQWy-FZn25KAHQ6xfdu0MRCJod2PSndUJFl9ltktaZ7kUA8-ocMnSublGrCuNNYUMFDKo98xvIvlyo_0EYFVKCcMisNYdUD56sDeLBQjLgtyk3fLuxEKY35HkIJA8zixZJCzCA-gpVzzAwbpgaIGJDxNy4o-9pnU1rro6iLpli7nkP4gdJ683vWYgOGyVuJACO5kw4lPsUpYFfty_qtkjRlQxYclruyb9PINZ1Oe3Q.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 379,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5853650416107720796",
+     "postId": 1730,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1729,
+   "postUrl": "https://t.me/concall_pulse/1729",
+   "date": "2026-09-11T04:58:35+00:00",
+   "text": "🔔 #SHANKESH concall in 32 min · 11:00 AM IST",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9494.png')\"><b>🔔</b></i> <a href=\"?q=%23SHANKESH\"><b>#SHANKESH</b></a> concall in 32 min · <b>11:00 AM IST</b>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 870,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "💯",
+     "customEmojiId": null,
+     "count": 2
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📞 Join Call",
+     "url": "https://www.shankeshjewellers.com/investor-relations/",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    },
+    {
+     "text": "📄 Invite PDF",
+     "url": "https://nsearchives.nseindia.com/corporate/SJL_08092026141717_Earnings_call_Intimation.pdf",
+     "row": 1,
+     "column": 2,
+     "type": "url"
+    },
+    {
+     "text": "📊 Stock Page",
+     "url": "https://earningspulse.ai/stock/SHANKESH",
+     "row": 2,
+     "column": 1,
+     "type": "url"
+    },
+    {
+     "text": "📊 Last PPT",
+     "url": "https://nsearchives.nseindia.com/corporate/SJL_10092026185348_Presentation_Shankesh_Jewellers_Ltd_Q1FY27.pdf",
+     "row": 2,
+     "column": 2,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/Q7So9Hf8kuvskmGrFX2RitC7A5q-Xl9NiMqHWLfGIfFfngNfKfbDm56Lc7i1yHTlgEfEV26q4jAxkL6Rtscx57d6PNuljNWzJVUP5P3yX1FHGU13wZreXuy5HbfPToqvBVy1EH2XQt_2cJDKFuZALYjJPhOay2cIizdWr8FQQu_9HkrMr17Dxe3UidFSA2lDNuW2Udq_TSxSbhdiEFNRbBb0rtotrob1-kshpsgCtfplUILC_egm07AtvQW1l96tvkmXQj36KIGilI3GGTfKMcY0ILGxYmTFarmwVer67DGQAkEprYNAnbFZW9o2W6BcvCyUz-rJyseGXAXT4ttSQg.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/Q7So9Hf8kuvskmGrFX2RitC7A5q-Xl9NiMqHWLfGIfFfngNfKfbDm56Lc7i1yHTlgEfEV26q4jAxkL6Rtscx57d6PNuljNWzJVUP5P3yX1FHGU13wZreXuy5HbfPToqvBVy1EH2XQt_2cJDKFuZALYjJPhOay2cIizdWr8FQQu_9HkrMr17Dxe3UidFSA2lDNuW2Udq_TSxSbhdiEFNRbBb0rtotrob1-kshpsgCtfplUILC_egm07AtvQW1l96tvkmXQj36KIGilI3GGTfKMcY0ILGxYmTFarmwVer67DGQAkEprYNAnbFZW9o2W6BcvCyUz-rJyseGXAXT4ttSQg.jpg",
+     "thumbnailUrl": null,
+     "width": 600,
+     "height": 800,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5845026203381731383",
+     "postId": 1729,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1728,
+   "postUrl": "https://t.me/concall_pulse/1728",
+   "date": "2026-09-11T02:31:28+00:00",
+   "text": "📅 Concall Calendar — 11 Sep 2026\n5 calls · 4 results out · 1 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 11 Sep 2026</b><br>5 calls · 4 results out · 1 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 742,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/Ph9aLjDXksd0bWExZGYOHJg95XTHxylpSP-NeqC0HY6Er7kxlzUSkPKgHJXEB9ZiXdkNfLbtZgsdUDj14pCNp_njIuOTB03WdngIaCO6eRcnkab1Eoi62dclWtQNn9ekAkuMf9PXdcjZGY39zMNgy730eURfoAUbR_RmecIbZZ2RtnyRoyYBHxBSzwIvPl2C2fMDMjy_nXMB_HZG8IBBLgmO9U-B_rQ8MYliyvYoFtUxRCaQ5jM8UHGfVYqJ88q_iFxiGPupo5IliCaNBRaPcwF5QaeBG81ehsgzUWtMvQ9SrNelBZlSSpa0xj5Y9IEz8KJu4ZwLkbilotVm4jgPZA.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/Ph9aLjDXksd0bWExZGYOHJg95XTHxylpSP-NeqC0HY6Er7kxlzUSkPKgHJXEB9ZiXdkNfLbtZgsdUDj14pCNp_njIuOTB03WdngIaCO6eRcnkab1Eoi62dclWtQNn9ekAkuMf9PXdcjZGY39zMNgy730eURfoAUbR_RmecIbZZ2RtnyRoyYBHxBSzwIvPl2C2fMDMjy_nXMB_HZG8IBBLgmO9U-B_rQ8MYliyvYoFtUxRCaQ5jM8UHGfVYqJ88q_iFxiGPupo5IliCaNBRaPcwF5QaeBG81ehsgzUWtMvQ9SrNelBZlSSpa0xj5Y9IEz8KJu4ZwLkbilotVm4jgPZA.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 347,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5847172729252023960",
+     "postId": 1728,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1727,
+   "postUrl": "https://t.me/concall_pulse/1727",
+   "date": "2026-09-10T02:31:32+00:00",
+   "text": "📅 Concall Calendar — 10 Sep 2026\n12 calls · 11 results out · 1 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 10 Sep 2026</b><br>12 calls · 11 results out · 1 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 779,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/QluqNzGmDTjDZUu5LYJv9FiSA4-36qTdU0iWKetzLWgollSyMFw_-Pv22BRjbqk51-VaSUf35xvZjpQt7kGDI3T0C4NvJJJL3C0SNzvT9aDvtJ1YErQLwH8-ul53Rvg6OKxkyzH1zD3TLe05murd2JuV2akZVu9BEX-7Com_pfPg43l3KbSAjLq8jowM5mFlxFcoVP-HxpyqVbBmNyhY8gDgNoZzV2M1Tn-OjROKrhtpAMYDq8_vxnJU1Vg5LjdLX8wRcszQicFMUzSglbjLpfDqpBe191ma39Qn_hkVPBpQ_blulujWHom9E7Mu-l-vGRsmA7RfnsauBB_HvBuo0Q.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/QluqNzGmDTjDZUu5LYJv9FiSA4-36qTdU0iWKetzLWgollSyMFw_-Pv22BRjbqk51-VaSUf35xvZjpQt7kGDI3T0C4NvJJJL3C0SNzvT9aDvtJ1YErQLwH8-ul53Rvg6OKxkyzH1zD3TLe05murd2JuV2akZVu9BEX-7Com_pfPg43l3KbSAjLq8jowM5mFlxFcoVP-HxpyqVbBmNyhY8gDgNoZzV2M1Tn-OjROKrhtpAMYDq8_vxnJU1Vg5LjdLX8wRcszQicFMUzSglbjLpfDqpBe191ma39Qn_hkVPBpQ_blulujWHom9E7Mu-l-vGRsmA7RfnsauBB_HvBuo0Q.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 620,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5842449446342430585",
+     "postId": 1727,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  },
+  {
+   "channel": "concall_pulse",
+   "channelId": 3909261188,
+   "channelTitle": "Concall Pulse",
+   "channelSubscribers": 1920,
+   "postId": 1726,
+   "postUrl": "https://t.me/concall_pulse/1726",
+   "date": "2026-09-09T02:31:04+00:00",
+   "text": "📅 Concall Calendar — 9 Sep 2026\n6 calls · 6 results out · 0 upcoming",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9385.png')\"><b>📅</b></i> <b>Concall Calendar — 9 Sep 2026</b><br>6 calls · 6 results out · 0 upcoming",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 754,
+   "reactions": [],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [],
+   "buttons": [
+    {
+     "text": "📅 View on web",
+     "url": "https://earningspulse.ai/concalls",
+     "row": 1,
+     "column": 1,
+     "type": "url"
+    }
+   ],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/dvd3yck0DSz_eZvP8ZjfJkIAv41ZbVIvhhkzYZ80wng0Ro_DmlY4otPnujHFjBd7HgIFXHVDTggrMwvA1ZUUpq3GJadTDWZXvH3AEGMmEUomymcAz9n2oG0HhNiki0lzJYpXV5DWAMvGd9jKaPRsDxKSPq1W-qPsY7bd5DwSx97isUee9Cs1tGUDT9qneJzngMTVYRI1SDH-WDTSuLCTDiBsB1gjJWyMaPOsxpiNxTjzPOEOexmSuOI6wqEhTHUaFjSwFOoxVDcWl66GDo2iHBfVb1jUTlgScTTeFpL3wtpUH3Q4aANfYZfsCVHSB6iG_NppuwGAfU9_TBApwWsmZA.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/dvd3yck0DSz_eZvP8ZjfJkIAv41ZbVIvhhkzYZ80wng0Ro_DmlY4otPnujHFjBd7HgIFXHVDTggrMwvA1ZUUpq3GJadTDWZXvH3AEGMmEUomymcAz9n2oG0HhNiki0lzJYpXV5DWAMvGd9jKaPRsDxKSPq1W-qPsY7bd5DwSx97isUee9Cs1tGUDT9qneJzngMTVYRI1SDH-WDTSuLCTDiBsB1gjJWyMaPOsxpiNxTjzPOEOexmSuOI6wqEhTHUaFjSwFOoxVDcWl66GDo2iHBfVb1jUTlgScTTeFpL3wtpUH3Q4aANfYZfsCVHSB6iG_NppuwGAfU9_TBApwWsmZA.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 499,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5840416122925158199",
+     "postId": 1726,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:55:18+00:00"
+  }
+ ]
+}

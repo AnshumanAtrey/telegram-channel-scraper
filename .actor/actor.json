@@ -1,0 +1,172 @@
+{
+    "actorSpecification": 1,
+    "name": "telegram-channel-scraper",
+    "title": "Telegram Channel Scraper - Posts, Media & Buttons | No Login",
+    "description": "Scrape posts from public Telegram channels with no login. One row per post: text, date, views, reactions, Telegram's photo and video links, every album item, file names and sizes, links and the inline buttons under each post. Filter by date or post count. $0.30 per 1,000 posts, no start fee.",
+    "version": "1.0",
+    "buildTag": "latest",
+    "categories": [
+        "SOCIAL_MEDIA",
+        "NEWS",
+        "LEAD_GENERATION"
+    ],
+    "input": "./INPUT_SCHEMA.json",
+    "output": "./output_schema.json",
+    "dockerfile": "../Dockerfile",
+    "readme": "../README.md",
+    "minMemoryMbytes": 128,
+    "maxMemoryMbytes": 1024,
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "title": "Telegram posts",
+            "description": "One row per post. Every key is always there, empty (null) when the post has no such part. An album is one row with every item in media. The run summary is the OUTPUT record of the key-value store, not a row here.",
+            "views": {
+                "overview": {
+                    "title": "Posts",
+                    "description": "Each post with its link, date, channel, text, views, the link to its first photo, video or other media item, and the buttons under it. Media type is album when a post has several items; the Media view lists them all.",
+                    "transformation": {
+                        "fields": [
+                            "postUrl",
+                            "date",
+                            "channel",
+                            "text",
+                            "views",
+                            "mediaType",
+                            "mediaUrl",
+                            "buttons"
+                        ]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "postUrl": {
+                                "label": "Post",
+                                "format": "link"
+                            },
+                            "date": {
+                                "label": "Posted",
+                                "format": "date"
+                            },
+                            "channel": {
+                                "label": "Channel",
+                                "format": "text"
+                            },
+                            "text": {
+                                "label": "Text",
+                                "format": "text"
+                            },
+                            "views": {
+                                "label": "Views",
+                                "format": "number"
+                            },
+                            "mediaType": {
+                                "label": "Media type",
+                                "format": "text"
+                            },
+                            "mediaUrl": {
+                                "label": "Media link",
+                                "format": "link"
+                            },
+                            "buttons": {
+                                "label": "Buttons",
+                                "format": "array"
+                            }
+                        }
+                    }
+                },
+                "media": {
+                    "title": "Media",
+                    "description": "Telegram's own links to each post's photos, videos, voice notes and stickers, with every album item, size and duration. Files come with their name and size and music with its title and performer, but Telegram gives neither a public link. The links stop working after a while, so save what you need soon after the run.",
+                    "transformation": {
+                        "fields": [
+                            "postUrl",
+                            "date",
+                            "channel",
+                            "mediaType",
+                            "mediaUrl",
+                            "media",
+                            "text"
+                        ]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "postUrl": {
+                                "label": "Post",
+                                "format": "link"
+                            },
+                            "date": {
+                                "label": "Posted",
+                                "format": "date"
+                            },
+                            "channel": {
+                                "label": "Channel",
+                                "format": "text"
+                            },
+                            "mediaType": {
+                                "label": "Media type",
+                                "format": "text"
+                            },
+                            "mediaUrl": {
+                                "label": "First item link",
+                                "format": "link"
+                            },
+                            "media": {
+                                "label": "All items",
+                                "format": "array"
+                            },
+                            "text": {
+                                "label": "Caption",
+                                "format": "text"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "title": "Links and buttons",
+                    "description": "The buttons under each post (text, link, row and column; a button that only works inside the Telegram app has no link), every link in the post text, and the preview card Telegram shows for a shared link.",
+                    "transformation": {
+                        "fields": [
+                            "postUrl",
+                            "date",
+                            "channel",
+                            "buttons",
+                            "links",
+                            "linkPreview"
+                        ]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "postUrl": {
+                                "label": "Post",
+                                "format": "link"
+                            },
+                            "date": {
+                                "label": "Posted",
+                                "format": "date"
+                            },
+                            "channel": {
+                                "label": "Channel",
+                                "format": "text"
+                            },
+                            "buttons": {
+                                "label": "Buttons",
+                                "format": "array"
+                            },
+                            "links": {
+                                "label": "Links in text",
+                                "format": "array"
+                            },
+                            "linkPreview": {
+                                "label": "Link preview",
+                                "format": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

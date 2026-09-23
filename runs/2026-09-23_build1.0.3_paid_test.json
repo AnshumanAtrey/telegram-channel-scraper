@@ -1,0 +1,28 @@
+{
+ "paid_prefill": {
+  "status": "SUCCEEDED",
+  "mem": 256,
+  "items": 200,
+  "chargedEventCounts": {
+   "post": 200
+  },
+  "pricingInfo": 0.0003,
+  "maxTotalChargeUsd": 3.30673,
+  "statusMessage": "Got 200 posts from 2 of 2 channels: the newest 100 posts per channel, the default when no limit and no date are set.",
+  "usageTotalUsd": 0.0013033229119032623,
+  "runTimeSecs": 9.729
+ },
+ "paid_cap_0.03": {
+  "status": "SUCCEEDED",
+  "mem": 256,
+  "items": 100,
+  "chargedEventCounts": {
+   "post": 100
+  },
+  "pricingInfo": 0.0003,
+  "maxTotalChargeUsd": 0.03,
+  "statusMessage": "Got 100 posts from 3 of 3 channels: the newest 100 posts per channel. The run stopped early because your spending limit for this run was reached. Every post counted here was delivered. @durov: Stopped after 39 posts because your spending limit for this run was reached. Raise the limit to get the rest. @telegram: Stopped after 40 posts because your spending limit for this run was reached. Raise the limit to get the rest. @tginfo: Stopped after 21 posts because your spending limit for this run was",
+  "usageTotalUsd": 0.0007675046667158604,
+  "runTimeSecs": 7.344
+ }
+}

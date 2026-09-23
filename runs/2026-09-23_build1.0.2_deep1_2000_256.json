@@ -1,0 +1,1790 @@
+{
+ "label": "deep1_2000_256",
+ "runId": "AzVyDkZyElNEqXr9S",
+ "build": "1.0.2",
+ "startedAt": "2026-09-23T17:47:37.375Z",
+ "memoryMbytes": 256,
+ "input": {
+  "channels": [
+   "cointelegraph"
+  ],
+  "maxPosts": 2000
+ },
+ "status": "SUCCEEDED",
+ "posts": 2000,
+ "runTimeSecs": 141.709,
+ "computeUnits": 0.009840902777777778,
+ "memMaxBytes": 72060928,
+ "platformUsageUsd": 0.009586439039530026,
+ "platformUsageBreakdownUsd": {
+  "ACTOR_COMPUTE_UNITS": 0.001968180555555556,
+  "DATASET_READS": 0,
+  "DATASET_WRITES": 0.01,
+  "KEY_VALUE_STORE_READS": 5e-06,
+  "KEY_VALUE_STORE_WRITES": 0.00075,
+  "KEY_VALUE_STORE_LISTS": 0,
+  "REQUEST_QUEUE_READS": 0,
+  "REQUEST_QUEUE_WRITES": 0,
+  "DATA_TRANSFER_INTERNAL_GBYTES": 7.92930368334055e-05,
+  "DATA_TRANSFER_EXTERNAL_GBYTES": 4.145614802837372e-05,
+  "PROXY_RESIDENTIAL_TRANSFER_GBYTES": 0,
+  "PROXY_SERPS": 0,
+  "PROXY_UNBLOCKER_UNITS": 0
+ },
+ "platformUsdPer1kPosts": 0.00479,
+ "OUTPUT": {
+  "status": "done",
+  "totalPosts": 2000,
+  "channels": [
+   {
+    "input": "cointelegraph",
+    "channel": "cointelegraph",
+    "channelId": 1072723547,
+    "status": "ok",
+    "reason": null,
+    "posts": 2000,
+    "newestDate": "2026-09-23T13:14:59+00:00",
+    "oldestDate": "2026-04-23T04:51:18+00:00"
+   }
+  ],
+  "message": "Got 2,000 posts from 1 of 1 channels: the newest 2,000 posts per channel."
+ },
+ "firstItems(20)": [
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72281,
+   "postUrl": "https://t.me/cointelegraph/72281",
+   "date": "2026-09-23T13:14:59+00:00",
+   "text": "🔥 JUST IN: Blockchaincom and NYSE plan to offer tokenized US stocks and ETFs.\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F94A5.png')\"><b>🔥</b></i> JUST IN: </b>Blockchaincom and NYSE plan to offer tokenized US stocks and ETFs.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 4880,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 24
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 8
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 3
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 3
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/ImMF4CS1bKkmdYAdOMdqpPUuceFeVhAV2iig7hj0rL-hQL3xaN_LpBg2K7wdZsnNQLzjsKZsdfwHTzKrubBfglnJn0hpFFZ4PXatt0kGzPXcWjkcoTOVFFchBpwBuQ-ax2wAAcLawtmAI3UNcMpX43F6Ug-kxLOqrRHvat3AqPxcO8t_mq-vWZ9cIlMd34L_Fx9l3UamPUsVfytABmnJ9IGALL7wzwmMYE8F1ffX-OCYsXWn7xyCeKKtCGyQGLyDBvva8DJ5PmbBf8-m2IlNsN-bCWiPUbldAX0X-r-RvXSeglh5HQI6MrDGWxhW9ICBZLUdN_RGe5AcmT0V0wku3g.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/ImMF4CS1bKkmdYAdOMdqpPUuceFeVhAV2iig7hj0rL-hQL3xaN_LpBg2K7wdZsnNQLzjsKZsdfwHTzKrubBfglnJn0hpFFZ4PXatt0kGzPXcWjkcoTOVFFchBpwBuQ-ax2wAAcLawtmAI3UNcMpX43F6Ug-kxLOqrRHvat3AqPxcO8t_mq-vWZ9cIlMd34L_Fx9l3UamPUsVfytABmnJ9IGALL7wzwmMYE8F1ffX-OCYsXWn7xyCeKKtCGyQGLyDBvva8DJ5PmbBf8-m2IlNsN-bCWiPUbldAX0X-r-RvXSeglh5HQI6MrDGWxhW9ICBZLUdN_RGe5AcmT0V0wku3g.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72281,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/i8x-padl2OsKl0acKBrqxUpxAxmjSa3n3KgeChU-H_4EQvnf3EvyTsFnurjSPs-a6qHM9s-Wl9hluhjtpvH9ax6vWSp5jTJLRNO4Nk7TkMVjGgzuw9YKqBWWdAx2Ex-rjnz2wG4eHdcd2LR8v6ZuF_NCdIA2bNz3AacsfhONxGLVFRUrXw_EaL8bQ1JJozOIgiF1qMcDlNHNOImNiMfDwA5kG7v0hA-MJPflHsuG7347mXVYgQxX7PMjf9qejGVwG-DAEhVTTYBuylFc3z04CLd89qkux9uehZ0mLa-gtlCLg0V_HLTfDUu_T5us0H6LDCbMWOtjM0Np4B_TvRdivw.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72282,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72279,
+   "postUrl": "https://t.me/cointelegraph/72279",
+   "date": "2026-09-23T11:32:10+00:00",
+   "text": "🇪🇺 JUST IN: $234B Raiffeisen Bank International plans to bring crypto trading to its network banks across 11 European markets through Bitpanda.\n\nRead more\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F87AAF09F87BA.png')\"><b>🇪🇺</b></i> JUST IN:</b> $234B Raiffeisen Bank International plans to bring crypto trading to its network banks across 11 European markets through Bitpanda.<br><br><a href=\"https://ct.com/news/raiffeisen-crypto-11-european-markets-bitpanda?utm_campaign=rss_partner_inbound&amp;amp;utm_medium=rss&amp;amp;utm_source=rss_feed\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Read more</a><br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 6330,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 30
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 17
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 6
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 4
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 3
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://ct.com/news/raiffeisen-crypto-11-european-markets-bitpanda?utm_campaign=rss_partner_inbound&utm_medium=rss&utm_source=rss_feed",
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/EFQ76TmOkugFi4Oh5EG-THoiCshUZK-4S80vTNGZhe9MlKwIn0wcau1iW8qBbDPy2whk8M8XUVd94_rKfkimHLhvlpRXrZ69HmNu87jf6m5IxNZRKIjfN48lJKoBYobIoQA-7VzTRqUFZbWHXcYu_GyuktWLn-FY22USj8dmxwNCoAM8S2siCPPgE_Xqbx2aaO5YzyzWq_YIBBRPrM-us-NeBUbLCIrhDUXKLhRsQbh8O-Ss9_etqwzVn0FE5-k3B81a0DzrC80SgKK3ZD-ZXHtbzGHQXGBQco5TnBy1i9HXYZ1d-Gb5yJB65UtDufTynBEnJB_7QA9f-itNZbtejw.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/EFQ76TmOkugFi4Oh5EG-THoiCshUZK-4S80vTNGZhe9MlKwIn0wcau1iW8qBbDPy2whk8M8XUVd94_rKfkimHLhvlpRXrZ69HmNu87jf6m5IxNZRKIjfN48lJKoBYobIoQA-7VzTRqUFZbWHXcYu_GyuktWLn-FY22USj8dmxwNCoAM8S2siCPPgE_Xqbx2aaO5YzyzWq_YIBBRPrM-us-NeBUbLCIrhDUXKLhRsQbh8O-Ss9_etqwzVn0FE5-k3B81a0DzrC80SgKK3ZD-ZXHtbzGHQXGBQco5TnBy1i9HXYZ1d-Gb5yJB65UtDufTynBEnJB_7QA9f-itNZbtejw.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72279,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/Oqn3JaAXP7XqBzgDLOubOkgwoanT1OCmdZZenZOxV881tBzBxmdEkKZj-KmNbkUChPh5hb_7oYc2M_iJIba2N-iKyo54PQDowE3mNg6diDK0O3H-QvV-xcx2i6kgHZJWwvs79Yr1G9hY3_QasxiE3ZWZ8wCtXK7KGlaFZqtZnFabl11uNQQwmnVjRFkkL8iB7x-14Q1c7Pa6zkLlfPTWUxmod8Q7QvvBP4brp_kvnAnBo3RCmdPOXMKw0f3rzKVyysWuF8Y6uCRLa_Wp_4gi7p-Ih-mBeam-wgd9G0aFdB4GewIy4nvo3Wfpr4TzB7_MyftLRC2ULjf-a8EA1Ko8Xw.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72280,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72278,
+   "postUrl": "https://t.me/cointelegraph/72278",
+   "date": "2026-09-23T11:18:20+00:00",
+   "text": "🚨 TODAY: BitMEX has shut down exchange operations. Users can still log in and withdraw their funds, but deposits are no longer credited.\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9AA8.png')\"><b>🚨</b></i> TODAY</b>: BitMEX has shut down exchange operations. Users can still log in and withdraw their funds, but deposits are no longer credited.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 6070,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 18
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 12
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 8
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 3
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 2
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn5.telesco.pe/file/BYoqPRO2W1yWMERH0nWiFJyN10ZsFnjjfus8cGuu7tj64uWz29o2TGT3HpuEuFBbCZSER1KLToMFYCW3qKRCqLacID3a4YqI9v8oylzdNuyY_NOdMal6aLsvV5qrzXzNqFd6JNb86jxQjlDig0x-tY_0Vv2seromsKBg-gMslr7X2Ss0gbIMVrKZMRrYiKb_B7WcEHT08iXlL3wAfMaj2sYSFg-UyyX-wiXJMvgwNwUTuSdqj0KhOKzeZ3adF3Z8BPKmGIePdYCQjzU8zf-65muTbLiiCdagIQGeoVTO64iaCNoiL5n0rlpcAdtHFRXwwkMmTEZ25pGXX6Yt4pfvTQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/BYoqPRO2W1yWMERH0nWiFJyN10ZsFnjjfus8cGuu7tj64uWz29o2TGT3HpuEuFBbCZSER1KLToMFYCW3qKRCqLacID3a4YqI9v8oylzdNuyY_NOdMal6aLsvV5qrzXzNqFd6JNb86jxQjlDig0x-tY_0Vv2seromsKBg-gMslr7X2Ss0gbIMVrKZMRrYiKb_B7WcEHT08iXlL3wAfMaj2sYSFg-UyyX-wiXJMvgwNwUTuSdqj0KhOKzeZ3adF3Z8BPKmGIePdYCQjzU8zf-65muTbLiiCdagIQGeoVTO64iaCNoiL5n0rlpcAdtHFRXwwkMmTEZ25pGXX6Yt4pfvTQ.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 800,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "6168125847051636971",
+     "postId": 72278,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72276,
+   "postUrl": "https://t.me/cointelegraph/72276",
+   "date": "2026-09-23T08:03:39+00:00",
+   "text": "🇺🇸 ETF FLOWS: Spot ETFs across several crypto assets recorded net inflows on Sept. 22.\n\nBTC: $714.75M\nETH: $162.31M\nZEC: $32.81M\nSOL: $28.87M\nXRP: $20.02M\nLINK: $1.89M\nDOGE: $1.17M\nAVAX: $1.15M\nHBAR: $401.65K\nLTC: $152.85K\n\nRead more\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F87BAF09F87B8.png')\"><b>🇺🇸</b></i> ETF FLOWS:</b> Spot ETFs across several crypto assets recorded net inflows on Sept. 22.<br><br>BTC: $714.75M<br>ETH: $162.31M<br>ZEC: $32.81M<br>SOL: $28.87M<br>XRP: $20.02M<br>LINK: $1.89M<br>DOGE: $1.17M<br>AVAX: $1.15M<br>HBAR: $401.65K<br>LTC: $152.85K<br><br><a href=\"https://ct.com/markets/bitcoin-etf-inflow-2-days-holder-profitable\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Read more</a><br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 6770,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 27
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 17
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 6
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://ct.com/markets/bitcoin-etf-inflow-2-days-holder-profitable",
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/grcfYL5xLNqGdgehstdEzux89HlHkcOyTQXkv-lAQa3P8quZwZDx9mh4ihfeiIOM9Gxrk_HZy-kn6qDqVQ-1r5Qy5Pj6PqEt1npgJJkbOAOIii7YwrLudekLOwXMbsyunkZz-9M8va3AwFtPmmhxbyPxC2e8DEznASNQ8C0RQjniBSO2cs9zCOt47u3EtEJFzAHsNhDz_D_S-KfJKLKiOpXxkRQSPMQ8V8ZPD9toWsDXSVO2nBaKQPjYt5QsSTSZ0Nbf30BmR9XG3qZB8E0x9dd_DfKfznIoxV00-saXENpGKQ66j9v5s4aiJHGWa6--n1ciY9K-qBtBbMKW2smrgQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/grcfYL5xLNqGdgehstdEzux89HlHkcOyTQXkv-lAQa3P8quZwZDx9mh4ihfeiIOM9Gxrk_HZy-kn6qDqVQ-1r5Qy5Pj6PqEt1npgJJkbOAOIii7YwrLudekLOwXMbsyunkZz-9M8va3AwFtPmmhxbyPxC2e8DEznASNQ8C0RQjniBSO2cs9zCOt47u3EtEJFzAHsNhDz_D_S-KfJKLKiOpXxkRQSPMQ8V8ZPD9toWsDXSVO2nBaKQPjYt5QsSTSZ0Nbf30BmR9XG3qZB8E0x9dd_DfKfznIoxV00-saXENpGKQ66j9v5s4aiJHGWa6--n1ciY9K-qBtBbMKW2smrgQ.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72276,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/uUVv-r2SM_uEd8g-ZDUhDCzdc-MxsJ2EUNogxEpUvLq2k_VJ2rPJMzy-Fs366NtwcC-hO43jjzrRlU_Yvxo1Bhvyug8VdOMM5nx0X1fcjvGs2KgqZ55MosBiDnxBCZDRhOvG8z8x26TVtFTwKsjXQde6rXY86xWfYcX_yQDBnvM9tibcUHkeiBihlAmFQi7GkOihM1rM7fc4kGjQbvPDdmBtWIZXKamYQGVCMUfowVqy4T2wPa0Tppv7wiildJp7aZimh_qpm9mTb3Va1w4aOkx4QrFqkVEjoCLqHCLnLie9Z3eLukV407JYsvgBOKkyt-HP2jcFEfNDq477ZmqTuQ.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72277,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72274,
+   "postUrl": "https://t.me/cointelegraph/72274",
+   "date": "2026-09-23T04:36:27+00:00",
+   "text": "🔥 NOW: $BTC hits above $87,000!\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F94A5.png')\"><b>🔥</b></i> <b>NOW</b>: $BTC hits above $87,000!<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 7600,
+   "reactions": [
+    {
+     "type": "paid",
+     "emoji": null,
+     "customEmojiId": null,
+     "count": 1
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 44
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 35
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 4
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/DZDRgYIDjR8s-_B7cOjb4_5Hd-hqEXAX0-9PsshRj4hSIBt1kY3DKSS7yt-zueNmQFnUEWycffD0T7QA4fZYYkvHYyIpoKqd2eJFCufUF4IWUxbagwZTVriBB3d8LYLOEKepF4UEFvTYuzc1zUJLuPAyVTG78rcfal0pY3Th8JwayNhbL8po27QaRz8SSXEVYE87ALB7U9X3lfytV6fa_l3BbzzksTUG580Wo60nENd752U-Tgv6a6KcLkjGB9vB4gIzq0M10VZsF5Y6MZfesVr8gNATK_eih8zhASDhZcflYReKDIZLB_ULBJgI3dE8qAn89v0KliVoLA14UVZDiQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/DZDRgYIDjR8s-_B7cOjb4_5Hd-hqEXAX0-9PsshRj4hSIBt1kY3DKSS7yt-zueNmQFnUEWycffD0T7QA4fZYYkvHYyIpoKqd2eJFCufUF4IWUxbagwZTVriBB3d8LYLOEKepF4UEFvTYuzc1zUJLuPAyVTG78rcfal0pY3Th8JwayNhbL8po27QaRz8SSXEVYE87ALB7U9X3lfytV6fa_l3BbzzksTUG580Wo60nENd752U-Tgv6a6KcLkjGB9vB4gIzq0M10VZsF5Y6MZfesVr8gNATK_eih8zhASDhZcflYReKDIZLB_ULBJgI3dE8qAn89v0KliVoLA14UVZDiQ.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72274,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/AQXnw48hZmsvSc7LAJCY8-Y2THGAuOpB3BdhkfGaKhJawXAVqjT7dkcZ3btu5rRxIRNOfUSC1eXFt6QGXRKK-T5wi2cYcxSbIDMGc-SBLxFlnYcSR_wNmeR9aM3daZ-PxR2L1NLHTHcwZHUT8uzbH3Z24jp7UCGckNfCrRMQjJg5jO-BHIvfCXkHMRj2omvEc6JOMKdiYWk4FDH7lnzXA5EWQbUgCWYB9_2NCRkjRJsRr2PsgduaASz3C9DTkjpwKIPa1DpPhhQLKkxCL6PTGQ-gDipy8KKlhp1KQztli3PglILcWqeHw3LMVkOS0FkXJvEJE8R4i3KHzGxaLQUR5Q.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72275,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72272,
+   "postUrl": "https://t.me/cointelegraph/72272",
+   "date": "2026-09-23T02:26:29+00:00",
+   "text": "🇺🇸 LATEST: Treasury Secretary Scott Bessent is reportedly being considered for the role of President Trump's new AI czar, per Semafor.\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F87BAF09F87B8.png')\"><b>🇺🇸</b></i> <b>LATEST</b>: Treasury Secretary Scott Bessent is reportedly being considered for the role of President Trump's new AI czar, per Semafor.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 7760,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 42
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 18
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 14
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 9
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/rtgT2n9wSB7WRDqqYTj7FLRGjfjVmARJ4mODhgUQL-KYpfNj8shWZNh3WJGBHoUgw_t8Os65a8RAegLRKmd2NCcSYKQ_I5BxngLeP7LdidYbYmrCNc77IKNM5CPqQmraOyfg7c7DocWS3IruuOjZq8dZp1l3Hh2IZZz5KQN_00E3MyRKhASr2xacMXfAjUp81vMeeELEDTAcRSu2aVQYgTLwDxKrK4R93hWwicS3xHrIlAo5FU0Mi4H5XuHflVOgfSaTZZeDzWVlABnn_QX70ucTXARBSRIbcwOw_xqADJn4TLCOvu70EWvKs7WuSL909Rbl2xAF15MjSoVRaJpj6A.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/rtgT2n9wSB7WRDqqYTj7FLRGjfjVmARJ4mODhgUQL-KYpfNj8shWZNh3WJGBHoUgw_t8Os65a8RAegLRKmd2NCcSYKQ_I5BxngLeP7LdidYbYmrCNc77IKNM5CPqQmraOyfg7c7DocWS3IruuOjZq8dZp1l3Hh2IZZz5KQN_00E3MyRKhASr2xacMXfAjUp81vMeeELEDTAcRSu2aVQYgTLwDxKrK4R93hWwicS3xHrIlAo5FU0Mi4H5XuHflVOgfSaTZZeDzWVlABnn_QX70ucTXARBSRIbcwOw_xqADJn4TLCOvu70EWvKs7WuSL909Rbl2xAF15MjSoVRaJpj6A.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72272,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/g0RkrvKrMKWE718LYem7pZnC6E05Af1BffDzbz_k2SmuArIQTeyUhogcTUme_G5zLV1OGwrucXAqxbbVOvwQEA0nm5F336tqGYSVj7YYaFq1bziw6CY1Wr-MkKxi8Jmpm2Dm2FrmDF6qaJ2gxYH-SfTk-wKJQ4C5xdSafu3NcBQzSG5E9u2c3RJS4_UTgnIMM4sRDGn6tr0EjPxgaCaSlZd9dvz4BnFQb8B2Oy_P9ru5uhachoJbGAltzSS8yWs3ZQCk4fqcpSQbSQTJ-mSizwAIIOzRGKlVjNho2mNlkYd-VQyBPWMNPuZEMvXVwnaYeeWBDrBd9vn6gHnmal-eXQ.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72273,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72270,
+   "postUrl": "https://t.me/cointelegraph/72270",
+   "date": "2026-09-23T00:04:52+00:00",
+   "text": "🇺🇸 JUST IN: The CFTC warns that \"mention markets,\" which let traders bet on what someone will say or do, carry a high risk of manipulation.\n\nIt has issued new guidance limiting when exchanges can list them.\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F87BAF09F87B8.png')\"><b>🇺🇸</b></i> <b>JUST IN</b>: The CFTC warns that \"mention markets,\" which let traders bet on what someone will say or do, carry a high risk of manipulation.<br><br>It has issued new guidance limiting when exchanges can list them.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 7650,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 28
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 9
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 5
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 5
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/HvzhIEQLWhkyXonZ3x3OvtxT0rUhFwuNAwBc8H2rnIXes8BU_D7C6tZyOO_EKaBjuRe93HSy0vs0ywNtXsRPoFVKJ_LFqv4PtJEIewAk-3-qt-mg_fgBG2Yk7RXzk3cX6Gi9JseWojEdu49u6TC18Wd5cKHApAhqEQnMr291Kncf9XsA1us53XrF03YuMO3V04F2Pp6Nx5G-sBWtmGVQLOLRu6BmFCknIvxH_Y-DmnH8v1PBNqYkM0ySM1RfoIUNGt70gBgXMqnTS3V6CTMRlQ0bm0hk9BU0oGlNd_ekwl5BjHd_M2LgcTtVeuqZ0Z-RS9TDiiN46MoCTasCMn7QDw.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/HvzhIEQLWhkyXonZ3x3OvtxT0rUhFwuNAwBc8H2rnIXes8BU_D7C6tZyOO_EKaBjuRe93HSy0vs0ywNtXsRPoFVKJ_LFqv4PtJEIewAk-3-qt-mg_fgBG2Yk7RXzk3cX6Gi9JseWojEdu49u6TC18Wd5cKHApAhqEQnMr291Kncf9XsA1us53XrF03YuMO3V04F2Pp6Nx5G-sBWtmGVQLOLRu6BmFCknIvxH_Y-DmnH8v1PBNqYkM0ySM1RfoIUNGt70gBgXMqnTS3V6CTMRlQ0bm0hk9BU0oGlNd_ekwl5BjHd_M2LgcTtVeuqZ0Z-RS9TDiiN46MoCTasCMn7QDw.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72270,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/RU6x_L-HFYrgWJutoIbf8FMYS0igjDJmM9kvXq-EmXP5sKsnT8yeLLFqttloLD4cgfbXmM-v5YdYL9Z_Vv-fRk9_EBbX9TCxnhtVlH567DgEtp3ATsOonMTIm7wii9S7DnO-lGMQOttlg7-cgR_aJqPh0FhwZf0b11c2MW8FR6PeONMf-8W_4oi1ciF_x-03HGNkWA8X_ki7h8e-L2mQJTe8K6lCCV9wIGqK55kxQ6I9abp1GsPLQg4CtDYSXGY22pRVvn1cYV4LEnWrggbW6Bhqw_WfqTXh6Qwj-ydstRpL7wL24Hq8hy4dVQjj43cpHLTryIfkbHh90UlUM7qw0A.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72271,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72268,
+   "postUrl": "https://t.me/cointelegraph/72268",
+   "date": "2026-09-22T19:25:01+00:00",
+   "text": "🚨 INSIGHT: Bank of America warns prolonged supply disruptions from the Iran war could push Brent crude above $150 a barrel.\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9AA8.png')\"><b>🚨</b></i> INSIGHT: </b>Bank of America warns prolonged supply disruptions from the Iran war could push Brent crude above $150 a barrel.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 8420,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 44
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 15
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 13
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 7
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 5
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn4.telesco.pe/file/HrLlDgePULQAT2F4dRZeAzAwGSFGne5nypPtR9REnXngF_KDhepyacWECFPN_In4JbthfAbAoQYpKao3u6ybzQOCJ-1ZywHjYgDspDcwaNs8mV5I3hWebWpLRFkzmg4WcHYVyMtf0bcQNUFDdLheYUMR1mNyPsD_-9EDmeBn0mGjbB9k1G2-0E7gBNxVHCyUO3p9s6jfQWn323C9x074WXBLPQYXBzroPN8k8D0Xng6vQxRd5s3psQ0yMFON3yoUI27zRFAsOD6Eay5HtI7fb8mDUpMMfCmmtnd0nG-ib0oT5xdWhD8e2cBG-x8z0e1M_ynQ6uNimrrD6j0VYKXQ8w.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/HrLlDgePULQAT2F4dRZeAzAwGSFGne5nypPtR9REnXngF_KDhepyacWECFPN_In4JbthfAbAoQYpKao3u6ybzQOCJ-1ZywHjYgDspDcwaNs8mV5I3hWebWpLRFkzmg4WcHYVyMtf0bcQNUFDdLheYUMR1mNyPsD_-9EDmeBn0mGjbB9k1G2-0E7gBNxVHCyUO3p9s6jfQWn323C9x074WXBLPQYXBzroPN8k8D0Xng6vQxRd5s3psQ0yMFON3yoUI27zRFAsOD6Eay5HtI7fb8mDUpMMfCmmtnd0nG-ib0oT5xdWhD8e2cBG-x8z0e1M_ynQ6uNimrrD6j0VYKXQ8w.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72268,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/tg15cN8qMuHYqf9ra2ZFKP7xYZiE5JA8fBThrAGCO0CyObcv1w6hIceGYp839I21ifNmOoHbmatyG9SIuUDHVp6BIUuxuv7s20Ga6b9P9FCJjCVfXOHOcYPGFIrnb5tzPFWmnM74zHiMQqUbl4gL0XJzDC860ORntf4c3f9GcDC9EOZd60iH9fUPVKqHFm20hJSf-FEH4T-0BDgML9xHWhxqoW0x0HJTgPLovmAxnPKsSLzAi1U1F1ilAeJ8zB48LAnpFPmeCLtBD1xCXVF_0HDmN5n-kRHDl0q9gUaDwGswXBawDZV31Sllot4BVpFwsMh-Z6Bm0I-Jhc1MvzzgbA.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72269,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72267,
+   "postUrl": "https://t.me/cointelegraph/72267",
+   "date": "2026-09-22T18:25:01+00:00",
+   "text": "🔥 BULLISH: CryptoQuant founder Ki Young Ju says this Bitcoin bull cycle could deliver a 3x–5x gain instead of another 10x rally, followed by a milder bear market.\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F94A5.png')\"><b>🔥</b></i> <b>BULLISH</b>: CryptoQuant founder Ki Young Ju says this Bitcoin bull cycle could deliver a 3x–5x gain instead of another 10x rally, followed by a milder bear market.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 8410,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 27
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 14
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 13
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 3
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/uT-T4_f_Kuj0TlxOVzY2K_T54-vRNBVcqxRgC4IgmZ98w6ysugD4pQBVDM9bHIE9opi0JFZTjjCU2C3gjWIULbdbUWEa0GHl-F7SsmHVW_WZO6qXt4XowDArPqVoPJ12MMZnR2xmpvL1kULQ6d4N08NsZpjJntBM5Zi3GdSTiCoZIno9MYTuJo_zI4ec5ynQMR3vhQM7jgWsuID2pSZIXbmV307IN9dJfff4d_fOMl9urIxewItI5r0GS2Br6rpUxiGvc55cf0sUnDQyOY_SwqW_35gFKhWqCVh7ewUPySxtRAmqP6ASg3lvPnl7w9iGKyY91-RsYrZk-mwVCNCv3g.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/uT-T4_f_Kuj0TlxOVzY2K_T54-vRNBVcqxRgC4IgmZ98w6ysugD4pQBVDM9bHIE9opi0JFZTjjCU2C3gjWIULbdbUWEa0GHl-F7SsmHVW_WZO6qXt4XowDArPqVoPJ12MMZnR2xmpvL1kULQ6d4N08NsZpjJntBM5Zi3GdSTiCoZIno9MYTuJo_zI4ec5ynQMR3vhQM7jgWsuID2pSZIXbmV307IN9dJfff4d_fOMl9urIxewItI5r0GS2Br6rpUxiGvc55cf0sUnDQyOY_SwqW_35gFKhWqCVh7ewUPySxtRAmqP6ASg3lvPnl7w9iGKyY91-RsYrZk-mwVCNCv3g.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 450,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5303278733974250060",
+     "postId": 72267,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72266,
+   "postUrl": "https://t.me/cointelegraph/72266",
+   "date": "2026-09-22T17:25:01+00:00",
+   "text": "🚨 BIG: Nikita Bier warns agent swarms will overwhelm websites, making bot detection and human verification a top priority for businesses.\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9AA8.png')\"><b>🚨</b></i> BIG: </b>Nikita Bier warns agent swarms will overwhelm websites, making bot detection and human verification a top priority for businesses.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 8440,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 28
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 13
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 9
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 4
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 2
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn4.telesco.pe/file/X7jjTrjDhhbcTvrDnA7Y86H8yx_AAGxMMzQb2oDAS5aCilyrZAbPWfYQCm2ZkfHd-JrjwbmBLeMLcbWL_oN7eqkbo3KnscU6G6ljh1Qik2xDdKxCefvp4_1EL_KyEawp8uI-bX2-xSMHmBoDT4qYohjENMmgJEmpCH73IccfrenXtRgW5GUsvOhXalRVBd9rkhuf56AL1C24pz6fOHCNhXPiHF-oL5aVJyqK3ltSXuW9K28c2yPtSaa2s36kbjDzTPAryx-5Mt4jm7hIanK8h3EkBlGo_6C3lPxJMPPXjbMCn4CWSVuEbJbAYWxYjW98EeufMmMAJpAVgovOA_m-RQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/X7jjTrjDhhbcTvrDnA7Y86H8yx_AAGxMMzQb2oDAS5aCilyrZAbPWfYQCm2ZkfHd-JrjwbmBLeMLcbWL_oN7eqkbo3KnscU6G6ljh1Qik2xDdKxCefvp4_1EL_KyEawp8uI-bX2-xSMHmBoDT4qYohjENMmgJEmpCH73IccfrenXtRgW5GUsvOhXalRVBd9rkhuf56AL1C24pz6fOHCNhXPiHF-oL5aVJyqK3ltSXuW9K28c2yPtSaa2s36kbjDzTPAryx-5Mt4jm7hIanK8h3EkBlGo_6C3lPxJMPPXjbMCn4CWSVuEbJbAYWxYjW98EeufMmMAJpAVgovOA_m-RQ.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 489,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "5303278733974250020",
+     "postId": 72266,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72264,
+   "postUrl": "https://t.me/cointelegraph/72264",
+   "date": "2026-09-22T16:25:01+00:00",
+   "text": "🚨 NEW: OpenAI CEO Sam Altman and Anthropic CEO Dario Amodei are expected to address the UN Security Council this week during a meeting on AI safety and global security.\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9AA8.png')\"><b>🚨</b></i> NEW: </b>OpenAI CEO Sam Altman and Anthropic CEO Dario Amodei are expected to address the UN Security Council this week during a meeting on AI safety and global security.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 8980,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 27
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 22
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 16
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 4
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn4.telesco.pe/file/cwZvW4GyZRFLV3dXG4LVQUgFE1pFhWHBTTf9qQLrRFUAkDGDM-r-lBX3jSvWpdCYO0CAsBk5U7fnCPNVEP3VhxgHlbShzfiwM61BPoGBtY87ikfclPAn56Qy5EotwkEeXzLdThdlDEnMf1ZYVj_wtr5KK0LeohLDbwOAXyUzZJExK4MnOLGvx_8Ks02EHt2Na6DsI487ESau7kPMKXqjLg8tDnSXpxjvULgrs2m-cPEJjzsVM7tqifJorb_fkVpnWlqJjBk9H5qt5yT65GGY4xOyDCLAPpqRABFurfYxvRIT76z6cSUSB_DX4E0qSHUUozSoIihy1nqdrbB3AfmC-g.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/cwZvW4GyZRFLV3dXG4LVQUgFE1pFhWHBTTf9qQLrRFUAkDGDM-r-lBX3jSvWpdCYO0CAsBk5U7fnCPNVEP3VhxgHlbShzfiwM61BPoGBtY87ikfclPAn56Qy5EotwkEeXzLdThdlDEnMf1ZYVj_wtr5KK0LeohLDbwOAXyUzZJExK4MnOLGvx_8Ks02EHt2Na6DsI487ESau7kPMKXqjLg8tDnSXpxjvULgrs2m-cPEJjzsVM7tqifJorb_fkVpnWlqJjBk9H5qt5yT65GGY4xOyDCLAPpqRABFurfYxvRIT76z6cSUSB_DX4E0qSHUUozSoIihy1nqdrbB3AfmC-g.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72264,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn4.telesco.pe/file/FJ5Lvr4ZiwbqlZAnkPpHwmB13T6ht8Bf0E2QGuVOJBvGZ1_yMC3i35bFFBIcnaaksYu6Beo7Zx9CWRQIVjEZyaM4icqKe9yxo_79d0ctegD5jUYnOR_X3--XF-kPVlD1BO1RvMSqWF43KL_9X-aXl4ibLSDJ3HSUbxQtN8v2wkcjaLSct3j-D6BBiyl4R97vRf8RP7wfzJVypicZAAYLmMwyd8fZ2LFAU6ie0K1QQ0QGfTZu1q59SrUXZ-0FTnxYuPxsZj0sqXRL2_9m6oaxrvqT4AKFd8G1eLMCHouBYgoqFrcT8Pni0TyHNlY9HiHt6fGLoNgw0tM_Q34mmMmDiw.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72265,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72263,
+   "postUrl": "https://t.me/cointelegraph/72263",
+   "date": "2026-09-22T13:01:08+00:00",
+   "text": "🚨 QUESTION: Bitcoin is up 9.07% in September, defying its historical -2.21% average. Will it hold?\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9AA8.png')\"><b>🚨</b></i> QUESTION: Bitcoin is up 9.07% in September, defying its historical -2.21% average. Will it hold?<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 9110,
+   "reactions": [
+    {
+     "type": "paid",
+     "emoji": null,
+     "customEmojiId": null,
+     "count": 1
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 53
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 20
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 7
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 5
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 2
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn5.telesco.pe/file/q5uDR7IHbQTYfjAEh3pHNDUSZN2pLx0d14RLG9M2IbjS6dJG0963ZguR_3lXYHQqJE_jXMnPgokkCxDGevrUGw3YmFyjLUeHLhfliksEJXhiOrAAS743mRoV5vYsfBs4gXZ2yJcr26AIGDKaEGu-PDaCIqV509BiR3XYUF-eavodakR4lHrWU_fr6jSSO16gOZpK3LuAUEsGKclM7DGKvDHFA2YlK5YpkTaR5-DEPW_kPL_Pk9nuWkQwr8LSqOvIilFOpo8NKlvkU5Wn08p8nnCVE-dW_p4pl-U4hAopserKm8XVKPj3BFyIRj7lAed9ZJJWSMJm3jv12L-BKnU4FQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/q5uDR7IHbQTYfjAEh3pHNDUSZN2pLx0d14RLG9M2IbjS6dJG0963ZguR_3lXYHQqJE_jXMnPgokkCxDGevrUGw3YmFyjLUeHLhfliksEJXhiOrAAS743mRoV5vYsfBs4gXZ2yJcr26AIGDKaEGu-PDaCIqV509BiR3XYUF-eavodakR4lHrWU_fr6jSSO16gOZpK3LuAUEsGKclM7DGKvDHFA2YlK5YpkTaR5-DEPW_kPL_Pk9nuWkQwr8LSqOvIilFOpo8NKlvkU5Wn08p8nnCVE-dW_p4pl-U4hAopserKm8XVKPj3BFyIRj7lAed9ZJJWSMJm3jv12L-BKnU4FQ.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 512,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "6168174839743582692",
+     "postId": 72263,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:40+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72261,
+   "postUrl": "https://t.me/cointelegraph/72261",
+   "date": "2026-09-22T12:42:12+00:00",
+   "text": "🔥 JUST IN: CME Group plans to add Bitcoin Cash and Uniswap futures to its crypto derivatives lineup.\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F94A5.png')\"><b>🔥</b></i> JUST IN: CME Group plans to add Bitcoin Cash and Uniswap futures to its crypto derivatives lineup.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": true,
+   "isService": false,
+   "viaBot": null,
+   "views": 8920,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 21
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 16
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 8
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 6
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 3
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/URHE0R3nUQeDkuWQBCIDvOC2IIiLxtNOajNm6gFlqvpufpBpEC3O-zY1w-26hQ6vcsIOlYM8FC8JqEo53X3VhpW60eW_L8ERTbp85-XFTbqPWR08Qqk2MHCptEsCaP0p9vrrbnBgWlb9jEzwXp0IiYuODvj9jsE97oClQke_UskJyoQJB_wREL3PqQQGgqmM52W97aQYjzfG4i_-hfT_3E8gKVAUa9kYp57SMHZxrVcDdF0nsUnfUsQPMILXWnfQbdR0cEQtk_NT4oppIXCyARs8vTehevOhSmS9Rybjc2zn-rT7fxqp3HQz7htyAgFVSUND2P0EP_e7T28hnQIKeg.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/URHE0R3nUQeDkuWQBCIDvOC2IIiLxtNOajNm6gFlqvpufpBpEC3O-zY1w-26hQ6vcsIOlYM8FC8JqEo53X3VhpW60eW_L8ERTbp85-XFTbqPWR08Qqk2MHCptEsCaP0p9vrrbnBgWlb9jEzwXp0IiYuODvj9jsE97oClQke_UskJyoQJB_wREL3PqQQGgqmM52W97aQYjzfG4i_-hfT_3E8gKVAUa9kYp57SMHZxrVcDdF0nsUnfUsQPMILXWnfQbdR0cEQtk_NT4oppIXCyARs8vTehevOhSmS9Rybjc2zn-rT7fxqp3HQz7htyAgFVSUND2P0EP_e7T28hnQIKeg.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72261,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/wCaGomvl57GX98PCGFR10A1z5Rwo4bDhQslixzRozKOHT4tzANqx0pEEZZz1Hn8STLSgAarSHzygI5tCEOPYGlSdm_t1qtI4l51_fHZsSG__CJmVSsmpfSUDaBmnMlHhQRGH9GS1Oy4ZtXhtdFWcBLC-wQnMWGlGyMUFGtalIkLJWLHigSIoyv69D2meceHTcHoj6Smr2v6SD0n9-MKclaKtnRE1-WU_1NtByhiUBUOOMqgaitHHwXb4uMbmT-_kYrcWUf5HuJkiVjn8yziXoGAX4wU8JEV4I1aJfAtXWHhKVv3F4gP44wzixoCOZboHz5vN-iba9ECourayDtEWpg.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72262,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:41+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72259,
+   "postUrl": "https://t.me/cointelegraph/72259",
+   "date": "2026-09-22T10:32:25+00:00",
+   "text": "🇮🇷 JUST IN: Iran reportedly offers to reopen the Strait of Hormuz within seven days if the US lifts its port blockade, per Kyodo News.\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F87AEF09F87B7.png')\"><b>🇮🇷</b></i> JUST IN: </b>Iran reportedly offers to reopen the Strait of Hormuz within seven days if the US lifts its port blockade, per Kyodo News.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 8790,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 48
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 35
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 19
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 12
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 3
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 3
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/c62xO_FfZcD7CgyX34I9GZ1VQfOeL_cduUVVaHIcd4EVmC0rD2gDmY1CnB5F2dwSbVjvVi6U6OVzPsgIs4TJR8iDzRqxaHpbTzyg4UstVmlX2Caqu-TLq2qOYE9fYyTTLsD54YpJcmZlNb-reD42SkEZ4mHKbz3NXcLNDQ6yrCyrEPnVq7GXc9vm2rwsj0PIZGNKnFoVfaKg_cbDuHy6d_6FLnaYEoKNNpPA1Wi9UuJLR3IOaTSRutIkjGzoeBfgazfRScL6V1LKblMGlhoIOQyAKuJ86-z6Kk3qUAmi32WBrXi-GrGKYJDtD0OCdxkyhL0qoIC3GJQO3ppl62gQ_Q.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/c62xO_FfZcD7CgyX34I9GZ1VQfOeL_cduUVVaHIcd4EVmC0rD2gDmY1CnB5F2dwSbVjvVi6U6OVzPsgIs4TJR8iDzRqxaHpbTzyg4UstVmlX2Caqu-TLq2qOYE9fYyTTLsD54YpJcmZlNb-reD42SkEZ4mHKbz3NXcLNDQ6yrCyrEPnVq7GXc9vm2rwsj0PIZGNKnFoVfaKg_cbDuHy6d_6FLnaYEoKNNpPA1Wi9UuJLR3IOaTSRutIkjGzoeBfgazfRScL6V1LKblMGlhoIOQyAKuJ86-z6Kk3qUAmi32WBrXi-GrGKYJDtD0OCdxkyhL0qoIC3GJQO3ppl62gQ_Q.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72259,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/uygAFE1jpmTFfDtzDiqd6izKt3NkQeQYaANWpf6_2IH-RUX26H55Oc28IxkA684MNnY3JJqBxMX-UOnJiArysnrA_NyyFK79ey4dUd8kZ9o0a1A3hxNLqq4WBArOaKsJKYFxXcAW-sh0z31orYKdUZ_qtmqdI-Axt1DOC10nDGsSdBIg2T0quxznzOFFsMPuM2Jistc2A3NjmqlSDa1rli45QBasvVP2emSEd7eA4wM8ZH-A8QSyJ9zmXobjPJic8PHMqzUtqZG0pQKHrEHEVJiUedZjjFTOTF9orDDiQ5PxSEWnO_tMJWgCRRyNERuhfkdLwqu9TOGSvNqKrl7p8A.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72260,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:41+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72257,
+   "postUrl": "https://t.me/cointelegraph/72257",
+   "date": "2026-09-22T10:03:10+00:00",
+   "text": "🇷🇺 NEW: Russia’s crypto industry could begin operating legally by year-end, per the CBR.\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F87B7F09F87BA.png')\"><b>🇷🇺</b></i> NEW: Russia’s crypto industry could begin operating legally by year-end, per the CBR.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 8750,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 31
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 27
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 12
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 6
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 2
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 2
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/RCyzeTS5fXUNeaUJmUgtxNocjuaCpY6AeH1sk0XBf-P7YdW4YU1sicD8FP0TTUm9uKQ8SDwl3b1wq39XJjaV3MA6Wio_IzzK3s91qWBPqHMK3_1rvxIb8ZfQtlkt1IXmlnfO7c3F-8aHV7gFnwm0ZI_ztAX39fv4aDozCfY1IFIQFJyJsYB6plCQme7yV30PH_eUpdNswNGMspsmkv6rXlyHcmSDgOSTBPYrUGpbCJmqNuEHMaCAyabSf_p9ppj_9WFNTkT3AxAXXo4cwn26V3T6l9_gxJaL89YMwq_4IjO8mQmxosehIvdVWlLv3EsIXAksTYh2LODNs_OrHm_F4w.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/RCyzeTS5fXUNeaUJmUgtxNocjuaCpY6AeH1sk0XBf-P7YdW4YU1sicD8FP0TTUm9uKQ8SDwl3b1wq39XJjaV3MA6Wio_IzzK3s91qWBPqHMK3_1rvxIb8ZfQtlkt1IXmlnfO7c3F-8aHV7gFnwm0ZI_ztAX39fv4aDozCfY1IFIQFJyJsYB6plCQme7yV30PH_eUpdNswNGMspsmkv6rXlyHcmSDgOSTBPYrUGpbCJmqNuEHMaCAyabSf_p9ppj_9WFNTkT3AxAXXo4cwn26V3T6l9_gxJaL89YMwq_4IjO8mQmxosehIvdVWlLv3EsIXAksTYh2LODNs_OrHm_F4w.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72257,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/Mi-thSGcusOTckwXeJeZZ6We1KT9xiYt4yCLduKMAP6Sp20Hb2kfztLvtuElF3JJyoW7zvSrLib2kyolPNY-Sknc5Gufinelzwbge0KhHDLAaSlY3XNNMZ9BHbo-4tmbPDoTfXV6q_gmhoU4cTQEbtGr_aPwH4Szk3RW9dMzygZqQJ817pDpLOA2_nwZH8Yw8oTssCjjsUCWtETcGg8HHdOI1pcL0sFSHLlk_qDhoh8QdErlPGfjuKKybH-pPEAjXl1Ywb1StYf1DKRNwHLAFA03Er6A_4S1HWRv1pgiQZ8zrtCdacqUTOpzIlLBo2mjfJbCDp7Maaf9CELYZRmLBA.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72258,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:41+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72255,
+   "postUrl": "https://t.me/cointelegraph/72255",
+   "date": "2026-09-22T09:48:58+00:00",
+   "text": "🇺🇸 ETF FLOWS: BTC, ETH and SOL spot ETFs saw net inflows on Sept. 21.\n\nBTC: $998.95M\nETH: $269.98M\nSOL: $26.1M\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F87BAF09F87B8.png')\"><b>🇺🇸</b></i> ETF FLOWS:</b> BTC, ETH and SOL spot ETFs saw net inflows on Sept. 21.<br><br>BTC: $998.95M<br>ETH: $269.98M<br>SOL: $26.1M<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 8410,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 43
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 17
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 3
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/g10MFdpB6QIIX9Dh72vWYgYDC023rJSWJzo1ebNrbr8NrQduNHvWV0GE7yJKaYR_JzG9vu9ufmsQ-sZCbipQeUjnbBeSsTvn3RV17I-c3Kma5w-RXmnvhL0J2u01C26cPll6SzDTYDw3_xB2qcwjd7I3YCsYiOyW7ZCjLHDe4qh8zBZIf5h2ZghxE4yZ13KBjEvrlqOEZ7MwRVUGuBNKFRsUH-d_DhGCcyzhxNvm1MQJcNUxJtVz1lyYBLYG6coQxFtctNWwGclWRKMXM1SJFYQvUV2zeycx7vGwm7guCTRyNonF-1VOr6tCPd-WkvFYnkuptDSFbiUmLvZnZ-iBqQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/g10MFdpB6QIIX9Dh72vWYgYDC023rJSWJzo1ebNrbr8NrQduNHvWV0GE7yJKaYR_JzG9vu9ufmsQ-sZCbipQeUjnbBeSsTvn3RV17I-c3Kma5w-RXmnvhL0J2u01C26cPll6SzDTYDw3_xB2qcwjd7I3YCsYiOyW7ZCjLHDe4qh8zBZIf5h2ZghxE4yZ13KBjEvrlqOEZ7MwRVUGuBNKFRsUH-d_DhGCcyzhxNvm1MQJcNUxJtVz1lyYBLYG6coQxFtctNWwGclWRKMXM1SJFYQvUV2zeycx7vGwm7guCTRyNonF-1VOr6tCPd-WkvFYnkuptDSFbiUmLvZnZ-iBqQ.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72255,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/jicdw0F6v0pAhJGm70fHQklGYJjYWGqvi6VzlXNYMNMILL6ndA3WBwa8hccBdlfUdWobv-MjDKBltUSFU1k6-4-kI6BYpim8lHYiBcGsPe-2rUIKttX1IRT0oQwYlncbU-IZutsKpkalQwNlUd07rhbfiuLUIvGWFxCTuWZ4iGa8ywcIHsT8h8j7sGcph3mfxVznaTQ_rh6yoQQusUyZAXI7TGAGIS5Q2-gAYNwK-DIhL35ag7R_areTkJ7L3KZzZjgU-OF3aIdXEAQTEATozHjf61gX0Nfvko7SBc15ypEC0gapTGxxYrwF65xwCVsUOkNQJ6wgcBKrtIrxxtDQNg.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72256,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:41+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72254,
+   "postUrl": "https://t.me/cointelegraph/72254",
+   "date": "2026-09-22T04:01:57+00:00",
+   "text": "🔥 NOW: The altcoin cycle signal has switched from Bitcoin to altcoin season as today's rally spreads across the broader altcoin market, per Glassnode.\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F94A5.png')\"><b>🔥</b></i> <b>NOW</b>: The altcoin cycle signal has switched from Bitcoin to altcoin season as today's rally spreads across the broader altcoin market, per Glassnode.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 9560,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 46
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 25
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 23
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 6
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 3
+    },
+    {
+     "type": "emoji",
+     "emoji": "👎",
+     "customEmojiId": null,
+     "count": 2
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn5.telesco.pe/file/jlaD2OIR2C_4ReroQvc9aiN6wz8zqeCWJKYdq-FcHtWfbOgrQ05RdDrborLOF5fUrgSD8_If5z1I9BMByGWXo3kJdoNvLvAUwJMvNUKCiQt7BOTzKpDSwECydkB_DbJ5B4-S59iLmZ3H4g_Vza7D2tFIsxubdpOSNiqUQ25EhWkmBi_QM1DEelTo2irQmEYlU8EeLVmNSXtswB3YfCU5f8hkoCuSLbYmM9JQm-cCXEDq0oj3FGRknl-PI-W1MrDTunNX277glBBgqYMr4BujUWuL3dKiu8OX74BSyLkexy07loqMcXlQAVbd68C7CsUCQgTPPtfEGsIGZy4LKe4cbQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/jlaD2OIR2C_4ReroQvc9aiN6wz8zqeCWJKYdq-FcHtWfbOgrQ05RdDrborLOF5fUrgSD8_If5z1I9BMByGWXo3kJdoNvLvAUwJMvNUKCiQt7BOTzKpDSwECydkB_DbJ5B4-S59iLmZ3H4g_Vza7D2tFIsxubdpOSNiqUQ25EhWkmBi_QM1DEelTo2irQmEYlU8EeLVmNSXtswB3YfCU5f8hkoCuSLbYmM9JQm-cCXEDq0oj3FGRknl-PI-W1MrDTunNX277glBBgqYMr4BujUWuL3dKiu8OX74BSyLkexy07loqMcXlQAVbd68C7CsUCQgTPPtfEGsIGZy4LKe4cbQ.jpg",
+     "thumbnailUrl": null,
+     "width": 800,
+     "height": 450,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "6165923039929897679",
+     "postId": 72254,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:41+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72253,
+   "postUrl": "https://t.me/cointelegraph/72253",
+   "date": "2026-09-22T02:31:57+00:00",
+   "text": "🚨 JUST IN: Crypto Fear & Greed Index jumps to 78, entering \"Extreme Greed\" territory for the first time this month.\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F9AA8.png')\"><b>🚨</b></i> <b>JUST IN</b>: Crypto Fear &amp; Greed Index jumps to 78, entering \"Extreme Greed\" territory for the first time this month.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 9590,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 27
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 25
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 6
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 4
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 2
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "photo",
+   "mediaUrl": "https://cdn5.telesco.pe/file/btk-x6LIwT0jMbeFG3LDXXbD9oXYezILbaAwr619Dp21TpTI5gPtD6f6Cb1OOT89w-YOKE0krpidx1EqmybQCJ8xbkXBrvzZbLNHCIguM5Ku6bJL7BPadtOHnqGjf8smh9rN861Do8e5rT-57DXxECutyWH2cwetdP5NaTTj23MCW1ZopJqZWBUkvpKWXrGNQjk61GhMh8p-1p8ODz7ZAGT0ORANxnUqi8_Jvu8tGv20lcoRjWYfZFVnUf7XY6NDXiTtexRJQNDRTMHwlwjlOH6-694rdZ157uk89e97Hb_qCw34gkk0KXZTvQplKLarjj4sFhEdnpSSmAKah2VTBQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/btk-x6LIwT0jMbeFG3LDXXbD9oXYezILbaAwr619Dp21TpTI5gPtD6f6Cb1OOT89w-YOKE0krpidx1EqmybQCJ8xbkXBrvzZbLNHCIguM5Ku6bJL7BPadtOHnqGjf8smh9rN861Do8e5rT-57DXxECutyWH2cwetdP5NaTTj23MCW1ZopJqZWBUkvpKWXrGNQjk61GhMh8p-1p8ODz7ZAGT0ORANxnUqi8_Jvu8tGv20lcoRjWYfZFVnUf7XY6NDXiTtexRJQNDRTMHwlwjlOH6-694rdZ157uk89e97Hb_qCw34gkk0KXZTvQplKLarjj4sFhEdnpSSmAKah2VTBQ.jpg",
+     "thumbnailUrl": null,
+     "width": 785,
+     "height": 351,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": "6165923039929897680",
+     "postId": 72253,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:41+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72251,
+   "postUrl": "https://t.me/cointelegraph/72251",
+   "date": "2026-09-22T01:32:04+00:00",
+   "text": "🇺🇸 JUST IN: US DOJ is investigating whether Binance violated Iran sanctions by failing to block certain trades on its platform, per Bloomberg.\n\nNews | Markets | YouTube",
+   "textHtml": "<i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/F09F87BAF09F87B8.png')\"><b>🇺🇸</b></i> <b>JUST IN</b>: US DOJ is investigating whether Binance violated Iran sanctions by failing to block certain trades on its platform, per Bloomberg.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": false,
+   "isService": false,
+   "viaBot": null,
+   "views": 8730,
+   "reactions": [
+    {
+     "type": "paid",
+     "emoji": null,
+     "customEmojiId": null,
+     "count": 1
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 40
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 11
+    },
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 7
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 2
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": null,
+   "mediaType": "album",
+   "mediaUrl": "https://cdn5.telesco.pe/file/Xv46wMRttNJadz3ct8IiBFYadvnRdPtYvfhNCYQnZVtPnm-iwIOcqQMYo4h_pvdQQGZN3sjIY4Lhz-QLzWJ72XJfB-8It_J9O6A8U_Pqa4TJ_-8uq2qxRi8A6qMjejFxbkj0XsN5H3a3X38JZer79rgWTEBdWG9Bi8Fl2pq5_G6DPku5Zk-KHYUjoWGevoG4CsAQDeDScbEND-62v1iqRPnInDMEDxBoLcyYkP5Vy5FY2WYg9hbufLOBbQme4BhpJZl8gnLYDTD9BrTxq-EYDq4evR7_tVIqPq1JCJVVQybPTay-u3nZ2CH-ZeQvr-bPbE4YVr6o1R31wtVbuHZncQ.jpg",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/Xv46wMRttNJadz3ct8IiBFYadvnRdPtYvfhNCYQnZVtPnm-iwIOcqQMYo4h_pvdQQGZN3sjIY4Lhz-QLzWJ72XJfB-8It_J9O6A8U_Pqa4TJ_-8uq2qxRi8A6qMjejFxbkj0XsN5H3a3X38JZer79rgWTEBdWG9Bi8Fl2pq5_G6DPku5Zk-KHYUjoWGevoG4CsAQDeDScbEND-62v1iqRPnInDMEDxBoLcyYkP5Vy5FY2WYg9hbufLOBbQme4BhpJZl8gnLYDTD9BrTxq-EYDq4evR7_tVIqPq1JCJVVQybPTay-u3nZ2CH-ZeQvr-bPbE4YVr6o1R31wtVbuHZncQ.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72251,
+     "unavailable": null
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn5.telesco.pe/file/tFnatjsitZNBx_FaXDNSEbc8lY58tJFUs51vFPAw0dkZaO8PoylfgLkMvayHbpUcPxZSNJSJkSqUARHxnNFNNxPEFKqmSfVnS-I-lqpb-jFqRXYV5J6tjN-KIU3YrPIXebZlpoXLaGBWJ8iHtTtdPR51soppAk-WkR0vsgcT3IOkSGktCah4hUeK9H0imV9bJg76NCvmFxvC7F93HLwqGw_fOfINHP5MUfqRH_0FYQs9LVJ94yEzNqWGosOr9xeKXhRdwn30Md31VoHSNQaWx-0gXmb7ha6QA4GEOP4CuoLl2f37zp5S8OrCrf9COac86eMbxKW7VaITmF31BbfozQ.jpg",
+     "thumbnailUrl": null,
+     "width": null,
+     "height": null,
+     "durationSeconds": null,
+     "fileName": null,
+     "fileSize": null,
+     "fileId": null,
+     "postId": 72252,
+     "unavailable": null
+    }
+   ],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:41+00:00"
+  },
+  {
+   "channel": "cointelegraph",
+   "channelId": 1072723547,
+   "channelTitle": "Cointelegraph",
+   "channelSubscribers": 334000,
+   "postId": 72250,
+   "postUrl": "https://t.me/cointelegraph/72250",
+   "date": "2026-09-21T21:50:21+00:00",
+   "text": "⚡️ NEW: X launches live stock and crypto tickers with a Trade button linked to Coinbase, Gemini, Kraken, Moomoo and Interactive Brokers.\n\nNews | Markets | YouTube",
+   "textHtml": "<b><i class=\"emoji\" style=\"background-image:url('//telegram.org/img/emoji/40/E29AA1.png')\"><b>⚡️</b></i> NEW: </b>X launches live stock and crypto tickers with a Trade button linked to Coinbase, Gemini, Kraken, Moomoo and Interactive Brokers.<br><br><a href=\"https://cointelegraph.com/\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">News</a> | <a href=\"https://cointelegraph.com/category/markets\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">Markets</a> | <a href=\"https://www.youtube.com/@cointelegraph\" target=\"_blank\" rel=\"noopener\" onclick=\"return confirm('Open this link?\\n\\n'+this.href);\">YouTube</a>",
+   "textTruncated": false,
+   "author": null,
+   "isEdited": true,
+   "isService": false,
+   "viaBot": null,
+   "views": 8710,
+   "reactions": [
+    {
+     "type": "emoji",
+     "emoji": "❤",
+     "customEmojiId": null,
+     "count": 30
+    },
+    {
+     "type": "emoji",
+     "emoji": "🔥",
+     "customEmojiId": null,
+     "count": 11
+    },
+    {
+     "type": "emoji",
+     "emoji": "😱",
+     "customEmojiId": null,
+     "count": 6
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤡",
+     "customEmojiId": null,
+     "count": 5
+    },
+    {
+     "type": "emoji",
+     "emoji": "🤣",
+     "customEmojiId": null,
+     "count": 1
+    }
+   ],
+   "forwardedFrom": null,
+   "replyTo": null,
+   "links": [
+    "https://cointelegraph.com/",
+    "https://cointelegraph.com/category/markets",
+    "https://www.youtube.com/@cointelegraph"
+   ],
+   "buttons": [],
+   "linkPreview": {
+    "url": "https://cointelegraph.com/",
+    "siteName": "Cointelegraph",
+    "title": "Cointelegraph Bitcoin & Ethereum Blockchain News",
+    "description": "The most recent news about crypto industry at Cointelegraph. Latest news about bitcoin, ethereum, blockchain, mining, cryptocurrency prices and more",
+    "imageUrl": "https://cdn4.telesco.pe/file/TRfGliHFRV-gsATEkv7SOULCTd682ajD1oNA2TvNOVTeAZg-yz6eEZ3tJhuCCNtjfjWtktkoUZrxakHKTDPI2HplGh5L90ONfQTcDmHGE1Y4wayUmo0EnMOxy_6jWK4o1QSaASlan7iJnTGswv28zBKaTKt4ehlSlPpOWl4MovTqIi0aSCuF_-0bxl5RnaUliGZ40wEu5gPPbp3ur07Stak6eMID13m1_2IZ5E1Sg0v_b9oxBxIKieVqiH3fI7J45DVtVwLXj87Ei56qKSGr74hTvZ0Lh0Lpw4ryRHYyBKC-Jz0HtXcoPfMv789RomZ0ykjQ7d91b92vBoDqnboFcQ.jpg",
+    "videoUrl": null
+   },
+   "mediaType": null,
+   "mediaUrl": null,
+   "media": [],
+   "poll": null,
+   "unsupported": null,
+   "scrapedAt": "2026-09-23T17:47:41+00:00"
+  }
+ ]
+}

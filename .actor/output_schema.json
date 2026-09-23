@@ -1,0 +1,26 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Telegram Channel Scraper output",
+    "description": "Posts from each public channel, one row each with text, date, views, reactions, media links, links and buttons, plus a run summary with the result for every channel.",
+    "type": "object",
+    "properties": {
+        "posts": {
+            "type": "string",
+            "title": "Posts (dataset)",
+            "description": "One row per post: channel, channelId, channelTitle, channelSubscribers, postId, postUrl, date (UTC), text, textHtml, textTruncated, author, isEdited, isService, viaBot, views, reactions (type, emoji, customEmojiId, count), forwardedFrom (name, url, author), replyTo (postId, url, channel), links, buttons (text, url, row, column, type), linkPreview (url, siteName, title, description, imageUrl, videoUrl), mediaType, mediaUrl, media (every item: type, url, thumbnailUrl, width, height, durationSeconds, fileName, fileSize, fileId, postId, unavailable, plus title and performer on music and latitude and longitude on a location), poll (question, type, options, voters), unsupported, scrapedAt. Every key is always present, null when the post has no such part. Media links are Telegram's own and stop working after a while. Rows arrive about 20 posts at a time and each row is charged as one post when it is delivered.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "summary": {
+            "type": "string",
+            "title": "Run summary (JSON)",
+            "description": "While the run is going this record holds status 'running', percentDone, a plain-language message and progress per channel, refreshed about every 10 seconds. When the run ends it becomes the full summary: status 'done', totalPosts, and for every channel the input as typed, the channel name, channelId, status (ok, partial or skipped), the reason in plain English, the number of posts delivered and the newest and oldest post dates, plus the message also shown as the run status.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+        },
+        "log": {
+            "type": "string",
+            "title": "Run log",
+            "description": "Progress per channel, any retries, and the reason a channel was skipped or stopped early.",
+            "template": "{{links.publicRunUrl}}/log"
+        }
+    }
+}
