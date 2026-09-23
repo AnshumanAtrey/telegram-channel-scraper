@@ -10,8 +10,8 @@
     "maxPosts": 100
   },
   "actorPermissionLevel": "LIMITED_PERMISSIONS",
-  "isPublic$comment": "Not published. Publication is a later owner decision, taken after a paid test run on the platform shows the post charges firing; a paid public actor cannot be unpublished (cannot-unpublish-paid-actor). To publish, set true and push.",
-  "isPublic": false,
+  "isPublic$comment": "Publication is declared here so GitHub governs it like every other listing field. Published 2026-09-24 (v1.0, build 1.0.4) after the paid platform test (runs/2026-09-23_build1.0.3_paid_test.json: 200 posts, 200 post charges; a $0.03 limit stopped at exactly 100). A paid public actor cannot be made private again until monetization is cancelled in Console (cannot-unpublish-paid-actor).",
+  "isPublic": true,
   "defaultRunOptions$comment": "256 MB, measured on the platform 2026-09-23 (runs/2026-09-23_build1.0.2_*.json): the same 2,000-post walk of one channel took 220 s at 128 MB, 142 s at 256 MB and 125 s at 512 MB, costing $0.0112, $0.0096 and $0.0124 in platform usage. The run waits on Telegram, not on the CPU, so 256 MB is the cheapest and 512 MB buys 12% speed for 30% more cost. Peak memory 65 to 99 MB. actor.json caps memory at 1024 MB because more never helps. Timeout 3600 s: one channel reads about 14 posts a second (about 50,000 an hour, five channels at once), so only a full-history pull of a very large channel reaches it; rows delivered before that are kept and charged, nothing else is. Apify rejects unknown keys inside this object, so the comment lives here.",
   "defaultRunOptions": {
     "build": "latest",
