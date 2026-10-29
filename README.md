@@ -52,7 +52,7 @@ Two more things you only notice when something goes wrong:
 
 ## What does it cost?
 
-Pay per post: **$0.30 per 1,000 posts** ($0.0003 each). No start fee, no monthly fee, platform compute included.
+Pay per post: **$0.30 per 1,000 posts** ($0.0003 each). No start fee, no monthly fee, platform compute included. On paid Apify plans it is less: $0.27 per 1,000 on Scale and $0.24 on Business and above.
 
 | Run | Posts | Price |
 |---|---|---|
@@ -84,7 +84,7 @@ The same job with the most-used Telegram scrapers on the Apify Store, worked out
 | [Telegram Channel Scraper - Messages & Members](https://apify.com/george.the.developer/telegram-channel-scraper) by george.the.developer | $0.005 | None | $0.50 | $5.00 | $50.00 | - |
 | [Telegram Channel Scraper](https://apify.com/thescrapelab/Apify-Telegram-Scraper) by thescrapelab | $0.00069 | $0.00005 | $0.069 | $0.69 | $6.90 | - |
 
-Several of these actors discount their prices on paid Apify plans. On the top paid tiers, fetch_cat, automation-lab and truefetch cost less per post than this actor's flat $0.0003, so compare at your own plan if you run millions of posts. What each one returns also differs: see the field comparison above.
+Several of these actors discount their prices on paid Apify plans, and this one does too: $0.27 per 1,000 posts on Scale and $0.24 on Business and above. fetch_cat, automation-lab and truefetch discount on the top tiers as well, so compare at your own plan if you run millions of posts. What each one returns also differs: see the field comparison above.
 
 ## Which inputs does it take?
 

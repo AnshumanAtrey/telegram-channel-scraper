@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-29
+
+### Changed
+- A run where Telegram answered for every name (deleted, a group, a person, a bot, no web
+  preview) now ends SUCCEEDED with the reasons in the status message and `OUTPUT`, and nothing
+  charged. It used to end FAILED, which counted against the actor's reliability: a 284-run batch on
+  2026-10-27 ended 13 runs that way. A run still fails when it read nothing and t.me could not be
+  reached for a name. A time or spending limit that leaves no room for a channel is the user's
+  setting, so that run also succeeds and says why.
+- Apify SDK 4 (`apify>=4.1,<5`): SDK 3.x raised on runs started by Apify's AI assistant.
+- Store discounts: $0.27 per 1,000 posts on Scale, $0.24 on Business and above; Free and Starter
+  stay at $0.30.
+- Three example tasks on the Store (`.actor/tasks.json`, published by CI).
+
 ## [1.0] - 2026-09-23
 
 First release. Reads public Telegram channels through the web preview (t.me/s/<channel>) with no
@@ -18,7 +32,7 @@ login, one dataset row per post.
 - Channels that cannot be read (groups, personal accounts, bots, missing names, private invite
   links, channels with the web preview off, channels Telegram blocks) are skipped with a plain
   reason in the `OUTPUT` summary; blocked channels carry Telegram's own words. The run fails only
-  when no channel could be read.
+  when no channel could be read (narrowed on 2026-10-29, above).
 - Posts the web preview shows only as "Please open Telegram to view this post" get their text
   from the post's own page (`textTruncated` when Telegram cut it at about 1,000 characters).
 - Pay per event: one `post` event per delivered row at $0.0003, no start fee. A spending limit

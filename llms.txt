@@ -63,7 +63,7 @@ Typical costs:
 - Telegram Channel Scraper - Messages & Members (george.the.developer): $0.005 per post, start fee none; 1,000 posts $5.00
 - Telegram Channel Scraper (thescrapelab): $0.00069 per post, start fee $0.00005; 1,000 posts $0.69
 
-On top paid Apify tiers, fetch_cat, automation-lab and truefetch discount below $0.0003 per post.
+On paid Apify plans the price drops to $0.27 per 1,000 posts on Scale and $0.24 on Business and above; fetch_cat, automation-lab and truefetch discount on the top tiers too.
 
 ## Verified performance
 

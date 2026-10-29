@@ -49,7 +49,11 @@ const LIMITS = { title: 63, description: 300, seoTitle: 60, seoDescription: 200 
 const BANNED_CHARS = /[—–]/;                       // em dash, en dash
 const BANNED_WORDS = /\b(leverage|robust|seamlessly|effortlessly|cutting-edge|streamline|empower|unleash)\b/i;
 
+const SLUG = /^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])$/;
 const desired = {
+  // name is only managed when the actor is pinned by ID (store.actorId); then a new
+  // name in actor.json renames the same actor instead of creating another one.
+  name: store.actorId ? actor.name : undefined,
   title: actor.title,
   description: actor.description,
   categories: actor.categories || [],
@@ -76,12 +80,22 @@ for (const k of ['title', 'description', 'seoTitle', 'seoDescription']) {
   if (BANNED_CHARS.test(v)) problems.push(`${k} contains an em/en dash - use "-" or "|"`);
   const w = v.match(BANNED_WORDS); if (w) problems.push(`${k} uses banned word "${w[0]}"`);
 }
+if (desired.name !== undefined && (!SLUG.test(desired.name) || desired.name.length < 3 || desired.name.length > 63)) problems.push(`name "${desired.name}" is not a valid slug (3-63 chars, letters, digits, hyphens)`);
 if (desired.categories.length > 3) problems.push(`categories has ${desired.categories.length} entries, limit 3`);
+// An event is priced flat (eventPriceUsd) or per discount tier (eventTieredPricingUsd: Store discounts).
+const TIERS = ['FREE', 'BRONZE', 'SILVER', 'GOLD', 'PLATINUM', 'DIAMOND'];
+const tierPrices = (ev) => TIERS.map((t) => (ev.eventTieredPricingUsd ? ev.eventTieredPricingUsd[t]?.tieredEventPriceUsd : ev.eventPriceUsd));
+const showPrice = (ev) => (ev.eventTieredPricingUsd ? TIERS.map((t, i) => `${t}:$${tierPrices(ev)[i]}`).join('/') : `$${ev.eventPriceUsd}`);
+if (store.pricing?.apply) {
+  for (const [name, ev] of Object.entries(store.pricing.pricingInfos.at(-1).pricingPerEvent.actorChargeEvents)) {
+    if (tierPrices(ev).some((p) => typeof p !== 'number')) problems.push(`pricing event ${name} needs a price for every tier (${TIERS.join(', ')})`);
+  }
+}
 if (problems.length) { console.error('Listing rules violated:\n  - ' + problems.join('\n  - ')); process.exit(1); }
 
 /* ------------------------------------------------------------ diff + apply -- */
 const me = await api('GET', '/users/me');
-const actorId = `${me.username}~${actor.name}`;
+const actorId = store.actorId || `${me.username}~${actor.name}`;
 const live = await api('GET', `/acts/${actorId}`);
 
 const changes = {};
@@ -116,9 +130,11 @@ if (store.pricing?.apply) {
     const liveEvents = current?.pricingPerEvent?.actorChargeEvents || {};
     const lower = []; const higher = []; const added = [];
     for (const [name, ev] of Object.entries(desiredEvents)) {
-      if (!(name in liveEvents)) added.push(name);
-      else if (ev.eventPriceUsd < liveEvents[name].eventPriceUsd) lower.push(name);
-      else if (ev.eventPriceUsd > liveEvents[name].eventPriceUsd) higher.push(name);
+      if (!(name in liveEvents)) { added.push(name); continue; }
+      // Compared tier by tier, so flat -> tiered with no tier above the old price is a decrease.
+      const want = tierPrices(ev); const have = tierPrices(liveEvents[name]);
+      if (want.some((p, i) => p > have[i])) higher.push(name);
+      else if (want.some((p, i) => p < have[i])) lower.push(name);
     }
     if (!lower.length && !higher.length && !added.length) console.log('pricing: live prices match the repo');
     else if (future) console.log(`pricing: a future record starts ${future.startedAt.slice(0, 19)}Z; the API allows only one, so nothing can be appended until then (will reconcile on the next run after it starts)`);
@@ -126,8 +142,17 @@ if (store.pricing?.apply) {
     else {
       const now = new Date().toISOString();
       const rec = JSON.parse(JSON.stringify(current));
-      for (const name of lower) rec.pricingPerEvent.actorChargeEvents[name].eventPriceUsd = desiredEvents[name].eventPriceUsd;
-      rec.createdAt = now; rec.startedAt = now; rec.reasonForChange = `Price decrease to match the repo: ${lower.join(', ')}`;
+      for (const name of lower) {
+        const ev = rec.pricingPerEvent.actorChargeEvents[name];
+        const want = desiredEvents[name];
+        delete ev.eventPriceUsd; delete ev.eventTieredPricingUsd;
+        if (want.eventTieredPricingUsd) ev.eventTieredPricingUsd = want.eventTieredPricingUsd;
+        else ev.eventPriceUsd = want.eventPriceUsd;
+      }
+      // The repo's reason is used only when it is new, so a stale one is never re-sent.
+      const repoReason = store.pricing.pricingInfos.at(-1).reasonForChange;
+      rec.createdAt = now; rec.startedAt = now;
+      rec.reasonForChange = repoReason && repoReason !== current.reasonForChange ? repoReason : `Price decrease to match the repo: ${lower.join(', ')}`;
       changes.pricingInfos = [...livePricing, rec];
       console.log(`pricing: appending a decrease for ${lower.join(', ')} (effective immediately)`);
     }
@@ -146,7 +171,7 @@ await api('PUT', `/acts/${actorId}`, changes);
 const after = await api('GET', `/acts/${actorId}`);
 if (changes.pricingInfos) {
   const ev = after.pricingInfos?.at(-1)?.pricingPerEvent?.actorChargeEvents || {};
-  console.log(`pricing applied: ${Object.entries(ev).map(([k, v]) => `${k}=$${v.eventPriceUsd}`).join(', ') || 'NOT VISIBLE - check Console'}`);
+  console.log(`pricing applied: ${Object.entries(ev).map(([k, v]) => `${k}=${showPrice(v)}`).join(', ') || 'NOT VISIBLE - check Console'}`);
 }
 // defaultRunOptions comes back with extra server-side keys; compare only what we sent.
 const same = (k) => (k === 'defaultRunOptions'

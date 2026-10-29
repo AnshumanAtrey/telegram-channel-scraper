@@ -1,0 +1,69 @@
+{
+  "$comment": "Example tasks published on the Store by scripts/publish-tasks.mjs after every deploy (CI only). Each one is a search people type, with its own Google-indexed landing page and .md (manager/rules/SEO.md). Channels are large public ones that the tests and the recon read.",
+  "options": {
+    "build": "latest",
+    "memoryMbytes": 256,
+    "timeoutSecs": 3600
+  },
+  "tasks": [
+    {
+      "name": "export-telegram-channel-posts",
+      "title": "Export Telegram channel posts to CSV, Excel or JSON",
+      "description": "Download the newest 500 posts of a public Telegram channel with no login and no API key: text, date, views, reactions, photo and video links, files, links and the inline buttons under each post, one row per post. Replace durov with any public channel; @names and t.me links work too.",
+      "input": {
+        "channels": [
+          "durov"
+        ],
+        "maxPosts": 500
+      },
+      "seoTitle": "Export Telegram Channel Posts - CSV, Excel, JSON",
+      "seoDescription": "Download every post of a public Telegram channel with no login: text, date, views, reactions, media links and buttons, ready for CSV, Excel or JSON.",
+      "inputSchemaFields": [
+        "channels",
+        "maxPosts",
+        "postedAfter"
+      ],
+      "datasetView": "overview"
+    },
+    {
+      "name": "telegram-channel-monitor-last-7-days",
+      "title": "Telegram channel monitor: every post from the last 7 days",
+      "description": "Collect every post several public Telegram channels published in the last 7 days, counted back from each run, so a daily or weekly schedule gives a rolling feed with views and reactions. Swap in the channels you follow; a span such as 24 hours is typed as 1 day.",
+      "input": {
+        "channels": [
+          "durov",
+          "telegram",
+          "cointelegraph"
+        ],
+        "postedAfter": "7 days"
+      },
+      "seoTitle": "Telegram Channel Monitor - Last 7 Days of Posts",
+      "seoDescription": "Every post from the last 7 days of the public Telegram channels you pick, with views, reactions and media links. Schedule it for a rolling feed, no login.",
+      "inputSchemaFields": [
+        "channels",
+        "postedAfter",
+        "maxPosts"
+      ],
+      "datasetView": "overview"
+    },
+    {
+      "name": "telegram-media-links-scraper",
+      "title": "Telegram media scraper: photo, video and file links per post",
+      "description": "List the photo, video and file links of a public Telegram channel's posts, every album item included, with file names and sizes where Telegram shows them. Links point to Telegram's own servers, so download them soon after the run.",
+      "input": {
+        "channels": [
+          "telegram"
+        ],
+        "maxPosts": 200
+      },
+      "seoTitle": "Telegram Media Scraper - Photo, Video, File Links",
+      "seoDescription": "Get the photo, video and file links of a public Telegram channel's posts, album items included, with file names and sizes. No login, no API key.",
+      "inputSchemaFields": [
+        "channels",
+        "maxPosts",
+        "postedAfter"
+      ],
+      "datasetView": "media"
+    }
+  ]
+}

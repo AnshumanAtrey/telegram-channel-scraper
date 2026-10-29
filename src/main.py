@@ -9,15 +9,20 @@ channels; the paging and retry traps are in telegram.py, the markup traps in par
   with a plain reason in OUTPUT instead of an empty, unexplained result.
 - Five channels are read at once. Pages inside a channel go one after another, newest
   first, because each page's link to older posts comes from the page before it.
+- A name Telegram answers for (deleted, a group, a person, no web preview) is a result,
+  not a fault: it is reported and the run still succeeds, with nothing charged. The run
+  fails only when it read nothing and t.me could not be reached for at least one name
+  (2026-10-29: a 284-run batch ended 13 runs FAILED, the same path as run
+  JqXQhXZ2OdFI2AJSQ on a name that does not exist).
 - One dataset row per post, charged as one "post" event, pushed page by page. A
   spending limit or a near time limit stops the run between pages and keeps every row
   already delivered; the count of delivered rows comes from the charge result, because
   the SDK silently drops rows it cannot charge.
 - No summary row in the dataset, so CSV and Excel exports hold posts only. The run
   summary is the OUTPUT record, refreshed about every 10 s and final at the end.
-- A status message that can never fail the run. SDK 3.x validates the run object
-  against an enum that lacks the new APIFY_AI run origin; the message is stored
-  server-side before that parse, so a parse error is logged, not raised.
+- A status message that can never fail the run. SDK 3.x validated the run object
+  against an enum that lacked the APIFY_AI run origin and raised after the message was
+  stored; SDK 4 parses it, and the guard stays for any origin added later.
 """
 import asyncio
 import time
@@ -148,7 +153,8 @@ def final_message(channels: list[dict], scope: str, stop: str | None) -> str:
     if read:
         head = f'Got {total:,} posts from {len(read)} of {len(channels)} channels: {scope}.'
     else:
-        head = f'No posts: none of the {len(channels)} channels could be read.'
+        n = len(channels)
+        head = f'No posts, so nothing was charged: none of the {n} channel{"s" if n != 1 else ""} could be read.'
     parts = [head]
     if stop:
         parts.append(f'The run stopped early because {STOP_REASONS[stop]}. Every post counted here was delivered.')
@@ -210,7 +216,8 @@ async def main() -> None:
 
         channels = [{'input': e['input'], 'channel': None, 'channelId': None,
                      'status': 'waiting' if e['handle'] else 'skipped', 'reason': e['reason'],
-                     'posts': 0, 'newestDate': None, 'oldestDate': None} for e in entries]
+                     'posts': 0, 'newestDate': None, 'oldestDate': None,
+                     'error': False} for e in entries]   # error: t.me unreachable or a bug, not an answer
         run = {'stop': None, 'last_status': 0.0, 'last_output': 0.0}
         claimed: dict[int, str] = {}           # channel id -> the input that already read it
         progress_lock = asyncio.Lock()
@@ -243,7 +250,7 @@ async def main() -> None:
         async def read_channel(entry: dict, handle: str, client) -> None:
             status, reason, page = await check_channel(client, handle)
             if status != 'ok':
-                entry.update(status='skipped', reason=reason)
+                entry.update(status='skipped', reason=reason, error=status == 'error')
                 Actor.log.warning(f'Skipped: {reason}')
                 return
             ch = page.channel
@@ -309,7 +316,7 @@ async def main() -> None:
                     Actor.log.exception(f'@{handle}: unexpected error')
                     what = (f'Stopped after {entry["posts"]:,} posts' if entry['posts']
                             else f'@{handle} could not be read')
-                    entry.update(status='partial' if entry['posts'] else 'skipped', reason=(
+                    entry.update(status='partial' if entry['posts'] else 'skipped', error=True, reason=(
                         f'{what} because of an unexpected error ({exc}). This is on us, not you: please report it.'))
                 await report()
 
@@ -324,7 +331,8 @@ async def main() -> None:
         await safe_status(message[:500])
         Actor.log.info(message)
 
-        if not any(e['status'] in ('ok', 'partial') for e in channels):
+        # Nothing read is a failure only when we could not ask: names Telegram answered for are results.
+        if not any(e['status'] in ('ok', 'partial') for e in channels) and any(e['error'] for e in channels):
             await Actor.fail(status_message=message[:500])
 
 

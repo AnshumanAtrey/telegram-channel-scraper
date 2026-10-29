@@ -487,11 +487,20 @@ def test_actor_fails_cleanly_on_empty_or_invalid_input(tmp_path):
     assert code == 1 and 'is not a date the post filter understands' in log
 
 
-def test_actor_fails_when_every_channel_is_skipped(tmp_path):
+def test_actor_succeeds_when_telegram_answers_for_every_name(tmp_path):
+    # A group (or a deleted name) is Telegram's answer, not our fault: report it, succeed, charge nothing.
     code, rows, output, log = run_actor(tmp_path, {'channels': ['ru_python']})
-    assert code == 1 and rows == []
+    assert code == 0 and rows == [], log
     assert output['status'] == 'done' and output['channels'][0]['status'] == 'skipped'
-    assert 'is a group' in output['message']
+    assert 'is a group' in output['message'] and 'nothing was charged' in output['message']
+    assert 'error' not in output['channels'][0], 'the private flag stays out of OUTPUT'
+
+
+def test_actor_fails_when_t_me_cannot_be_reached(tmp_path):
+    # The harness answers a path it has no page for with a connection error, so every try fails.
+    code, rows, output, log = run_actor(tmp_path, {'channels': ['nowhere_channel']})
+    assert code == 1 and rows == []
+    assert 'Could not reach t.me for @nowhere_channel' in output['channels'][0]['reason']
 
 
 def test_actor_marks_a_channel_partial_when_a_page_keeps_failing(tmp_path):
@@ -529,7 +538,7 @@ def test_actor_date_filter_alone_reads_back_to_the_date(tmp_path):
 def test_actor_with_no_time_left_reads_nothing_and_says_why(tmp_path):
     past = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     code, rows, output, log = run_actor(tmp_path, {'channels': ['tchantest']}, env={'ACTOR_TIMEOUT_AT': past})
-    assert code == 1 and rows == []
+    assert code == 0 and rows == [], 'a run option the user set is an answer, not a fault'
     assert 'was not read because the run was about to reach its time limit' in output['channels'][0]['reason']
 
 
