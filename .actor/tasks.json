@@ -1,5 +1,5 @@
 {
-  "$comment": "Example tasks published on the Store by scripts/publish-tasks.mjs after every deploy (CI only). Each one is a search people type, with its own Google-indexed landing page and .md (manager/rules/SEO.md). Channels are large public ones that the tests and the recon read.",
+  "$comment": "Example tasks published on the Store by scripts/publish-tasks.mjs after every deploy (CI only). Each one is a search people type, with its own Google-indexed landing page and .md (manager/rules/SEO.md). Channels are large public ones that the tests and the recon read. Tasks marked publish false stay saved but off the Store: the account publishes at most 100 pages across all actors, so each actor keeps 2 or more by its earnings and search traffic (2026-11-11).",
   "options": {
     "build": "latest",
     "memoryMbytes": 256,
@@ -48,6 +48,7 @@
     },
     {
       "name": "telegram-media-links-scraper",
+      "publish": false,
       "title": "Telegram media scraper: photo, video and file links per post",
       "description": "List the photo, video and file links of a public Telegram channel's posts, every album item included, with file names and sizes where Telegram shows them. Links point to Telegram's own servers, so download them soon after the run.",
       "input": {

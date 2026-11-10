@@ -6,14 +6,20 @@
  * Each task becomes a public landing page on the Store with its own Google-indexed page and .md
  * (https://docs.apify.com/actors/publishing/publish-task.md). API used (verified 2026-10-01):
  *   POST /v2/actor-tasks                   create {actId, name, title, description, input, options, publicConfig}
- *   PUT  /v2/actor-tasks/:id               update the same fields; {isPublic: true} publishes
+ *   PUT  /v2/actor-tasks/:id               update the same fields; {isPublic: true} publishes, {isPublic: false}
+ *                                          unpublishes and keeps the display configuration (verified 2026-11-11)
  * publicConfig = {seoTitle <= 60, seoDescription <= 160, inputSchemaFields, datasetView}. Publishing needs a
  * public Actor, both inputSchemaFields and datasetView, and at most 10 published tasks per Actor. A page stays
  * up only while publicConfig validates against the current build, so the checks below refuse a field or view
  * this build does not have.
  *
  * Tasks are matched by name: missing ones are created, existing ones updated, unpublished ones published.
+ * A task marked "publish": false is saved the same way but kept off the Store, unpublished if it is live; those
+ * go first, so a deploy that swaps pages frees the room before it publishes. Flip the mark to bring a page back.
  * Nothing is ever deleted; tasks of this Actor that are not in the file are listed and left alone.
+ * The account can publish only so many tasks (100 since September 2026, raised case by case by Apify support): a
+ * publish refused with too-many-public-actor-tasks-per-account leaves that task saved, unpublished and warned
+ * about, without failing the deploy, and the first deploy after a raise publishes it.
  *
  * Usage: APIFY_TOKEN=... node scripts/publish-tasks.mjs [--dry-run]
  */
@@ -35,9 +41,12 @@ const views = new Set(Object.keys((typeof dataset === 'string' ? read(`.actor/${
 
 /* ---------------------------------------------------------------- checks -- */
 const errors = [];
-if (spec.tasks.length > 10) errors.push(`${spec.tasks.length} tasks; an Actor can publish 10`);
+const kept = spec.tasks.filter((t) => t.publish === false);
+const live = spec.tasks.filter((t) => t.publish !== false);
+if (live.length > 10) errors.push(`${live.length} tasks to publish; an Actor can publish 10`);
 const names = new Set();
 for (const t of spec.tasks) {
+  if ('publish' in t && typeof t.publish !== 'boolean') errors.push(`${t.name}: publish must be true or false`);
   if (!/^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$/.test(t.name || '')) errors.push(`task name "${t.name}": lowercase letters, digits and hyphens, 3-63`);
   if (names.has(t.name)) errors.push(`task name "${t.name}" is used twice`);
   names.add(t.name);
@@ -51,7 +60,7 @@ for (const t of spec.tasks) {
   if (!views.has(t.datasetView)) errors.push(`${t.name}: datasetView "${t.datasetView}" is not a dataset view (${[...views].join(', ')})`);
 }
 if (errors.length) { errors.forEach((e) => console.error(`ERROR ${e}`)); process.exit(1); }
-console.log(`${spec.tasks.length} tasks pass the checks`);
+console.log(`${spec.tasks.length} tasks pass the checks: ${live.length} to publish, ${kept.length} kept unpublished`);
 if (dryRun) process.exit(0);
 if (!token) { console.error('APIFY_TOKEN is not set'); process.exit(1); }
 if (!store.actorId) { console.log('no actorId in store.json yet (first deploy): tasks are published on the next push'); process.exit(0); }
@@ -79,7 +88,8 @@ for (let offset = 0; ; ) {
 }
 
 let failed = 0;
-for (const t of spec.tasks) {
+let capped = 0;
+for (const t of [...kept, ...live]) {
   const body = {
     name: t.name, title: t.title, description: t.description, input: t.input, options: spec.options,
     publicConfig: { seoTitle: t.seoTitle, seoDescription: t.seoDescription, inputSchemaFields: t.inputSchemaFields, datasetView: t.datasetView },
@@ -88,17 +98,30 @@ for (const t of spec.tasks) {
     const have = mine.find((m) => m.name === t.name);
     const saved = have ? await api('PUT', `/actor-tasks/${have.id}`, body) : await api('POST', '/actor-tasks', { actId: store.actorId, ...body });
     const now = await api('GET', `/actor-tasks/${saved.id}`);
-    if (now.publishedAt || now.isPublic === true) {
+    if (t.publish === false) {
+      if (now.publishedAt || now.isPublic === true) {
+        await api('PUT', `/actor-tasks/${saved.id}`, { isPublic: false });
+        console.log(`${have ? 'updated' : 'created'} ${t.name} (${saved.id}), unpublished`);
+      } else {
+        console.log(`${have ? 'updated' : 'created'} ${t.name} (${saved.id}), kept unpublished`);
+      }
+    } else if (now.publishedAt || now.isPublic === true) {
       console.log(`${have ? 'updated' : 'created'} ${t.name} (${saved.id}), already published`);
     } else {
       await api('PUT', `/actor-tasks/${saved.id}`, { isPublic: true });
       console.log(`${have ? 'updated' : 'created'} ${t.name} (${saved.id}), published`);
     }
   } catch (e) {
-    failed += 1;
-    console.error(`FAILED ${t.name}: ${e.message}`);
+    if (e.message.includes('too-many-public-actor-tasks-per-account')) {
+      capped += 1;
+      console.log(`::warning::${t.name} is saved but not published: the account is at its published-task limit`);
+    } else {
+      failed += 1;
+      console.error(`FAILED ${t.name}: ${e.message}`);
+    }
   }
 }
+if (capped) console.log(`${capped} task(s) wait for a higher published-task limit (support@apify.com); the next deploy after the raise publishes them`);
 const extra = mine.filter((m) => !spec.tasks.some((t) => t.name === m.name)).map((m) => m.name);
 if (extra.length) console.log(`tasks of this Actor not in tasks.json, left as they are: ${extra.join(', ')}`);
 process.exit(failed ? 1 : 0);

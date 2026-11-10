@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-11 (example pages)
+
+- Two example pages stay on the Store: the post export and the 7-day monitor. The media links page stays saved but
+  unpublished (`"publish": false` in `.actor/tasks.json`): the account can publish 100 example pages across all its
+  actors.
+
 ## 2026-10-29
 
 ### Changed
