@@ -6,6 +6,13 @@ Available as an [Apify Actor](https://apify.com/anshumanatrey/telegram-channel-s
 
 ---
 
+**Use it from an AI assistant:**
+
+- **Claude** (claude.ai and the desktop app): [Add Telegram Channel Scraper to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Telegram%20Channel%20Scraper&connectorUrl=https%3A%2F%2Fmcp.apify.com%3Ftools%3Danshumanatrey%2Ftelegram-channel-scraper), click Continue, sign in to Apify, Allow, and ask in plain words.
+- **Claude Code:** `claude mcp add --transport http telegram-channel-scraper "https://mcp.apify.com?tools=anshumanatrey/telegram-channel-scraper"`, then run `/mcp` to sign in to Apify.
+- **Codex:** `codex mcp add telegram-channel-scraper --url "https://mcp.apify.com?tools=anshumanatrey/telegram-channel-scraper"`, then `codex mcp login telegram-channel-scraper`.
+- **Any other MCP client:** `https://mcp.apify.com?tools=anshumanatrey/telegram-channel-scraper`, signed in with Apify or an `Authorization: Bearer <APIFY_TOKEN>` header.
+
 ## What does it do?
 
 You type one or more public Telegram channels and press Start. Each post comes back as one dataset row, newest first, with the same 27 columns every time, so it drops straight into a spreadsheet, a database or an AI pipeline.

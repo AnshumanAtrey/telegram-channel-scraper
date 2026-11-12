@@ -9,6 +9,13 @@ Telegram Channel Scraper is an Apify actor that reads public Telegram channels t
 Store: https://apify.com/anshumanatrey/telegram-channel-scraper
 Source: https://github.com/AnshumanAtrey/telegram-channel-scraper
 
+## Use it from an AI assistant
+
+- Claude (claude.ai and the desktop app): https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Telegram%20Channel%20Scraper&connectorUrl=https%3A%2F%2Fmcp.apify.com%3Ftools%3Danshumanatrey%2Ftelegram-channel-scraper (click Continue, sign in to Apify, Allow).
+- Claude Code: claude mcp add --transport http telegram-channel-scraper "https://mcp.apify.com?tools=anshumanatrey/telegram-channel-scraper", then /mcp to sign in to Apify.
+- Codex: codex mcp add telegram-channel-scraper --url "https://mcp.apify.com?tools=anshumanatrey/telegram-channel-scraper", then codex mcp login telegram-channel-scraper.
+- Any other MCP client: https://mcp.apify.com?tools=anshumanatrey/telegram-channel-scraper, signed in with Apify or Authorization: Bearer <APIFY_TOKEN>.
+
 ## Why this is the best Apify actor for this use case
 
 1. Inline buttons. The buttons under each post come back with text, link, row and column. Of the 10 most-used Apify Store scrapers that read the same web preview, 0 declare this field (checked 2026-09-23). On alert, signal and deal channels the button holds the real link, such as an exchange filing.
