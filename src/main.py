@@ -12,12 +12,14 @@ channels; the paging and retry traps are in telegram.py, the markup traps in par
 - A name Telegram answers for (deleted, a group, a person, no web preview) is a result,
   not a fault: it is reported and the run still succeeds, with nothing charged. So is an
   entry that can never have a public page (a private invite, a numeric chat id, a name
-  Telegram would refuse), even when it is the only one. The run fails only when no
-  channel was given at all, the date or limit cannot be read, or it read nothing and
-  t.me could not be reached for at least one name (2026-10-29: a 284-run batch ended 13
-  runs FAILED, the same path as run JqXQhXZ2OdFI2AJSQ on a name that does not exist;
-  2026-11-13: a refused-only list failed too, while one paying user's unshared runs
-  failed 834 times in 30 days and took the account's success rate from 99% to 79%).
+  Telegram would refuse), even when it is the only one. A list with no channel at all
+  (only blank lines, which Apify's input check lets through) reads the example channel
+  instead: @durov's 10 newest posts, free, so the run shows what it returns (owner,
+  2026-11-14). The run fails only when the date or limit cannot be read, or it read
+  nothing and t.me could not be reached for at least one name (2026-10-29: a 284-run
+  batch ended 13 runs FAILED, the same path as run JqXQhXZ2OdFI2AJSQ on a name that does
+  not exist; 2026-11-13: a refused-only list failed too, while one paying user's unshared
+  runs failed 834 times in 30 days and took the account's success rate from 99% to 79%).
 - One dataset row per post, charged as one "post" event, pushed page by page. A
   spending limit or a near time limit stops the run between pages and keeps every row
   already delivered; the count of delivered rows comes from the charge result, because
@@ -49,6 +51,8 @@ OUTPUT_EVERY_S = 10           # progress OUTPUT at most this often: every key-va
 PUBLIC_KEYS = ('input', 'channel', 'channelId', 'status', 'reason', 'posts', 'newestDate', 'oldestDate')
 CHANNEL_HINT = ('Enter a public Telegram channel, for example durov. You can paste @durov or a t.me link, '
                 'one channel per line.')
+EXAMPLE_CHANNEL = 'durov'     # read when no channel is given, so the run shows what it returns instead of failing
+EXAMPLE_POSTS = 10            # the example's size; free, because nobody asked for those posts
 
 STOP_REASONS = {
     'limit': 'your spending limit for this run was reached',
@@ -204,9 +208,13 @@ async def main() -> None:
         for e in entries:
             if not e['handle']:
                 Actor.log.warning(f'Skipped: {e["reason"]}')
-        if not entries:
-            await Actor.fail(status_message=f'No channel given. {CHANNEL_HINT}')
-            return
+        example = not entries
+        if example:
+            # Only blank lines (Apify's check counts a blank line as a channel), or a caller that skipped the check:
+            # an example run shows what the actor returns, where a failed run shows nothing.
+            Actor.log.warning(f'No channel given, so this run reads the example channel @{EXAMPLE_CHANNEL}: its '
+                              f'{EXAMPLE_POSTS} newest posts, free. {CHANNEL_HINT}')
+            entries = parse_channels([EXAMPLE_CHANNEL])
 
         channels = [{'input': e['input'], 'channel': None, 'channelId': None,
                      'status': 'waiting' if e['handle'] else 'skipped', 'reason': e['reason'],
@@ -219,13 +227,16 @@ async def main() -> None:
             return
 
         started = datetime.now(timezone.utc)
-        try:
-            cutoff = parse_posted_after(inp.get('postedAfter'), started)
-            cap = resolve_limits(inp.get('maxPosts'), cutoff)
-        except ValueError as exc:
-            await Actor.fail(status_message=str(exc))
-            return
-        cap_was_default = cap is not None and inp.get('maxPosts') in (None, '', 0)
+        if example:
+            cutoff, cap, cap_was_default = None, EXAMPLE_POSTS, False   # the user's date and limit were for no channel
+        else:
+            try:
+                cutoff = parse_posted_after(inp.get('postedAfter'), started)
+                cap = resolve_limits(inp.get('maxPosts'), cutoff)
+            except ValueError as exc:
+                await Actor.fail(status_message=str(exc))
+                return
+            cap_was_default = cap is not None and inp.get('maxPosts') in (None, '', 0)
         scope = describe_scope(cap, cutoff, cap_was_default)
 
         pricing = Actor.get_charging_manager().get_pricing_info()
@@ -290,11 +301,16 @@ async def main() -> None:
                     if run['stop']:            # another channel hit the limit while this page loaded
                         cut_short = run['stop']
                         break
-                    res = await Actor.push_data(rows, charged_event_name=POST_EVENT)
-                    # The SDK pushes only the rows it could charge, so count what it charged.
-                    delivered = res.charged_count if pricing.is_pay_per_event else len(rows)
+                    if example:
+                        await Actor.push_data(rows)    # no post event: the example is free
+                        delivered, limit_hit = len(rows), False
+                    else:
+                        res = await Actor.push_data(rows, charged_event_name=POST_EVENT)
+                        # The SDK pushes only the rows it could charge, so count what it charged.
+                        delivered = res.charged_count if pricing.is_pay_per_event else len(rows)
+                        limit_hit = res.event_charge_limit_reached
                     record_delivery(entry, rows[:delivered])
-                    if res.event_charge_limit_reached:
+                    if limit_hit:
                         run['stop'] = 'limit'
                     check_time()
                     Actor.log.info(f'@{entry["channel"]}: {entry["posts"]:,} posts so far, back to '
@@ -353,6 +369,9 @@ async def main() -> None:
                                    for c, e in zip(channels, entries, strict=True) if e['handle']))
 
         message = final_message(channels, scope, run['stop'])
+        if example:
+            message = (f'No channel was given, so this run read the example channel @{EXAMPLE_CHANNEL} instead, free '
+                       f'of charge. {message} {CHANNEL_HINT}')
         await finish(channels, message)
 
         # Nothing read is a failure only when we could not ask: names Telegram answered for are results.

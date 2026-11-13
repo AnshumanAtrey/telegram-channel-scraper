@@ -549,11 +549,41 @@ def test_actor_stops_everything_at_the_spending_limit(tmp_path):
     assert output['totalPosts'] == 20
 
 
-def test_actor_fails_cleanly_on_empty_or_invalid_input(tmp_path):
-    code, rows, output, log = run_actor(tmp_path / 'a', {'channels': []})
-    assert code == 1 and rows == [] and 'No channel given.' in log
+def test_actor_fails_cleanly_on_a_date_it_cannot_read(tmp_path):
     code, _, _, log = run_actor(tmp_path / 'c', {'channels': ['tchantest'], 'postedAfter': 'last tuesday'})
     assert code == 1 and 'is not a date the post filter understands' in log
+
+
+def test_actor_reads_the_example_channel_free_when_no_channel_is_given(tmp_path):
+    # Blank lines pass Apify's input check (minItems counts them) and failed the run until 2026-11-14. Now the run reads
+    # the example channel instead: a few posts, nothing charged, and the date and limit set for no channel ignored.
+    # A $0.001 spending limit at $0.001 a post would let 1 charged row through, so 10 rows prove the example is free.
+    # The dataset-item event is listed at $0 because off Apify the SDK prices an unlisted event at $1 (on Apify, $0).
+    ppe = {
+        'ACTOR_TEST_PAY_PER_EVENT': '1',
+        'APIFY_ACTOR_PRICING_INFO': json.dumps({'pricingModel': 'PAY_PER_EVENT', 'apifyMarginPercentage': 0.2,
+                                                  'createdAt': '2026-09-23T00:00:00.000Z',
+                                                  'startedAt': '2026-09-23T00:00:00.000Z', 'pricingPerEvent': {
+            'actorChargeEvents': {'post': {'eventTitle': 'Post', 'eventPriceUsd': 0.001},
+                                  'apify-default-dataset-item': {'eventTitle': 'free', 'eventPriceUsd': 0}}}}),
+        'APIFY_CHARGED_ACTOR_EVENT_COUNTS': json.dumps({'post': 0}),
+        'ACTOR_MAX_TOTAL_CHARGE_USD': '0.001',
+    }
+    inputs = [{}, {'channels': []}, {'channels': ['']},
+              {'channels': ['   ', ''], 'maxPosts': 50, 'postedAfter': 'last tuesday'}]
+    for i, actor_input in enumerate(inputs):
+        code, rows, output, log = run_actor(tmp_path / str(i), actor_input, env=ppe,
+                                            patch="actor_main.EXAMPLE_CHANNEL = 'tchantest'")
+        assert code == 0, log
+        assert [r['postId'] for r in rows][:3] == [94, 92, 91] and len(rows) == 10, actor_input
+        ch = output['channels'][0]
+        assert (len(output['channels']), ch['input'], ch['status'], ch['posts']) == (1, 'tchantest', 'ok', 10)
+        assert output['message'].startswith('No channel was given, so this run read the example channel @tchantest '
+                                            'instead, free of charge. Got 10 posts from 1 of 1 channels: the newest '
+                                            '10 posts per channel.')
+        assert output['message'].endswith('Enter a public Telegram channel, for example durov. You can paste @durov '
+                                          'or a t.me link, one channel per line.')
+        assert '—' not in output['message'] and '–' not in output['message']
 
 
 def test_actor_succeeds_when_no_entry_can_have_a_public_page(tmp_path):

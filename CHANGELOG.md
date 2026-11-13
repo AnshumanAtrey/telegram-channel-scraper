@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-14
+
+### Changed
+- A run given no channel at all (only blank lines, which Apify's input check lets through because a blank line
+  counts as an item) no longer fails with "No channel given". It reads the example channel instead, @durov's 10
+  newest posts, free of charge, and says so in the status message and `OUTPUT`, so the run shows what the actor
+  returns. A date or limit sent with it is ignored, since it was meant for no channel. A call with no `channels`
+  field at all is still refused by Apify before a run exists.
+
 ## 2026-11-13
 
 ### Changed

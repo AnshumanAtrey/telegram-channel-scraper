@@ -68,6 +68,7 @@ Pay per post: **$0.30 per 1,000 posts** ($0.0003 each). No start fee, no monthly
 | 5 channels, 600 posts each | 3,000 | $0.90 |
 | 10,000 posts | 10,000 | $3.00 |
 | A run where no channel could be read | 0 | $0.00 |
+| No channel given: the example, @durov's 10 newest posts | 10 | $0.00 |
 
 An album counts as one post. Apify's free plan includes $5 of monthly credit, which covers about 16,000 posts. Set a spending limit on a run for a hard cap: the run stops cleanly when it is reached and every post you paid for is saved.
 
@@ -97,7 +98,7 @@ Several of these actors discount their prices on paid Apify plans, and this one 
 
 | Field | Required | What it does |
 |---|---|---|
-| `channels` | Yes | Public channels, one per line. A name (`durov`), `@durov`, `t.me/durov`, `https://t.me/s/durov`, a post link like `t.me/durov/123`, a Telegram Web link like `web.telegram.org/k/#@durov`, `telegram.me` and `telegram.dog` links all work. Quotes and trailing punctuation from a pasted sentence are cleaned off |
+| `channels` | Yes | Public channels, one per line. A name (`durov`), `@durov`, `t.me/durov`, `https://t.me/s/durov`, a post link like `t.me/durov/123`, a Telegram Web link like `web.telegram.org/k/#@durov`, `telegram.me` and `telegram.dog` links all work. Quotes and trailing punctuation from a pasted sentence are cleaned off. Left blank, the run reads the example channel instead, @durov's 10 newest posts, free |
 | `maxPosts` | No | The most posts to take from each channel, newest first. The form starts at 100. Through the API you can leave it out: then you get the 100 newest, or every post since the date when you send one |
 | `postedAfter` | No | Only posts on or after this date (UTC). Pick a date, or type a span like `7 days`, `2 weeks`, `3 months`. Through the API also `1 hour` or `30 minutes`, a date and time like `2026-09-01T12:00:00Z`, or a Unix timestamp |
 | `proxyConfiguration` | No | Leave it off: the actor reads t.me from its own address and moves to Apify Proxy (residential) by itself only if Telegram refuses that address, at no cost to you. Turn it on to send every request through a proxy from the start |
