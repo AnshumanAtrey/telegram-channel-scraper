@@ -36,8 +36,17 @@ MAX_POSTS_CEILING = 1_000_000  # same as the input schema's maximum
 # Telegram launched in August 2013; nothing older exists, so a huge relative span clamps here.
 TELEGRAM_EPOCH = datetime(2013, 8, 1, tzinfo=timezone.utc)
 
-# "7 days", "24h", "last 30 minutes", "past week", "-3 days", "3 months ago": a span back from the run's start.
-RELATIVE_RE = re.compile(r'^(?:(last|past|previous)\s*)?-?\s*(\d+)?\s*([a-z]+)(?:\s+ago)?$', re.I)
+# "7 days", "24h", "last 30 minutes", "past week", "-3 days", "3 months ago", "an hour ago": a span back from the
+# run's start. Groups: prefix, number, article (a/an/one), unit.
+RELATIVE_RE = re.compile(r'^(?:(last|past|previous)\s*)?-?\s*(?:(\d+)\s*|(an?|one)\s+)?([a-z]+)(?:\s+(?:ago|back))?$',
+                         re.I)
+# Words around a span or a date that change nothing: "within the last 24 hours", "since yesterday", "now-1h".
+FILLER_RE = re.compile(r'^(?:(?:within|in|during|over|for|from|since|the)\s+)+|^now\s*-\s*', re.I)
+# ISO 8601 durations, as code sends them: PT1H, P1D, P1Y2M3DT4H5M6S, -PT24H.
+ISO_DURATION_RE = re.compile(r'^-?P(?!$)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?'
+                             r'(?:T(?=\d)(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$', re.I)
+ZONE_SUFFIX_RE = re.compile(r'\s+(?:utc|gmt)$', re.I)                     # "2026-11-12 10:00 UTC"
+MONTH_NAME_FORMATS = ('%b %d %Y', '%B %d %Y', '%d %b %Y', '%d %B %Y')     # Nov 12, 2026 / 12 November 2026
 UNITS = {
     **dict.fromkeys(('m', 'min', 'mins', 'minute', 'minutes'), 'minute'),
     **dict.fromkeys(('h', 'hr', 'hrs', 'hour', 'hours'), 'hour'),
@@ -196,8 +205,11 @@ def parse_posted_after(value, now: datetime) -> datetime | None:
     'Sat, 31 Jan 2026 18:00:00 GMT'      -> that instant (RFC 2822, what HTTP headers and RSS carry)
     1769882400 / 1769882400000           -> that Unix time, in seconds or milliseconds
     'today' / 'yesterday'                -> 00:00 UTC of that day
-    '6 hours', '24h', 'last 30 minutes', '7 days', '3 months ago', 'past week'
+    '6 hours', '24h', 'last 30 minutes', '7 days', '3 months ago', 'past week', 'an hour ago', 'PT1H'
                                          -> now minus that span (months and years are calendar ones)
+    'Jan 31, 2026', '31 January 2026', '2026-01-31 18:00 UTC' -> that day or instant
+    Leading filler is dropped first: 'within the last 24 hours', 'since yesterday', 'now-1h'.
+    Day-first or month-first slashes (11/12/2026) stay refused: they cannot be told apart.
     Anything else raises ValueError with a sentence the user can act on.
     """
     if value is None:
@@ -207,10 +219,11 @@ def parse_posted_after(value, now: datetime) -> datetime | None:
     s = value.strip() if isinstance(value, str) else repr(value)
     if not s:
         return None
+    t = s
+    while (bare := FILLER_RE.sub('', t, count=1).strip()) != t:      # "within the last 24 hours" -> "last 24 hours"
+        t = bare
     try:
-        cutoff = relative_cutoff(s, now)
-        if cutoff is None:
-            cutoff = absolute_cutoff(s, now)
+        cutoff = (relative_cutoff(t, now) or duration_cutoff(t, now) or absolute_cutoff(t, now)) if t else None
     except (OverflowError, OSError, ValueError, TypeError, IndexError):
         cutoff = None
     if cutoff is None:
@@ -221,10 +234,10 @@ def parse_posted_after(value, now: datetime) -> datetime | None:
 def relative_cutoff(s: str, now: datetime) -> datetime | None:
     """'6 hours' -> now minus 6 hours, never before Telegram's launch; None when s is not a span."""
     m = RELATIVE_RE.match(s)
-    unit = UNITS.get(m.group(3).lower()) if m else None
-    if not unit or (m.group(2) is None and m.group(1) is None):      # a bare "days" says no amount
+    unit = UNITS.get(m.group(4).lower()) if m else None
+    if not unit or not any(m.group(i) for i in (1, 2, 3)):           # a bare "days" says no amount
         return None
-    n = int(m.group(2) or 1)                                          # "past week" is one week
+    n = int(m.group(2) or 1)                                          # "past week" and "an hour" are one
     try:
         if unit == 'month':
             cutoff = months_back(now, n)
@@ -237,8 +250,23 @@ def relative_cutoff(s: str, now: datetime) -> datetime | None:
     return max(cutoff, TELEGRAM_EPOCH)
 
 
+def duration_cutoff(s: str, now: datetime) -> datetime | None:
+    """'PT1H' -> now minus one hour (an ISO 8601 duration), never before Telegram's launch; None when s is not one."""
+    m = ISO_DURATION_RE.match(s)
+    if not m or not any(m.groups()):
+        return None
+    years, months, weeks, days, hours, minutes, seconds = (int(g or 0) for g in m.groups())
+    try:
+        cutoff = months_back(now, 12 * years + months) - timedelta(weeks=weeks, days=days, hours=hours,
+                                                                     minutes=minutes, seconds=seconds)
+    except (OverflowError, ValueError):
+        return TELEGRAM_EPOCH
+    return max(cutoff, TELEGRAM_EPOCH)
+
+
 def absolute_cutoff(s: str, now: datetime) -> datetime | None:
     """A day or an instant in any of the shapes parse_posted_after lists, as UTC; None when it is none of them."""
+    s = ZONE_SUFFIX_RE.sub('', s)
     low = s.lower()
     if low in ('today', 'yesterday'):
         day = now.astimezone(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
@@ -251,6 +279,12 @@ def absolute_cutoff(s: str, now: datetime) -> datetime | None:
     if m:
         year, month, day = (int(g) for g in m.groups() if g.isdigit())
         return datetime(year, month, day, tzinfo=timezone.utc)
+    words = ' '.join(s.replace(',', ' ').split())
+    for fmt in MONTH_NAME_FORMATS:
+        try:
+            return datetime.strptime(words, fmt).replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
     try:
         parsed = datetime.fromisoformat(s.replace('z', 'Z'))
     except ValueError:

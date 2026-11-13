@@ -6,7 +6,10 @@
 - `postedAfter` reads what hourly monitors, pipelines and AI agents send through the API: spans in hours and
   minutes (`1 hour`, `24h`, `last 30 minutes`, `15m`), `today` and `yesterday`, Unix timestamps in seconds or
   milliseconds, RFC 2822 dates and dates written as `2026/01/31` or `20260131`. The README promised hourly
-  monitoring, but `1 hour` failed the run. Anything unclear still fails with a sentence saying what to send.
+  monitoring, but `1 hour` failed the run. A second pass the same day added the phrasings agents and monitoring
+  tools write: `an hour ago`, `within the last 24 hours`, `since yesterday`, `now-1h`, ISO 8601 durations
+  (`PT1H`, `P1D`), month names (`Jan 31, 2026`) and a trailing `UTC`. Anything unclear still fails with a
+  sentence saying what to send; `11/12/2026` stays refused because day and month cannot be told apart.
 - A run whose every entry can never have a public page (private invite links, numeric chat ids, names Telegram
   would refuse) now ends SUCCEEDED with the reason for each entry in the status message and `OUTPUT`, and nothing
   charged, the same way names Telegram answers for have ended since 2026-10-29.

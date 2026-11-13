@@ -160,6 +160,28 @@ def test_parse_channels_accepts_a_single_string_and_nothing():
     ('Sat, 31 Jan 2026 18:00:00 GMT', datetime(2026, 1, 31, 18, tzinfo=timezone.utc)),   # RFC 2822
     ('2026-01-31T18:00:00z', datetime(2026, 1, 31, 18, tzinfo=timezone.utc)),
     ('20260131T180000Z', datetime(2026, 1, 31, 18, tzinfo=timezone.utc)),
+    # Phrasings an AI agent or a monitoring tool writes (added 2026-11-13, second pass).
+    ('an hour ago', datetime(2026, 9, 23, 11, 30, tzinfo=timezone.utc)),
+    ('a day ago', datetime(2026, 9, 22, 12, 30, tzinfo=timezone.utc)),
+    ('one week', datetime(2026, 9, 16, 12, 30, tzinfo=timezone.utc)),
+    ('1 hour back', datetime(2026, 9, 23, 11, 30, tzinfo=timezone.utc)),
+    ('the last 24 hours', datetime(2026, 9, 22, 12, 30, tzinfo=timezone.utc)),
+    ('within the last 24 hours', datetime(2026, 9, 22, 12, 30, tzinfo=timezone.utc)),
+    ('In the past 2 days', datetime(2026, 9, 21, 12, 30, tzinfo=timezone.utc)),
+    ('since yesterday', datetime(2026, 9, 22, tzinfo=timezone.utc)),
+    ('since 2026-01-31', datetime(2026, 1, 31, tzinfo=timezone.utc)),
+    ('now-1h', datetime(2026, 9, 23, 11, 30, tzinfo=timezone.utc)),
+    ('now - 1 day', datetime(2026, 9, 22, 12, 30, tzinfo=timezone.utc)),
+    ('PT1H', datetime(2026, 9, 23, 11, 30, tzinfo=timezone.utc)),            # ISO 8601 durations
+    ('-PT24H', datetime(2026, 9, 22, 12, 30, tzinfo=timezone.utc)),
+    ('P1D', datetime(2026, 9, 22, 12, 30, tzinfo=timezone.utc)),
+    ('P1Y2M3DT4H', datetime(2025, 7, 20, 8, 30, tzinfo=timezone.utc)),
+    ('Jan 31, 2026', datetime(2026, 1, 31, tzinfo=timezone.utc)),
+    ('January 31, 2026', datetime(2026, 1, 31, tzinfo=timezone.utc)),
+    ('31 Jan 2026', datetime(2026, 1, 31, tzinfo=timezone.utc)),
+    ('31 January 2026', datetime(2026, 1, 31, tzinfo=timezone.utc)),
+    ('2026-01-31 18:00 UTC', datetime(2026, 1, 31, 18, tzinfo=timezone.utc)),
+    ('2026-01-31 18:00:00 GMT', datetime(2026, 1, 31, 18, tzinfo=timezone.utc)),
 ])
 def test_posted_after(value, want):
     assert parse_posted_after(value, NOW) == want
@@ -174,9 +196,10 @@ def test_month_arithmetic_clamps_to_the_last_day():
     assert parse_posted_after('2 months', jan) == datetime(2025, 11, 15, tzinfo=timezone.utc)
 
 
-@pytest.mark.parametrize('value', ['2026-13-01', '2026-02-30', '31/01/2026', '01/31/2026', 'soon', 'last tuesday',
-                                   '+3 days', 'days', 'h', '7', 7, -5, 12345678, '2026-1-31-5', True, [20260131],
-                                   {'days': 7}, float('nan')])
+@pytest.mark.parametrize('value', ['2026-13-01', '2026-02-30', '31/01/2026', '01/31/2026', '11/12/2026', 'soon',
+                                   'last tuesday', '+3 days', 'days', 'h', '7', 7, -5, 12345678, '2026-1-31-5', True,
+                                   [20260131], {'days': 7}, float('nan'), 'now', 'now+1h', '1 hour from now', 'the',
+                                   'within', 'and', 'P', 'PT', 'this week'])
 def test_posted_after_rejects_with_a_usable_sentence(value):
     with pytest.raises(ValueError) as err:
         parse_posted_after(value, NOW)
