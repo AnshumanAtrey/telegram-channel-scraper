@@ -99,7 +99,7 @@ Several of these actors discount their prices on paid Apify plans, and this one 
 |---|---|---|
 | `channels` | Yes | Public channels, one per line. A name (`durov`), `@durov`, `t.me/durov`, `https://t.me/s/durov`, a post link like `t.me/durov/123`, a Telegram Web link like `web.telegram.org/k/#@durov`, `telegram.me` and `telegram.dog` links all work. Quotes and trailing punctuation from a pasted sentence are cleaned off |
 | `maxPosts` | No | The most posts to take from each channel, newest first. The form starts at 100. Through the API you can leave it out: then you get the 100 newest, or every post since the date when you send one |
-| `postedAfter` | No | Only posts on or after this date (UTC). Pick a date, or type a span like `7 days`, `2 weeks`, `3 months` |
+| `postedAfter` | No | Only posts on or after this date (UTC). Pick a date, or type a span like `7 days`, `2 weeks`, `3 months`. Through the API also `1 hour` or `30 minutes`, a date and time like `2026-09-01T12:00:00Z`, or a Unix timestamp |
 
 When both limits are set, each channel stops at whichever it reaches first. Through the API:
 
@@ -229,7 +229,7 @@ More memory does not make it faster: at 512 MB the same 2,000 posts took 125 sec
 
 **Q: How do I get a channel's whole history?** Set `maxPosts` to a big number, such as 100000, and leave the date empty. The actor walks back to the first post the web preview shows, at about 14 posts a second per channel.
 
-**Q: How do I check a channel every day for new posts?** Save the input as an Apify task with `postedAfter` set to `1 day` and schedule it daily. Each run then returns only the last day's posts.
+**Q: How do I check a channel every day, or every hour, for new posts?** Save the input as an Apify task with `postedAfter` set to `1 day` and schedule it daily. Each run then returns only the last day's posts. For an hourly check, set `postedAfter` to `1 hour` in the JSON editor or the API call and schedule it every hour.
 
 **Q: Are comments included?** No. The discussion under a post is a separate group, which Telegram does not show in the channel's web preview.
 

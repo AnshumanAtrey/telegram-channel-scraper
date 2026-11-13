@@ -9,6 +9,7 @@
       "type": "array",
       "description": "Public Telegram channels to read, one per line. Paste the name (durov), the @name, or any link to the channel or to one of its posts, such as t.me/durov, https://t.me/s/durov, t.me/durov/123 or a Telegram Web link like web.telegram.org/k/#@durov; we take the channel name out of it. telegram.me and telegram.dog links work too. Only public channels can be read: private channels, invite links, groups, bots and personal accounts have no public page, so they are skipped with a note saying why.",
       "editor": "stringList",
+      "minItems": 1,
       "prefill": [
         "durov",
         "telegram"
@@ -37,11 +38,12 @@
     "postedAfter": {
       "title": "Posted on or after",
       "type": "string",
-      "description": "Only posts published on or after this date, in UTC. Pick a date, or type a span such as 7 days, 2 weeks, 3 months or 1 year, counted back from when the run starts. Leave it empty for no date limit; then 'Max posts per channel' decides how far back to go. Through the API you can also send a full date and time, such as 2026-09-01T12:00:00Z.",
+      "description": "Only posts published on or after this date, in UTC. Pick a date, or type a span such as 7 days, 2 weeks, 3 months or 1 year, counted back from when the run starts. Leave it empty for no date limit; then 'Max posts per channel' decides how far back to go. Through the API you can also send a span in hours or minutes, such as 1 hour or 30 minutes for an hourly check, a full date and time such as 2026-09-01T12:00:00Z, or a Unix timestamp.",
       "editor": "datepicker",
       "example": "7 days",
       "nullable": true,
       "dateType": "absoluteOrRelative"
     }
-  }
+  },
+  "required": ["channels"]
 }

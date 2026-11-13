@@ -13,13 +13,17 @@ Pure functions, no network. What they handle comes from live requests to t.me
 - Links that can never have a public feed (private invites, folder links, private
   channel post links, Telegram's own routes like t.me/share) are refused up front
   with a sentence saying why, so they cost no request and no charge.
-- The date box sends either YYYY-MM-DD or "{n} {unit}" ("3 weeks"). API callers can
-  send anything, so a full ISO datetime is accepted too, and anything else is a
-  clear error rather than a silently ignored filter.
+- The date box sends either YYYY-MM-DD or "{n} {unit}" ("3 weeks"). API callers,
+  pipelines and AI agents send anything: spans in hours or minutes ("1 hour", "24h",
+  "last 30 minutes") for hourly monitoring, a full ISO datetime, a Unix timestamp, an
+  RFC 2822 date, "today" or "yesterday". All of those are read, and anything else is a
+  clear error rather than a silently ignored filter. (Until 2026-11-13 only days to
+  years were read, so an hourly monitor, which the README promises, failed on "1 hour".)
 """
 import math
 import re
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from urllib.parse import parse_qs, unquote, urlsplit
 
 HANDLE_RE = re.compile(r'^(?=.{4,32}$)[A-Za-z](?!.*__)[A-Za-z0-9_]*[A-Za-z0-9]$')
@@ -32,8 +36,20 @@ MAX_POSTS_CEILING = 1_000_000  # same as the input schema's maximum
 # Telegram launched in August 2013; nothing older exists, so a huge relative span clamps here.
 TELEGRAM_EPOCH = datetime(2013, 8, 1, tzinfo=timezone.utc)
 
-RELATIVE_RE = re.compile(r'^(\d+)\s*(day|week|month|year)s?(?:\s+ago)?$', re.I)
-DATE_RE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
+# "7 days", "24h", "last 30 minutes", "past week", "-3 days", "3 months ago": a span back from the run's start.
+RELATIVE_RE = re.compile(r'^(?:(last|past|previous)\s*)?-?\s*(\d+)?\s*([a-z]+)(?:\s+ago)?$', re.I)
+UNITS = {
+    **dict.fromkeys(('m', 'min', 'mins', 'minute', 'minutes'), 'minute'),
+    **dict.fromkeys(('h', 'hr', 'hrs', 'hour', 'hours'), 'hour'),
+    **dict.fromkeys(('d', 'day', 'days'), 'day'),
+    **dict.fromkeys(('w', 'wk', 'wks', 'week', 'weeks'), 'week'),
+    **dict.fromkeys(('mo', 'mos', 'month', 'months'), 'month'),
+    **dict.fromkeys(('y', 'yr', 'yrs', 'year', 'years'), 'year'),
+}
+CALENDAR_DATE_RE = re.compile(r'^(\d{4})([-/.])(\d{1,2})\2(\d{1,2})$')   # 2026-01-31, 2026/01/31, 2026.01.31
+COMPACT_DATE_RE = re.compile(r'^(\d{4})(\d{2})(\d{2})$')                 # 20260131
+UNIX_SECONDS_RE = re.compile(r'^\d{10}(?:\.\d+)?$')                      # 1767225600: a Unix time in seconds
+UNIX_MILLIS_RE = re.compile(r'^\d{13}$')                                 # 1767225600000: in milliseconds
 SPLIT_RE = re.compile(r'[\s,;]+')
 SCHEME_RE = re.compile(r'^[a-z][a-z0-9+.-]*://', re.I)
 WEB_CLIENT_RE = re.compile(r'^(?:https?://)?web\.telegram\.org(?:/|$)', re.I)
@@ -42,7 +58,7 @@ QUOTES = ' "\'<>`“”‘’«»'
 TRAILING = ').,;:!?]}'
 
 DATE_HELP = ('Use a date like 2026-01-31, a date and time like 2026-01-31T18:00:00Z, or a span back from now '
-             'like "7 days", "2 weeks", "3 months" or "1 year". Leave it empty to skip the date filter.')
+             'like "6 hours", "7 days", "2 weeks", "3 months" or "1 year". Leave it empty to skip the date filter.')
 
 
 # ------------------------------------------------------------------------ channels --
@@ -175,40 +191,73 @@ def parse_channels(value) -> list[dict]:
 def parse_posted_after(value, now: datetime) -> datetime | None:
     """The date filter as a UTC instant (inclusive), or None when it is empty.
 
-    '2026-01-31'            -> 2026-01-31 00:00:00 UTC
-    '2026-01-31T18:00:00Z'  -> that instant; no offset means UTC
-    '7 days' / '3 months'   -> now minus that span (months and years are calendar months and years)
+    '2026-01-31', '2026/01/31', 20260131 -> 2026-01-31 00:00:00 UTC
+    '2026-01-31T18:00:00Z'               -> that instant; no offset means UTC
+    'Sat, 31 Jan 2026 18:00:00 GMT'      -> that instant (RFC 2822, what HTTP headers and RSS carry)
+    1769882400 / 1769882400000           -> that Unix time, in seconds or milliseconds
+    'today' / 'yesterday'                -> 00:00 UTC of that day
+    '6 hours', '24h', 'last 30 minutes', '7 days', '3 months ago', 'past week'
+                                         -> now minus that span (months and years are calendar ones)
     Anything else raises ValueError with a sentence the user can act on.
     """
     if value is None:
         return None
-    if not isinstance(value, str):
+    if isinstance(value, bool) or not isinstance(value, (str, int, float)):
         raise ValueError(f'"Posted on or after" must be text, not {value!r}. {DATE_HELP}')
-    s = value.strip()
+    s = value.strip() if isinstance(value, str) else repr(value)
     if not s:
         return None
-    m = RELATIVE_RE.match(s)
-    if m:
-        n, unit = int(m.group(1)), m.group(2).lower()
-        try:
-            if unit == 'day':
-                cutoff = now - timedelta(days=n)
-            elif unit == 'week':
-                cutoff = now - timedelta(weeks=n)
-            elif unit == 'month':
-                cutoff = months_back(now, n)
-            else:
-                cutoff = months_back(now, 12 * n)
-        except (OverflowError, ValueError):
-            return TELEGRAM_EPOCH
-        return max(cutoff, TELEGRAM_EPOCH)
     try:
-        if DATE_RE.match(s):
-            parsed = datetime.strptime(s, '%Y-%m-%d')
+        cutoff = relative_cutoff(s, now)
+        if cutoff is None:
+            cutoff = absolute_cutoff(s, now)
+    except (OverflowError, OSError, ValueError, TypeError, IndexError):
+        cutoff = None
+    if cutoff is None:
+        raise ValueError(f'"{value}" is not a date the post filter understands. {DATE_HELP}')
+    return cutoff
+
+
+def relative_cutoff(s: str, now: datetime) -> datetime | None:
+    """'6 hours' -> now minus 6 hours, never before Telegram's launch; None when s is not a span."""
+    m = RELATIVE_RE.match(s)
+    unit = UNITS.get(m.group(3).lower()) if m else None
+    if not unit or (m.group(2) is None and m.group(1) is None):      # a bare "days" says no amount
+        return None
+    n = int(m.group(2) or 1)                                          # "past week" is one week
+    try:
+        if unit == 'month':
+            cutoff = months_back(now, n)
+        elif unit == 'year':
+            cutoff = months_back(now, 12 * n)
         else:
-            parsed = datetime.fromisoformat(s.replace('z', 'Z'))
+            cutoff = now - timedelta(**{f'{unit}s': n})
+    except (OverflowError, ValueError):
+        return TELEGRAM_EPOCH
+    return max(cutoff, TELEGRAM_EPOCH)
+
+
+def absolute_cutoff(s: str, now: datetime) -> datetime | None:
+    """A day or an instant in any of the shapes parse_posted_after lists, as UTC; None when it is none of them."""
+    low = s.lower()
+    if low in ('today', 'yesterday'):
+        day = now.astimezone(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+        return day - timedelta(days=1) if low == 'yesterday' else day
+    if UNIX_SECONDS_RE.match(s):
+        return datetime.fromtimestamp(float(s), timezone.utc)
+    if UNIX_MILLIS_RE.match(s):
+        return datetime.fromtimestamp(int(s) / 1000, timezone.utc)
+    m = CALENDAR_DATE_RE.match(s) or COMPACT_DATE_RE.match(s)
+    if m:
+        year, month, day = (int(g) for g in m.groups() if g.isdigit())
+        return datetime(year, month, day, tzinfo=timezone.utc)
+    try:
+        parsed = datetime.fromisoformat(s.replace('z', 'Z'))
     except ValueError:
-        raise ValueError(f'"{value}" is not a date the post filter understands. {DATE_HELP}') from None
+        try:
+            parsed = parsedate_to_datetime(s)
+        except (TypeError, ValueError, IndexError):
+            return None
     if parsed.tzinfo is None:
         parsed = parsed.replace(tzinfo=timezone.utc)
     return parsed.astimezone(timezone.utc)

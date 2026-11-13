@@ -10,10 +10,14 @@ channels; the paging and retry traps are in telegram.py, the markup traps in par
 - Five channels are read at once. Pages inside a channel go one after another, newest
   first, because each page's link to older posts comes from the page before it.
 - A name Telegram answers for (deleted, a group, a person, no web preview) is a result,
-  not a fault: it is reported and the run still succeeds, with nothing charged. The run
-  fails only when it read nothing and t.me could not be reached for at least one name
-  (2026-10-29: a 284-run batch ended 13 runs FAILED, the same path as run
-  JqXQhXZ2OdFI2AJSQ on a name that does not exist).
+  not a fault: it is reported and the run still succeeds, with nothing charged. So is an
+  entry that can never have a public page (a private invite, a numeric chat id, a name
+  Telegram would refuse), even when it is the only one. The run fails only when no
+  channel was given at all, the date or limit cannot be read, or it read nothing and
+  t.me could not be reached for at least one name (2026-10-29: a 284-run batch ended 13
+  runs FAILED, the same path as run JqXQhXZ2OdFI2AJSQ on a name that does not exist;
+  2026-11-13: a refused-only list failed too, while one paying user's unshared runs
+  failed 834 times in 30 days and took the account's success rate from 99% to 79%).
 - One dataset row per post, charged as one "post" event, pushed page by page. A
   spending limit or a near time limit stops the run between pages and keeps every row
   already delivered; the count of delivered rows comes from the charge result, because
@@ -43,6 +47,8 @@ OUTPUT_EVERY_S = 10           # progress OUTPUT at most this often: every key-va
                               # platform the per-page refresh cost more than the compute (build 1.0.1 prefill:
                               # 15 writes $0.00075 vs compute $0.00011); the final summary is always written
 PUBLIC_KEYS = ('input', 'channel', 'channelId', 'status', 'reason', 'posts', 'newestDate', 'oldestDate')
+CHANNEL_HINT = ('Enter a public Telegram channel, for example durov. You can paste @durov or a t.me link, '
+                'one channel per line.')
 
 STOP_REASONS = {
     'limit': 'your spending limit for this run was reached',
@@ -167,6 +173,14 @@ def final_message(channels: list[dict], scope: str, stop: str | None) -> str:
     return ' '.join(parts)
 
 
+async def finish(channels: list[dict], message: str) -> None:
+    """The run summary: the final OUTPUT record (no summary row in the dataset) and the status message."""
+    await Actor.set_value('OUTPUT', {'status': 'done', 'totalPosts': sum(e['posts'] for e in channels),
+                                     'channels': [public(e) for e in channels], 'message': message})
+    await safe_status(message[:500])
+    Actor.log.info(message)
+
+
 def ok_note(stats: WalkStats, posts: int, cap: int | None, cutoff: datetime | None) -> str | None:
     """A sentence for a channel that finished normally but with fewer posts than asked for."""
     if stats.stopped_by == 'cutoff' and posts == 0:
@@ -187,14 +201,21 @@ async def main() -> None:
         inp = await Actor.get_input() or {}
 
         entries = parse_channels(inp.get('channels'))
-        refused = [e for e in entries if not e['handle']]
-        for e in refused:
-            Actor.log.warning(f'Skipped: {e["reason"]}')
+        for e in entries:
+            if not e['handle']:
+                Actor.log.warning(f'Skipped: {e["reason"]}')
+        if not entries:
+            await Actor.fail(status_message=f'No channel given. {CHANNEL_HINT}')
+            return
+
+        channels = [{'input': e['input'], 'channel': None, 'channelId': None,
+                     'status': 'waiting' if e['handle'] else 'skipped', 'reason': e['reason'],
+                     'posts': 0, 'newestDate': None, 'oldestDate': None,
+                     'error': False} for e in entries]   # error: t.me unreachable or a bug, not an answer
         if not any(e['handle'] for e in entries):
-            hint = refused[0]['reason'] if refused else 'No channel given.'
-            await Actor.fail(status_message=(
-                f'{hint} Enter a public Telegram channel, for example durov. You can paste @durov or a '
-                f't.me link, one channel per line.'))
+            # Nothing given can have a public page, which is an answer about the input, like a name Telegram
+            # answers for: say why for each one, charge nothing, succeed.
+            await finish(channels, f'{final_message(channels, "", None)} {CHANNEL_HINT}')
             return
 
         started = datetime.now(timezone.utc)
@@ -214,10 +235,6 @@ async def main() -> None:
                        f'maxTotalChargeUsd={pricing.max_total_charge_usd}')
         Actor.log.info(f'{sum(1 for e in entries if e["handle"])} channel(s) to read: {scope}.')
 
-        channels = [{'input': e['input'], 'channel': None, 'channelId': None,
-                     'status': 'waiting' if e['handle'] else 'skipped', 'reason': e['reason'],
-                     'posts': 0, 'newestDate': None, 'oldestDate': None,
-                     'error': False} for e in entries]   # error: t.me unreachable or a bug, not an answer
         run = {'stop': None, 'last_status': 0.0, 'last_output': 0.0}
         claimed: dict[int, str] = {}           # channel id -> the input that already read it
         progress_lock = asyncio.Lock()
@@ -324,12 +341,8 @@ async def main() -> None:
             await asyncio.gather(*(run_channel(c, e['handle'], client)
                                    for c, e in zip(channels, entries, strict=True) if e['handle']))
 
-        # ---- summary: the final OUTPUT record (no summary row in the dataset)
         message = final_message(channels, scope, run['stop'])
-        await Actor.set_value('OUTPUT', {'status': 'done', 'totalPosts': sum(e['posts'] for e in channels),
-                                         'channels': [public(e) for e in channels], 'message': message})
-        await safe_status(message[:500])
-        Actor.log.info(message)
+        await finish(channels, message)
 
         # Nothing read is a failure only when we could not ask: names Telegram answered for are results.
         if not any(e['status'] in ('ok', 'partial') for e in channels) and any(e['error'] for e in channels):

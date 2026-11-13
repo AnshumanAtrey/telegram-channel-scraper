@@ -463,7 +463,9 @@ def test_actor_default_is_the_newest_100_posts(tmp_path):
 def test_actor_stops_everything_at_the_spending_limit(tmp_path):
     ppe = {
         'ACTOR_TEST_PAY_PER_EVENT': '1',
-        'APIFY_ACTOR_PRICING_INFO': json.dumps({'pricingModel': 'PAY_PER_EVENT', 'pricingPerEvent': {
+        'APIFY_ACTOR_PRICING_INFO': json.dumps({'pricingModel': 'PAY_PER_EVENT', 'apifyMarginPercentage': 0.2,
+                                                  'createdAt': '2026-09-23T00:00:00.000Z',
+                                                  'startedAt': '2026-09-23T00:00:00.000Z', 'pricingPerEvent': {
             'actorChargeEvents': {'post': {'eventTitle': 'Post', 'eventPriceUsd': 0.001},
                                   'apify-default-dataset-item': {'eventTitle': 'free', 'eventPriceUsd': 0}}}}),
         'APIFY_CHARGED_ACTOR_EVENT_COUNTS': json.dumps({'post': 0}),
@@ -481,10 +483,32 @@ def test_actor_stops_everything_at_the_spending_limit(tmp_path):
 def test_actor_fails_cleanly_on_empty_or_invalid_input(tmp_path):
     code, rows, output, log = run_actor(tmp_path / 'a', {'channels': []})
     assert code == 1 and rows == [] and 'No channel given.' in log
-    code, _, _, log = run_actor(tmp_path / 'b', {'channels': ['t.me/+secret', 'abc']})
-    assert code == 1 and 'private invite link' in log
     code, _, _, log = run_actor(tmp_path / 'c', {'channels': ['tchantest'], 'postedAfter': 'last tuesday'})
     assert code == 1 and 'is not a date the post filter understands' in log
+
+
+def test_actor_succeeds_when_no_entry_can_have_a_public_page(tmp_path):
+    # A private invite and a name Telegram would refuse are answers about the input, like a group: say why for each,
+    # charge nothing, succeed (they ended FAILED until 2026-11-13).
+    code, rows, output, log = run_actor(tmp_path, {'channels': ['t.me/+secret', 'abc'], 'postedAfter': 'soon'})
+    assert code == 0 and rows == [], log
+    assert output['status'] == 'done' and output['totalPosts'] == 0
+    assert [c['status'] for c in output['channels']] == ['skipped', 'skipped']
+    assert 'private invite link' in output['channels'][0]['reason']
+    assert 'not a valid channel name' in output['channels'][1]['reason']
+    assert output['message'].startswith('No posts, so nothing was charged: none of the 2 channels could be read.')
+    assert output['message'].endswith('Enter a public Telegram channel, for example durov. You can paste @durov or '
+                                      'a t.me link, one channel per line.')
+    assert '—' not in output['message'] and '–' not in output['message']
+
+
+def test_actor_reads_an_hourly_window(tmp_path):
+    # An hourly monitor sends "1 hour" through the API; it failed the run until 2026-11-13. The saved pages are older
+    # than an hour, so the channel answers with no posts and the run succeeds.
+    code, rows, output, log = run_actor(tmp_path, {'channels': ['tchantest'], 'postedAfter': '1 hour'})
+    assert code == 0 and rows == [], log
+    assert output['channels'][0]['status'] == 'ok'
+    assert output['channels'][0]['reason'].startswith('No posts on or after ')
 
 
 def test_actor_succeeds_when_telegram_answers_for_every_name(tmp_path):
