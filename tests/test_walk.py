@@ -267,6 +267,75 @@ def test_a_page_that_keeps_failing_ends_the_channel_with_what_it_has(naps):
     assert 'did not answer after 5 tries' in stats.error and '#74' in stats.error
 
 
+def through_proxies(monkeypatch, direct: FakeTelegram, proxied: FakeTelegram, addresses: int = 99):
+    """A Tme whose own address is `direct`; every proxy address it moves to is `proxied` (up to `addresses` of them)."""
+    real = telegram.new_client
+    monkeypatch.setattr(telegram, 'new_client', lambda transport=None, proxy=None: real(httpx.MockTransport(proxied)))
+    handed: list[str] = []
+
+    async def fresh_url():
+        if len(handed) >= addresses:
+            return None
+        handed.append(f'http://proxy.example/{len(handed)}')
+        return handed[-1]
+    return telegram.Tme(real(httpx.MockTransport(direct)), fresh_url)
+
+
+@pytest.mark.parametrize('status', [403, 429, 451, 401])
+def test_a_refused_address_moves_to_a_proxy_address_without_waiting(naps, monkeypatch, status):
+    direct = FakeTelegram({'/s/tchantest': httpx.Response(status, headers={'retry-after': '30'})})
+    proxied = FakeTelegram(dict(TCHANTEST))
+
+    async def go():
+        async with through_proxies(monkeypatch, direct, proxied) as client:
+            status_, reason, first = await telegram.check_channel(client, 'tchantest')
+            stats = telegram.WalkStats()
+            pages = [rows async for rows in telegram.walk_channel(client, 'tchantest', first, cap=30, stats=stats,
+                                                                  pause=0)]
+            return status_, client.switches, pages
+    status_, switches, pages = run(go())
+    assert status_ == 'ok' and switches == 1 and not any(naps), 'one move, no Retry-After wait (pause=0 only)'
+    assert direct.calls == ['/s/tchantest'], 'the refused address is not asked again'
+    assert proxied.calls == ['/s/tchantest', '/s/tchantest?before=74'], 'the run stays on the proxy'
+    assert len(ids(pages)) == 30
+
+
+def test_a_connection_that_fails_twice_moves_to_a_proxy(naps, monkeypatch):
+    direct = FakeTelegram({'/s/tchantest': httpx.ConnectError('[Errno 54] reset')})
+    proxied = FakeTelegram(dict(TCHANTEST))
+
+    async def go():
+        async with through_proxies(monkeypatch, direct, proxied) as client:
+            return await telegram.check_channel(client, 'tchantest'), client.switches
+    (status, _, _), switches = run(go())
+    assert status == 'ok' and switches == 1
+    assert len(direct.calls) == 2 and len(naps) == 1, 'one ordinary retry first: resets are usually passing'
+
+
+def test_refused_everywhere_is_still_an_error_after_five_tries(naps, monkeypatch):
+    direct = FakeTelegram({'/s/tchantest': httpx.Response(403)})
+    proxied = FakeTelegram({'/s/tchantest': httpx.Response(403)})
+
+    async def go():
+        async with through_proxies(monkeypatch, direct, proxied) as client:
+            return await telegram.check_channel(client, 'tchantest'), client.switches
+    (status, reason, _), switches = run(go())
+    assert status == 'error' and switches == telegram.MAX_ATTEMPTS - 1
+    assert len(direct.calls) + len(proxied.calls) == telegram.MAX_ATTEMPTS
+    assert 'Could not reach t.me for @tchantest' in reason and 'HTTP 403' in reason
+
+
+def test_without_a_proxy_a_refusal_is_retried_where_it_is(naps, monkeypatch):
+    direct = FakeTelegram({**TCHANTEST, '/s/tchantest': [httpx.Response(403), 'tchantest_head']})
+    proxied = FakeTelegram({})
+
+    async def go():
+        async with through_proxies(monkeypatch, direct, proxied, addresses=0) as client:
+            return await telegram.check_channel(client, 'tchantest'), client.switches
+    (status, _, _), switches = run(go())
+    assert status == 'ok' and switches == 0 and len(naps) == 1 and proxied.calls == []
+
+
 def test_check_that_keeps_failing_is_an_error_not_a_crash(naps):
     server = FakeTelegram({'/s/tchantest': httpx.ConnectError('[Errno 54] reset')})
 
@@ -500,6 +569,14 @@ def test_actor_succeeds_when_no_entry_can_have_a_public_page(tmp_path):
     assert output['message'].endswith('Enter a public Telegram channel, for example durov. You can paste @durov or '
                                       'a t.me link, one channel per line.')
     assert '—' not in output['message'] and '–' not in output['message']
+
+
+def test_actor_carries_on_from_its_own_address_when_the_proxy_set_cannot_be_used(tmp_path):
+    # Off Apify there is no proxy password, so the user's proxy setting cannot be used: say so, read anyway.
+    code, rows, output, log = run_actor(tmp_path, {'channels': ['tchantest'], 'maxPosts': 5,
+                                                   'proxyConfiguration': {'useApifyProxy': True}})
+    assert code == 0 and len(rows) == 5, log
+    assert 'The proxy you set could not be used' in log
 
 
 def test_actor_reads_an_hourly_window(tmp_path):

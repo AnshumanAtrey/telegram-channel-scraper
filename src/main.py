@@ -36,7 +36,7 @@ from datetime import datetime, timezone
 from apify import Actor
 
 from .inputs import parse_channels, parse_posted_after, resolve_limits
-from .telegram import WalkStats, check_channel, new_client, walk_channel
+from .telegram import Tme, WalkStats, apify_proxy_urls, check_channel, new_client, walk_channel
 
 POST_EVENT = 'post'           # pay-per-event name for one post row; must equal the event key in .actor/store.json
 CONCURRENT_CHANNELS = 5       # channels read at once; pages inside a channel stay sequential
@@ -337,7 +337,18 @@ async def main() -> None:
                         f'{what} because of an unexpected error ({exc}). This is on us, not you: please report it.'))
                 await report()
 
-        async with new_client() as client:
+        # Its own address first; Apify Proxy only once t.me refuses that address (telegram.py, Tme). A proxy the
+        # user turned on carries every request from the start.
+        user_proxy = inp.get('proxyConfiguration') if isinstance(inp.get('proxyConfiguration'), dict) else None
+        if not (user_proxy and (user_proxy.get('useApifyProxy') or user_proxy.get('proxyUrls'))):
+            user_proxy = None
+        async with Tme(new_client(), apify_proxy_urls(user_proxy)) as client:
+            if user_proxy:
+                if await client.switch():
+                    Actor.log.info('Reading t.me through the proxy you set, from the first request.')
+                else:
+                    Actor.log.warning('The proxy you set could not be used, so the run reads t.me from its own '
+                                      'address.')
             await asyncio.gather(*(run_channel(c, e['handle'], client)
                                    for c, e in zip(channels, entries, strict=True) if e['handle']))
 

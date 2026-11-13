@@ -43,6 +43,14 @@
       "example": "7 days",
       "nullable": true,
       "dateType": "absoluteOrRelative"
+    },
+    "proxyConfiguration": {
+      "title": "Proxy",
+      "type": "object",
+      "description": "Optional. Leave it off and the actor reads t.me from its own address, moving to Apify Proxy (residential) by itself only if Telegram refuses that address, at no cost to you. Turn it on to send every request through a proxy from the start.",
+      "editor": "proxy",
+      "sectionCaption": "Advanced",
+      "sectionDescription": "Not needed for normal use."
     }
   },
   "required": ["channels"]

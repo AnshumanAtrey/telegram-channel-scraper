@@ -18,6 +18,12 @@
   are unknown; replays on Apify of 60 channels, low memory and spending caps all succeeded. These are the input
   paths that ended a run FAILED, fixed on that evidence.
 - `channels` is required (`minItems` 1), so Apify refuses a call without any channel before a run is created.
+- When t.me refuses a run's address (401, 403, 407, 429, 451) or a connection fails twice, the run moves to a
+  fresh residential Apify Proxy address and stays on the proxy, up to 4 addresses, instead of failing. Runs t.me
+  answers never touch the proxy. The proxy bytes are on the developer, not the user. Why: after the input fixes,
+  one paying user's runs still failed 18 of 19 with a quick answer that was not a page, which none of our
+  replays got; t.me turning away the address their runs leave from fits it. A new optional `proxyConfiguration`
+  sends every request through a proxy from the start.
 
 ## 2026-11-11 (example pages)
 

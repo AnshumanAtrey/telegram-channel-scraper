@@ -8,6 +8,12 @@ and how this module handles it:
   (Errno 54) or stalled for 31 s; one pooled keep-alive client with a 10 s connect
   timeout plus retries fixed both. No 429 was ever seen, but Retry-After is honoured
   if Telegram starts sending it.
+- A refusal is about the address, not the channel. On Apify, a run that t.me turns away
+  (401, 403, 407, 429, 451) or keeps failing to connect moves to a fresh residential
+  Apify Proxy address and stays on the proxy for the rest of the run (2026-11-13: one
+  paying user's runs failed 18 of 19 after a quick non-page answer that none of our
+  replays got, from 60 channels to 600-request bursts). Runs t.me answers never touch
+  the proxy, so they cost nothing more.
 - Every kind of failure (group, person, bot, missing, blocked) ends on an HTTP 200
   page, so the status code says nothing. /s/<name> answering 200 with the channel
   header is the only proof of a readable channel; everything else is classified from
@@ -25,6 +31,7 @@ and how this module handles it:
 """
 import asyncio
 import random
+import secrets
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -45,6 +52,8 @@ BACKOFF_BASE_S = 1.0
 RETRY_AFTER_CAP_S = 60        # honour Retry-After, but never park a channel for longer than this
 PAGE_PAUSE_S = 0.2            # between requests of one channel; 5 channels stay near 5 requests a second
 ELLIPSIS = '…'                # how og:description marks text it cut
+REFUSED = frozenset({401, 403, 407, 429, 451})   # "not to you": another address may get the page
+PROXY_GROUPS = ['RESIDENTIAL']   # where a refused run moves; a t.me page is about 30 KB, so about $0.0002 a page
 
 # Test seam: tests swap this for a recorder so backoff never really waits.
 sleep = asyncio.sleep
@@ -56,20 +65,85 @@ class FetchError(Exception):
     """A request that still failed after every retry. The message is a plain sentence."""
 
 
-def new_client(transport: httpx.AsyncBaseTransport | None = None) -> httpx.AsyncClient:
-    """The one client every request of the run goes through (keep-alive pool).
+def new_client(transport: httpx.AsyncBaseTransport | None = None, proxy: str | None = None) -> httpx.AsyncClient:
+    """The one client every request of the run goes through (keep-alive pool), or one proxy address's client.
 
     Redirects are never followed: a 302 from /s/<name> is the signal that the channel
     has no public feed, and a 302 from t.me/<name> to telegram.org means an invalid name.
     """
     return httpx.AsyncClient(
         transport=transport,
+        proxy=proxy,
         timeout=httpx.Timeout(READ_TIMEOUT_S, connect=CONNECT_TIMEOUT_S),
         limits=httpx.Limits(max_connections=MAX_CONNECTIONS, max_keepalive_connections=MAX_CONNECTIONS),
         headers={'User-Agent': USER_AGENT, 'Accept-Language': 'en-US,en;q=0.9',
                  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'},
         follow_redirects=False,
     )
+
+
+class Tme:
+    """The run's way to t.me: its own address first, then Apify Proxy once t.me refuses that address.
+
+    get() goes through the current client. switch() moves the run to a fresh proxy address, at most MAX_ATTEMPTS - 1
+    times, and the run stays on the proxy afterwards. Without a proxy (local runs, tests) switch() is always False.
+    """
+
+    def __init__(self, direct: httpx.AsyncClient, proxy_url=None):
+        self.client = direct
+        self.clients = [direct]
+        self.proxy_url = proxy_url          # async () -> a fresh proxy URL or None
+        self.switches = 0
+
+    async def get(self, url: str) -> httpx.Response:
+        return await self.client.get(url)
+
+    async def switch(self) -> bool:
+        if self.proxy_url is None or self.switches >= MAX_ATTEMPTS - 1:
+            return False
+        url = await self.proxy_url()
+        if not url:
+            self.proxy_url = None
+            return False
+        self.client = new_client(proxy=url)
+        self.clients.append(self.client)
+        self.switches += 1
+        return True
+
+    async def __aenter__(self) -> 'Tme':
+        return self
+
+    async def __aexit__(self, *exc) -> None:
+        for client in self.clients:
+            await client.aclose()
+
+
+def apify_proxy_urls(user_proxy: dict | None = None):
+    """An async function handing out fresh proxy URLs, set up on first use: from the user's proxy settings when given,
+    else, on Apify, from the RESIDENTIAL group. None when neither applies (a local run without settings, tests)."""
+    if not user_proxy and not Actor.is_at_home():
+        return None
+    proxy = {}
+
+    async def fresh_url() -> str | None:
+        if 'config' not in proxy:
+            try:
+                proxy['config'] = await (Actor.create_proxy_configuration(actor_proxy_input=user_proxy) if user_proxy
+                                         else Actor.create_proxy_configuration(groups=PROXY_GROUPS))
+            except Exception as exc:  # noqa: BLE001  no proxy access on this account, or a proxy setting that is off
+                why = str(exc).splitlines()[0][:160] if str(exc) else type(exc).__name__
+                Actor.log.warning(f'The proxy could not be used ({why}), so the run keeps its own address.')
+                proxy['config'] = None
+        if proxy['config'] is None:
+            return None
+        return await proxy['config'].new_url(session_id=f'tg_{secrets.token_hex(5)}')
+    return fresh_url
+
+
+async def switch_route(client) -> bool:
+    """Move the run to a fresh proxy address when its client can (a Tme on Apify); False otherwise."""
+    switch = getattr(client, 'switch', None)
+    return bool(switch) and await switch()
 
 
 def retry_after_seconds(value: str | None) -> float | None:
@@ -91,24 +165,31 @@ def backoff_seconds(attempt: int) -> float:
     return BACKOFF_BASE_S * 2 ** (attempt - 1) + random.uniform(0, BACKOFF_BASE_S)
 
 
-async def fetch(client: httpx.AsyncClient, url: str) -> httpx.Response:
-    """GET with retries on connection errors, timeouts, protocol errors, 5xx and 429.
+async def fetch(client, url: str) -> httpx.Response:
+    """GET with retries on connection errors, timeouts, protocol errors, 5xx and refusals (401, 403, 407, 429, 451).
 
     Any other answer (200, 302, 404) is returned as is; the caller decides what it means.
-    Raises FetchError once MAX_ATTEMPTS tries have all failed.
+    A refusal, or a second failure of any kind, moves a Tme client to a fresh proxy address
+    at once instead of waiting. Raises FetchError once MAX_ATTEMPTS tries have all failed.
     """
     last = ''
     for attempt in range(1, MAX_ATTEMPTS + 1):
         wait = None
+        refused = False
         try:
             resp = await client.get(url)
         except RETRYABLE_ERRORS as exc:
             last = f'{type(exc).__name__}: {exc}' if str(exc) else type(exc).__name__
         else:
-            if resp.status_code != 429 and resp.status_code < 500:
+            if resp.status_code not in REFUSED and resp.status_code < 500:
                 return resp
             last = f'HTTP {resp.status_code}'
+            refused = resp.status_code in REFUSED
             wait = retry_after_seconds(resp.headers.get('Retry-After'))
+        if attempt < MAX_ATTEMPTS and (refused or attempt >= 2) and await switch_route(client):
+            Actor.log.warning(f'{url}: {last}. Trying again from a fresh Apify Proxy address '
+                              f'({client.switches} of {MAX_ATTEMPTS - 1}).')
+            continue
         if attempt == MAX_ATTEMPTS:
             break
         delay = wait if wait is not None else backoff_seconds(attempt)

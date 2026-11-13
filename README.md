@@ -100,6 +100,7 @@ Several of these actors discount their prices on paid Apify plans, and this one 
 | `channels` | Yes | Public channels, one per line. A name (`durov`), `@durov`, `t.me/durov`, `https://t.me/s/durov`, a post link like `t.me/durov/123`, a Telegram Web link like `web.telegram.org/k/#@durov`, `telegram.me` and `telegram.dog` links all work. Quotes and trailing punctuation from a pasted sentence are cleaned off |
 | `maxPosts` | No | The most posts to take from each channel, newest first. The form starts at 100. Through the API you can leave it out: then you get the 100 newest, or every post since the date when you send one |
 | `postedAfter` | No | Only posts on or after this date (UTC). Pick a date, or type a span like `7 days`, `2 weeks`, `3 months`. Through the API also `1 hour` or `30 minutes`, a date and time like `2026-09-01T12:00:00Z`, or a Unix timestamp |
+| `proxyConfiguration` | No | Leave it off: the actor reads t.me from its own address and moves to Apify Proxy (residential) by itself only if Telegram refuses that address, at no cost to you. Turn it on to send every request through a proxy from the start |
 
 When both limits are set, each channel stops at whichever it reaches first. Through the API:
 
